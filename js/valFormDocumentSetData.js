@@ -8,10 +8,9 @@ $(document).on('ready', function(){
 
     type: "get",
     url: "/api/categoria/all",
-    //data: {'nombre': nombre,},
     sucess: function(data){
       //Retorna Json data
-      //var opciones = $.parseJSON(data);
+       
       //iterando los valores del JSON
       $.each(opciones, function(index , value){
         //inserte el contenido, especificado por el parámetro,
