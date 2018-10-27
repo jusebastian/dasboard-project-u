@@ -62,7 +62,7 @@ $(document).on('ready', function () {
         $("#mensaje12").fadeIn("slow");
         $("#mensaje12").slideToggle("fast");
         return false;
-      }else if(!letra.test(tituloProyecto) || tituloProyecto.length > 100){
+      }else if(!letra.test(tituloProyecto) && tituloProyecto.length > 100){
         alert("Verifica que sea letras y no sea mayo de 100 caracteres");
         return false;
       }
