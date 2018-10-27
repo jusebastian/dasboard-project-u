@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ReproCorhuila - Login</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/datepicker3.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<!--Formulario Login-->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="panel panel-default login-principal">
+					<div class="panel-heading">
+						<h3 class="panel-title cabeza">Inicio Sesión</h3>
+					</div><!--./panel-headingg-->
+					<div class="panel-body">
+						<!--Inicio Formulario-->
+						<form accept-charset="UTF-8" role="form" id="miFormulario" method="GET">
+							<fieldset>
+								<div class="form-group">
+									<input class="form-control" id="email" placeholder="Correo" name="email" type="text">
+									<label for="mensajeEmail" class="errores" id="mensaje1">Digite su correo</label>
+								</div>
+								<div class="form-group">
+									<input class="form-control" id="password" placeholder="Contraseña" name="password" type="password" value="">
+									<label for="mensajePass" class="errores" id="mensaje2">Digite su contraseña</label>
+								</div>
+								<div class="form-group">
+									<input name="submit" id="submit" class="btn btn-lg btn-success btn-block" type="submit" value="Iniciar sesión">
+								</div>
+							</fieldset>
+						</form> <!--./Formulario login-->
+					</div> <!--./panel-body-->
+					<div class="panel-footer">
+						<div class="login-footer-one">
+							<a href="javascript:;" class="forget olvido" data-toggle="modal" data-target=".forget-modal">¿Olvidaste tu
+								contraseña?</a>
+						</div>
+						<div class="login-footer">
+							<a href="javascript:;" class="forget registro" data-toggle="modal" data-target=".forget-modal-2">Regístrate</a>
+						</div>
+					</div> <!--./panel-footer-->
+				</div><!--./panel default-->
+			</div><!--./col-->
+		</div><!--./row-->
+	</div><!--./Container-->
+
+	<!--Formulario login-->
+
+	<!-- Formulario Cambiar contraseña-->
+	<div class="modal fade forget-modal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<form action="">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">×</span>
+							<span class="sr-only">Cerrar</span>
+						</button>
+						<h4 class="modal-title">Contraseña de recuperación</h4>
+					</div>
+					<div class="modal-body">
+						<p>Escriba su cuenta de correo electrónico</p>
+						<input type="email" name="recovery-email" id="recovery-email" class="form-control" autocomplete="off" placeholder="micorreo@gmail.com">
+						<label for="mensajeEmail3" class="errores1" id="mensaje3">Digite su correo</label>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+						<input type="submit" id="submitTwo" class="btn btn-custom" >
+					</div>
+				</form><!-- /. Formulario-->
+			</div> <!-- /.modal-content -->
+		</div> <!-- /.modal-dialog -->
+	</div> <!-- /.modal -->
+	<!--Fin contraseña-->
+
+
+
+	<!--Formulario Registro-->
+	<div class="modal fade forget-modal-2" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
+		<div class="modal-dialog ">
+			<div class="modal-content">
+				<form action="">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">×</span>
+									<span class="sr-only">Close</span>
+								</button>
+								<h4 class="modal-title">Registro Usuario</h4>
+							</div><!--./Modal-header-->
+							<div class="modal-body">
+									<div class="form-row">
+										<div class="form-group ">
+											<label for="name2">Nombre completo</label>
+											<input type="text" class="form-control" id="name2" placeholder="Escriba tu Nombre completo">
+											<label for="mensajeEmail4" class="errores2" id="mensaje4">Digite su nombre</label>
+										</div>
+										<div class="form-group col-md-6">
+											<label for="email2">Correo electrónico</label>
+											<input type="email" class="form-control" id="email2" placeholder="Correo electrónico">
+											<label for="mensajeEmail5" class="errores2" id="mensaje5">Digite su correo</label>
+										</div>
+									</div>
+									<div class="form-group col-md-6">
+										<label for="password2">Contraseña</label>
+										<input type="password" class="form-control" id="password2" placeholder="Contraseña">
+										<label for="mensajeEmail6" class="errores2" id="mensaje6">Digite su contraseña</label>
+									</div>
+									<div class="form-group col-md-6">
+										<label for="repassword2">Repetir contraseña</label>
+										<input type="password" class="form-control" id="repassword2" placeholder="Repetir contraseña">
+										<label for="mensajeEmail7" class="errores2" id="mensaje7">Digite de nuevo su contraseña</label>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="telefono2">Teléfono</label>
+											<input type="text" class="form-control" name="telefono2" id="telefono2" placeholder="Teléfono">
+											<label for="mensajeEmail8" class="errores2" id="mensaje8">Digite su teléfono</label>
+										</div>
+										<div class="form-group col-md-6">
+											<label for="empresa2">Tipo empresa</label>
+											<select id="empresa2" class="form-control" name="empresa2">
+												<option value="" selected="selected">Tipo empresa</option>
+												<option value="option">Corhuila</option>
+												<option value="option0">Empresa Externa</option>
+											</select>
+											<label for="mensajeEmail8" class="errores2" id="mensaje9">Seleccione una Opción</label>
+										</div>
+										<div class="form-group col-md-6">
+											<label for="persona2">Tipo persona</label>
+											<select id="persona2" class="form-control" name="persona2">
+												<option value="" selected="selected">Tipo Persona</option>
+												<option value="option1">Estudiante</option>
+												<option value="option2">Docente</option>
+												<option value="option3">Administrador</option>
+											</select>
+											<label for="mensajeEmail8" class="errores2" id="mensaje10">Seleccione una Opción</label>
+										</div>
+									</div>	
+							</div><!--./Modal-body-->
+							<div class="modal-footer">
+								<input type="submit"  id="submitThree" class="btn btn-success" data-dismiss="modal" value="Registrar">
+								<button type="button" class="btn btn-default">Cerrar</button>
+							</div><!--./Modal-footer --->
+				</form><!--/.Fin Formulario-->
+			</div> <!-- /.modal-content -->
+		</div> <!-- /.modal-dialog -->
+	</div> <!-- /.modal -->
+	<!--Fin Formulario-->
+
+	<!--JavaScript-->
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/valFormLogin.js"></script>
+	<script src="js/valFormReContra.js"></script>
+	<script src="js/valFormRegistro.js"></script>
+</body>
+
+</html>
