@@ -62,14 +62,15 @@ $(document).on('ready', function () {
         $("#mensaje12").fadeIn("slow");
         $("#mensaje12").slideToggle("fast");
         return false;
-      }else if(!letra.test(tituloProyecto) && tituloProyecto.length > 100){
-        alert("Verifica que sea letras y no sea mayo de 100 caracteres");
+      }else if(!letra.test(tituloProyecto) || tituloProyecto.length > 100){
+        alert("hola")
         return false;
+      }else{
+        $("#mensaje12").fadeOut();
       }
 
-
       if (nombreAutor == ""){
-        $("#mensaje12").fadeOut();
+        
         $("#mensaje13").fadeIn("slow");
         $("#mensaje13").slideToggle("fast");
         return false;
@@ -79,7 +80,6 @@ $(document).on('ready', function () {
       }else{
         $("#mensaje13").fadeOut();
       }
-
 
       if (textarea == "") {
         $("#mensaje14").fadeIn("slow");
@@ -152,7 +152,7 @@ $(document).on('ready', function () {
             return false;
           }else{
             $("#mensaje22").fadeOut();
-            //ajaxPost();
+            ajaxPost(file);
           }
 
     /*console.log(tipoTrabajo);
@@ -306,7 +306,7 @@ $(document).on('ready', function () {
 
   //Function Ajax
 
-  function ajaxPost() {
+  function ajaxPost(file) {
 
     var formData = new FormData();
     formData.append("file", file);

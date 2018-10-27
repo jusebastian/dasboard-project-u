@@ -6,10 +6,10 @@ $(document).on('ready', function(){
 
   $.ajax({
 
-    type: "post",
+    type: "get",
     url: "/api/categoria/all",
     data: {
-      'id': id,
+      
        'nombre': nombre,
     },
     sucess: function(data){
@@ -18,7 +18,7 @@ $(document).on('ready', function(){
       //iterando los valores del JSON
       $.each(opciones, function(index , value){
         //inserte el contenido, especificado por el parámetro,
-        $('#categoria-id').append('<option value=">' + index.id + '">' + value.nombre + '</option>');
+        $('#categoria-id').append('<option value=">' + value.id + '">' + value.nombre + '</option>');
       });
     }
 
