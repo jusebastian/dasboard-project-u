@@ -1,16 +1,12 @@
 $(document).on('ready', function () {
 
+  //Expresiones regulares
   var expre = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-  var letra = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;
+  var letra = /[a-zA-Z]/;
   var numero = /^([0-9])*$/;
   var fecha = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
 
   $("#submitFour").click(function () {
-
-
-    console.log("Datos cargados");
-
-    /*var datos = new FormData("#formulario1");*/
 
     /**Variables globales*/
     var visitas = 0;
@@ -18,203 +14,202 @@ $(document).on('ready', function () {
     var tamano = 0;
     var estado = true;
 
+    //Variables inicializadas o definidas
     var tipoTrabajo = $("#tipoTrabajo").val();
     var tituloProyecto = $("#tituloProyecto").val();
     var nombreAutor = $("#nombreAutor").val().split(",");
     var textarea = $("#textarea").val();
     var file = $("#file").val();
-    /*var tipoFacultad = $("#tipoFacultad").val();*/
+    var categoria = $("#categoria").val();
     var tipoPrograma = $("#tipoPrograma").val();
-    /*var semestre = $("#semestre").val();*/
     var palabraClave = $("#palabraClave").val().split(",");
     var Abstract = $("#Abstract").val();
     var finalidad = $("#finalidad").val();
-    /*var estado = $("#estado").val();*/
     var fechaPublicacion = $("#fechaPublicacion").val();
 
-    //variable
-    //valido = false; //Variable que indicar el estado de la validación
+    //Condiciones Campos
 
-    //recorrido
-    //console.log(nombreAutor);
+    //Validando campo Select----------------
+    if (tipoTrabajo == 0) {
+      $("#mensaje10").fadeIn("slow");
+      $("#mensaje10").slideToggle("fast");
+      return false;
 
-    console.log(palabraClave);
-    
-    
-    /*if(valido){
-      validar();
-    }else{
-      alert("Correos invalidos")
-    }*/
-   
-      //console.log(nombreAutor);
-
-      if (tipoTrabajo == 0) {
-        $("#mensaje11").fadeIn("slow");
-        $("#mensaje11").slideToggle("fast");
-        return false;
-        
-      } else {
-        $("#mensaje11").fadeOut();
-      }
-
-      if (tituloProyecto == "" ) {
-        $("#mensaje12").fadeIn("slow");
-        $("#mensaje12").slideToggle("fast");
-        return false;
-      }else if(!letra.test(tituloProyecto) || tituloProyecto.length > 100){
-        alert("hola")
-        return false;
-      }else{
-        $("#mensaje12").fadeOut();
-      }
-
-      if (nombreAutor == ""){
-        
-        $("#mensaje13").fadeIn("slow");
-        $("#mensaje13").slideToggle("fast");
-        return false;
-      }else if(!validarEmail(nombreAutor)){
-        alert("Debe ser un correo valido")
-        return false;
-      }else{
-        $("#mensaje13").fadeOut();
-      }
-
-      if (textarea == "") {
-        $("#mensaje14").fadeIn("slow");
-        $("#mensaje14").slideToggle("fast");
-        return false;
-      } else {
-        $("#mensaje14").fadeOut();
-      }
+    } else {
+      $("#mensaje11").fadeOut();
+    }
+    //--------------------------------------
 
 
-      if (file == "") {
-        
-        $("#mensaje15").fadeIn("slow");
-        $("#mensaje15").slideToggle("fast");
-        return false;
-      } else {
-        $("#mensaje16").fadeOut();
-      }
+    //Validando campo Select-------------------
+
+    if (categoria == 0) {
+      $("#mensaje11").fadeIn("slow");
+      $("#mensaje11").slideToggle("fast");
+      return false;
+    } else {
+      $("#mensaje11").fadeOut();
+    }
+
+    //------------------------------------------
+
+    console.log(tituloProyecto == "");
+    console.log(tituloProyecto.length > 10);
+    console.log(!letra.test(tituloProyecto));
+    console.log("----------------------------------------")
+
+    //-----------------------------------------------------
+    //Validando Input Tìtulo--------------------------------
+
+    if ((tituloProyecto == "")) {
+      $("#mensaje12").fadeIn("slow");
+      $("#mensaje12").slideToggle("fast");
+      return false;
+    } else if ((tituloProyecto.length > 50)) {
+      $("#alerta2").fadeIn("slow");
+      $("#alerta2").slideToggle("fast");
+      return false;
+    } else if ((!letra.test(tituloProyecto))) {
+      $("#alerta2").fadeOut();
+      $("#alerta1").fadeIn("slow");
+      $("#alerta1").slideToggle("fast");
+      return false;
+    } else {
+      $("#mensaje12").fadeOut();
+    }
+
+    //-----------------------------------------------------
+
+    //Validando Correos Autores----------------------------
+
+    if (nombreAutor == "") {
+      $("#mensaje13").fadeIn("slow");
+      $("#mensaje13").slideToggle("fast");
+      return false;
+    } else if (!validarEmail(nombreAutor)) {
+      $("#alerta3").fadeIn("slow");
+      $("#alerta3").slideToggle("fast");
+      return false;
+    } else {
+      $("#mensaje13").fadeOut();
+    }
+
+    //-------------------------------------------------------
+
+    //Validando Textarea-------------------------------------
+
+    if (textarea == "") {
+      $("#mensaje14").fadeIn("slow");
+      $("#mensaje14").slideToggle("fast");
+      return false;
+    } else {
+      $("#mensaje14").fadeOut();
+    }
+    //-------------------------------------------------------
+
+    //Validando Archivo--------------------------------------
+
+    if (file == "") {
+      $("#mensaje15").fadeIn("slow");
+      $("#mensaje15").slideToggle("fast");
+      return false;
+    } else {
+      $("#mensaje16").fadeOut();
+    }
+
+    //--------------------------------------------------------
+
+    //Validando el programa-----------------------------------
+
+    if (tipoPrograma == 0) {
+      $("#mensaje17").fadeIn("slow");
+      $("#mensaje17").slideToggle("fast");
+      return false;
+    } else {
+      $("#mensaje17").fadeOut();
+    }
+
+    //---------------------------------------------------------
+
+    //Validando palabras Claves--------------------------------
+
+    if (palabraClave == "") {
+      $("#mensaje18").fadeIn("slow");
+      $("#mensaje18").slideToggle("fast");
+      return false;
+    } else if ((!validarPalabraClave(palabraClave))) {
+      $("#alerta4").fadeIn("slow");
+      $("#alerta4").slideToggle("fast");
+      //console.log(JSON.stringify(validarPalabraClave(palabraClave)));
+      return false;
+    } else {
+      $("#mensaje18").fadeOut();
+    }
+    //--------------------------------------------------------
+
+    //Validando Texarea---------------------------------------
+
+    if (Abstract == "") {
+      $("#mensaje19").fadeIn("slow");
+      $("#mensaje19").slideToggle("fast");
+      return false;
+    } else {
+      $("#mensaje19").fadeOut();
+    }
+
+    //---------------------------------------------------------
+
+    //Validaciòn Finalidad-------------------------------------
+
+    if (finalidad == "") {
+      $("#mensaje20").fadeIn("slow");
+      $("#mensaje20").slideToggle("fast");
+      return false;
+    } else if ((!letra.test(finalidad))) {
+      $("#alerta5").fadeIn("slow");
+      $("#alerta5").slideToggle("fast");
+      return false;
+    } else if ((finalidad.length > 50)) {
+      $("#alerta6").fadeIn("slow");
+      $("#alerta6").slideToggle("fast");
+      return false;
+    } else {
+      $("#mensaje21").fadeOut();
+    }
+    //----------------------------------------------------------
+
+    //Validaciòn Fecha------------------------------------------
+
+    if (fechaPublicacion == "" || (!fecha.test(fechaPublicacion))) {
+
+      $("#mensaje22").fadeIn("slow");
+      $("#mensaje22").slideToggle("fast");
+      return false;
+    } else {
+      $("#mensaje22").fadeOut();
+      ajaxPost(file);
+    }
+
+    //----------------------------------------------------------
 
 
-      /*if(tipoFacultad == 0){
-          $("#mensaje15").fadeOut();
-          $("#mensaje16").fadeIn("slow");
-          $("#mensaje16").slideToggle("fast");
-          return false;
-        }else{*/
-          if (tipoPrograma == 0) {
-            
-            $("#mensaje17").fadeIn("slow");
-            $("#mensaje17").slideToggle("fast");
-            return false;
-          } else {
-            $("#mensaje17").fadeOut();
-          }
-          
-          if (!validarPalabraClave(palabraClave)) {
-            
-            $("#mensaje18").fadeIn("slow");
-            $("#mensaje18").slideToggle("fast");
-            return false;
-          } else {
-            $("#mensaje18").fadeOut();
-          }
+  }); //Fin submitFour
 
 
-          if (Abstract == "") {
-            
-            $("#mensaje19").fadeIn("slow");
-            $("#mensaje19").slideToggle("fast");
-            return false;
-          } else {
-            $("#mensaje19").fadeOut();
-          }
-
-
-          if (finalidad == "") {
-            
-            $("#mensaje20").fadeIn("slow");
-            $("#mensaje20").slideToggle("fast");
-            return false;
-          } else {
-            $("#mensaje21").fadeOut();
-          }
-
-
-          if (fechaPublicacion == "" || !fecha.test(fechaPublicacion)) {
-            
-            $("#mensaje22").fadeIn("slow");
-            $("#mensaje22").slideToggle("fast");
-            return false;
-          }else{
-            $("#mensaje22").fadeOut();
-            ajaxPost(file);
-          }
-
-    /*console.log(tipoTrabajo);
-    console.log(tituloProyecto);
-    console.log(datos.get('#tipoTrabajo'));
-    console.log(datos.get('#tituloProyecto'));*/
-
-  }); //Opcion envio de datos submitFour
-
-
-
+  //Funciones
   //-----------------------------------------------------
 
-
-
-  $("#limpiar").click(function () {
-    var tipoTrabajo = $("#tipoTrabajo").val();
-    var tituloProyecto = $("#tituloProyecto").val();
-    /*var nombreAutor = $("#nombreAutor").val();*/
-    var textarea = $("#textarea").val();
-    var file = $("#file").val();
-    /*var tipoFacultad = $("#tipoFacultad").val();*/
-    var tipoPrograma = $("#tipoPrograma").val();
-    /*var semestre = $("#semestre").val();*/
-    var palabraClave = $("#palabraClave").val();
-    var Abstract = $("#Abstract").val();
-    var finalidad = $("#finalidad").val();
-    /*var estado = $("#estado").val();*/
-    var fechaPublicacion = $("#fechaPublicacion").val();
-
-    tipoTrabajo == "";
-    tituloProyecto == "";
-    nombreAutor == "";
-    textarea == "";
-    file == "";
-    /*tipoFacultad == "";*/
-    tipoPrograma == "";
-    /*semestre == "";*/
-    palabraClave == "";
-    Abstract == "";
-    finalidad == "";
-    fechaPublicacion == "";
-
-  });//Limpiar Formulario
-
-
-  //-----------------------------------------------
-  function validarArchivo(){
-
-  }
-
-  //Funcion Retorne un booleano ValidarEmail
-  function validarEmail(nombreAutor){
+  //Funcion Retorne un booleano ValidarEmail------------------------------
+  function validarEmail(nombreAutor) {
     var valido = false;
-    for (var i = 0; i < nombreAutor.length; i++){ //Recorro el array
+    for (var i = 0; i < nombreAutor.length; i++) { //Recorro el array
       nombreAutor[i] = nombreAutor[i].trim();
-      if (!expre.test(nombreAutor[i])){ //Si el e-mail no es válido
-          valido = false; //El estado de la validación será false
-          console.log(nombreAutor[i] + "  No Valido");
-          break; //Salgo del bucle
-          
-      }else{
+      if (!expre.test(nombreAutor[i])) { //Si el e-mail no es válido
+        valido = false; //El estado de la validación será false
+        console.log(nombreAutor[i] + "  No Valido");
+        break; //Salgo del bucle
+
+      } else {
         valido = true;
         console.log(nombreAutor[i]);
       }
@@ -225,17 +220,18 @@ $(document).on('ready', function () {
 
   //--------------------------------------------------
 
-  //Funciòn Retorna ValidarPalabraClave
 
-  function validarPalabraClave(palabraClave){
+  //Funciòn Retorna ValidarPalabraClave seoarados por comas
+
+  function validarPalabraClave(palabraClave) {
     var validarLetra = false;
-    for(var j = 0; j < palabraClave.length; j++){
+    for (var j = 0; j < palabraClave.length; j++) {
       palabraClave[j] = palabraClave[j].trim();
-      if(!letra.test(palabraClave[j])){
+      if (!letra.test(palabraClave[j])) {
         validarLetra = false;
         console.log(palabraClave[j] + "No valido");
         break;
-      }else{
+      } else {
         validarLetra = true;
         console.log(palabraClave[j]);
       }
@@ -244,7 +240,32 @@ $(document).on('ready', function () {
   }
 
 
+
   //--------------------------------------------------
+
+  //Validar solo nùmeros
+
+  function soloLetras(tituloProyecto) {
+    key = tituloProyecto.keyCode || tituloProyecto.which;
+    teclado = String.fromCharCode(key).toLowerCase();
+    letras = " abcdefghijklmnñopqrstuvwxyz";
+    especiales = "8-37-38-46-164";
+    teclado_especial = false;
+
+    //Iterando
+    for (var i in especiales) {
+      if (key == especiales[i]) {
+        teclado_especial = true;
+        break;
+      }
+    }
+
+    //Condiciones
+    if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+      return false;
+    }
+
+  }
 
 
 
@@ -254,53 +275,39 @@ $(document).on('ready', function () {
   //--------------------------------------------------
 
   //Validar Tamaño Archivo
-  /*function  arcValidation(file){
+  /*function arcValidation(file) {
 
-    // this.files[0].size recupera el tamaño del archivo
-	// alert(this.files[0].size);
-	
-  var fileName = file.files[0].name;
-	var fileSize = file.files[0].size;
+      // this.files[0].size recupera el tamaño del archivo
+      // alert(this.files[0].size);
 
-	if(fileSize > 3000000){
-		alert('El archivo no debe superar los 3MB');
-		this.value = '';
-		this.files[0].name = '';
-	}else{
-		// recuperamos la extensión del archivo
-		var ext = fileName.split('.').pop();
+      var fileName = file.files[0].name;
+      var fileSize = file.files[0].size;
 
-		// console.log(ext);
-		switch (ext) {
-			case 'jpg':
-			case 'jpeg':
-			case 'png':
-			case 'pdf': break;
-			default:
-				alert('El archivo no tiene la extensión adecuada');
-				this.value = ''; // reset del valor
-				this.files[0].name = '';
-    }
-    return file;
+      if (fileSize > 3000000) {
+          alert('El archivo no debe superar los 3MB');
+          this.value = '';
+          this.files[0].name = '';
+      } else {
+          // recuperamos la extensión del archivo
+          var ext = fileName.split('.').pop();
 
-  }*/
+          // console.log(ext);
+          switch (ext) {
+              case 'doc':
+              case 'pdf':
+                  break;
+              default:
+                  alert('El archivo no tiene la extensión adecuada');
+                  this.value = ''; // reset del valor
+                  this.files[0].name = '';
+          }
+          return file;
 
+      } */
 
 
-  /*function checkFileSize() {
-    var FileSize = file;
-    var filesi = FileSize.file;
-  
-    // Si hay (por lo menos) un archivo seleccionado
-    if (filesi.length > 0) {
-       if (filesi[0].size > 200 * 1000) { // Validar la restricción
-        FileSize.setCustomValidity("El archivo seleccionado no debe ser mayor a 200MB");
-         return;
-       }
-    }
-    // No hay incumplimiento de la restricción
-    FS.setCustomValidity("");
-  }*/
+
+
 
   //--------------------------------------------------
 
@@ -355,7 +362,15 @@ $(document).on('ready', function () {
       };
 
       console.log(JSON.stringify(parametros));
-    }
-  }//Funcion AjaxPost
 
-});//Funcion
+
+      /*$.ajax({
+
+      });*/
+    }
+
+
+
+  } //Funcion AjaxPost
+
+}); //Funcion

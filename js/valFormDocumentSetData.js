@@ -2,7 +2,8 @@ $(document).on('ready', function(){
   
     //Funciòn para validar y traer datos a un select-----------------------------
   //Funcion Retorne un booleano ValidarEmail
-  $('#categoria-id').empty() //deja en vacio los campos
+  //$('#categoria-id').empty() //deja en vacio los campos
+
 
   $.ajax({
 
@@ -14,7 +15,7 @@ $(document).on('ready', function(){
       //iterando los valores del JSON
       $.each(opciones, function(index , value){
         //inserte el contenido, especificado por el parámetro,
-        $('#categoria-id').append('<option value=">' + value.id + '">' + value.nombre + '</option>');
+        $('#categoria').append('<option value=">' + value.id + '">' + value.nombre + '</option>');
       });
     }
 

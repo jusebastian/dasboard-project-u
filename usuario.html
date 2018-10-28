@@ -20,6 +20,50 @@
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+	<script>
+
+		//Validar solo Letras
+		function soloLetras(e) {
+			key = e.keyCode || e.which;
+			teclado = String.fromCharCode(key).toLowerCase();
+			letras = "([ abcdefghijklmnñopqrstuvwxyz])\(áéíóúñüàèìòù))";
+			especiales = "8-37-38-46-164";
+			teclado_especial = false;
+
+			//Iterando
+			for (var i in especiales) {
+				if (key == especiales[i]) {
+					teclado_especial = true;
+					break;
+				}
+			}
+
+			//Condiciones
+			if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+				return false;
+			}
+
+		}
+
+		function soloNumeros(e) {
+			key = e.keyCode || e.which;
+			teclado = String.fromCharCode(key);
+			numeros = "0123456789";
+			especiales = "8-37-38-46"; //array
+			teclado_especial = false;
+
+			for (var i in especiales) {
+				if (key == especiales[i]) {
+					teclado_especial = true;
+				}
+			}
+			if (numeros.indexOf(teclado) == -1 && !teclado_especial) {
+				return false;
+			}
+
+		}
+
+	</script>
 </head>
 
 <body>
@@ -33,9 +77,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span></button>
 				<a class="navbar-brand" href="#"><span></span>ReproCorhuila</a>
-			</div><!--/.navbar-header-->
+			</div>
+			<!--/.navbar-header-->
 		</div><!-- /.container-fluid -->
-	</nav><!--/.Nav-->
+	</nav>
+	<!--/.Nav-->
 
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<div class="profile-sidebar">
@@ -49,26 +95,30 @@
 				<a href="profile.html"><button class="btn btn-danger">Editar</button></a>
 			</div>
 			<div class="clear"></div>
-		</div><!--/.profile-sidebar-->
+		</div>
+		<!--/.profile-sidebar-->
 		<div class="divider"></div>
 
 		<form role="search">
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Search">
 			</div>
-		</form><!--/.search-->
+		</form>
+		<!--/.search-->
 
 		<ul class="nav menu">
 			<li><a href="busqueda.html"><i class="fas fa-search"> &nbsp;</i>Búsqueda</a></li>
 			<li><a href="dashboard.html"><i class="fas fa-tachometer-alt">&nbsp;</i> Dashboard</a></li>
-      <li><a href="historial.html"><i class="fas fa-history">&nbsp;</i> Historial</a></li>
-				<!--<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>-->
+			<li><a href="historial.html"><i class="fas fa-history">&nbsp;</i> Historial</a></li>
+			<!--<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>-->
 			<li><a href="cargar_documento.html"><em class="fa fa-toggle-off">&nbsp;</em>Cargar Documento</a></li>
 			<li><a href="usuario.html"><em class="fa fa-user">&nbsp;</em>Usuarios</a></li>
 			<!--<li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>-->
 			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
-		</ul> <!--/.menu-->
-	</div><!--/.sidebar-->
+		</ul>
+		<!--/.menu-->
+	</div>
+	<!--/.sidebar-->
 
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
@@ -78,160 +128,188 @@
 					</a></li>
 				<li class="active">Usuarios</li>
 			</ol>
-		</div><!--/.row-->
+		</div>
+		<!--/.row-->
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Usuarios</h1>
 			</div>
-		</div>	<!--/.row-->
+		</div>
+		<!--/.row-->
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<!--<div class="panel-heading">Buttons</div>-->
 					<div class="panel-body">
 						<div class="col-sm-12">
-                <div class="espacio">
-                  <a href="javascript:;" class="forget usuario" data-toggle="modal" data-target=".forget-modal-2"><li class="fa fa-user-plus"></li> Agregar Usuario</a>
+							<div class="espacio">
+								<a href="javascript:;" class="forget usuario" data-toggle="modal" data-target=".forget-modal-2">
+									<li class="fa fa-user-plus"></li> Agregar Usuario
+								</a>
+							</div>
+							<div class="input">
+								<div class="input-group">
+									<input id="btn-input" type="text" class="form-control input-md" placeholder="Buscar usuario" /><span class="input-group-btn">
+										<button class="btn btn-primary btn-md" id="btn-chat"><i class="fas fa-search"> &nbsp;</i></button>
+									</span>
 								</div>
-								<div class="input">
-									<div class="input-group">
-										<input id="btn-input" type="text" class="form-control input-md" placeholder="Buscar usuario" /><span class="input-group-btn">
-											<button class="btn btn-primary btn-md" id="btn-chat"><i class="fas fa-search"> &nbsp;</i></button>
-										</span>
-									</div>
-								</div>
-								<table class="table">
-										<thead>
-											<tr>
-												<th scope="col">#</th>
-												<th scope="col">Nombre Completo</th>
-												<th scope="col">Correo Electrónico</th>
-												<th scope="col">Teléfono</th>
-                        <th scope="col">Tipo Empresa</th>
-                        <th scope="col">Tipo Persona</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<th scope="row">1</th>
-												<td>Mark</td>
-                        <td>Otto</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>Mark</td>
-												<td><button class="btn btn-warning">Editar</button></td>
-												<td><button class="btn btn-danger">Eliminar</button></td>
-											</tr>
-											<tr>
-												<th scope="row">2</th>
-												<td>Mark</td>
-                        <td>Otto</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>Mark</td>
-												<td><button class="btn btn-warning">Editar</button></td>
-												<td><button class="btn btn-danger">Eliminar</button></td>
-											</tr>
-											<tr>
-												<th scope="row">3</th>
-												<td>Mark</td>
-                        <td>Otto</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>Mark</td>
-												<td><button class="btn btn-warning">Editar</button></td>
-												<td><button class="btn btn-danger">Eliminar</button></td>
-											</tr>
-										</tbody>
-									</table><!--Table-->
-						</div><!--/.col-->
+							</div>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Nombre Completo</th>
+										<th scope="col">Correo Electrónico</th>
+										<th scope="col">Teléfono</th>
+										<th scope="col">Tipo Empresa</th>
+										<th scope="col">Tipo Persona</th>
+										<th scope="col"></th>
+										<th scope="col"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>Mark</td>
+										<td><button class="btn btn-warning">Editar</button></td>
+										<td><button class="btn btn-danger">Eliminar</button></td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>Mark</td>
+										<td><button class="btn btn-warning">Editar</button></td>
+										<td><button class="btn btn-danger">Eliminar</button></td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>Mark</td>
+										<td><button class="btn btn-warning">Editar</button></td>
+										<td><button class="btn btn-danger">Eliminar</button></td>
+									</tr>
+								</tbody>
+							</table>
+							<!--Table-->
+						</div>
+						<!--/.col-->
 					</div><!-- /.panel-->
-					
-          <!--Modal Formulario Registro-->
-          <div class="modal fade forget-modal-2" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
-              <div class="modal-dialog ">
-                <div class="modal-content">
-									<form action="" enctype="multipart/form-data" method="post">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal">
-														<span aria-hidden="true">×</span>
-														<span class="sr-only">Close</span>
-													</button>
-													<h4 class="modal-title">Registro Usuario</h4>
-												</div><!--/.modal-header-->
-												<div class="modal-body">
-														<div class="form-row">
-															<div class="form-group ">
-																<label for="name2">Nombre completo</label>
-																<input type="text" class="form-control" id="name2" placeholder="Escriba tu Nombre completo">
-																<label for="name2" class="errores2" id="mensaje4">Digite su nombre</label>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="email2">Correo electrónico</label>
-																<input type="email" class="form-control" id="email2" placeholder="Correo electrónico">
-																<label for="email2" class="errores2" id="mensaje5">Digite su correo</label>
-															</div>
-														</div><!--/.form-row-->
-														<div class="form-group col-md-6">
-															<label for="password2">Contraseña</label>
-															<input type="password" class="form-control" id="password2" placeholder="Contraseña">
-															<label for="password2" class="errores2" id="mensaje6">Digite su contraseña</label>
-														</div>
-														<div class="form-group col-md-6">
-															<label for="repassword2">Repetir contraseña</label>
-															<input type="password" class="form-control" name="repassword2" id="repassword2" placeholder="Repetir contraseña">
-															<label for="repassword2" class="errores2" id="mensaje7">Digite de nuevo su contraseña</label>
-														</div>
-														<div class="form-row">
-															<div class="form-group col-md-6">
-																<label for="telefono2">Teléfono</label>
-																<input type="text" class="form-control" name="telefono2" id="telefono2" placeholder="Teléfono">
-																<label for="telefono2" class="errores2" id="mensaje8">Digite su teléfono</label>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="empresa2">Tipo empresa</label>
-																<select  class="form-control" name="empresa2" id="empresa2">
-																	<option value="0" selected="selected">Tipo empresa</option>
-																	<option value="1">Corhuila</option>
-																	<option value="2">Empresa Externa</option>
-																</select>
-																<label for="empresa2" class="errores2" id="mensaje9">Seleccione una Opción</label>
-															</div>
-															<div class="form-group col-md-6">
-																<label for="persona2">Tipo persona</label>
-																<select id="persona2" class="form-control" name="persona2">
-																	<option value="0" selected="selected">Tipo Persona</option>
-																	<option value="1">Estudiante</option>
-																	<option value="2">Docente</option>
-																	<option value="3">Externa</option>
-																	<option value="4">Biblioteca</option>
-																</select>
-																<label for="persona2" class="errores2" id="mensaje10">Seleccione una Opción</label>
-															</div>
-														</div><!--/.form-row-tow-->
-												</div><!--/.Modal-body-->
-												<div class="modal-footer">
-														<div class="modal-footer">
-																<input type="submit"  id="submitThree" class="btn btn-success" data-dismiss="modal" value="Registrar">
-																<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-														</div>
-												</div><!--/.Modal-footer-->
-									</form><!--Fin Formulario-->
-                  
-                </div> <!-- /.modal-content -->
-              </div> <!-- /.modal-dialog -->
-            </div> <!-- /.modal -->
-          <!--Fin Modal-->
-					
+
+					<!--Modal Formulario Registro-->
+					<div class="modal fade forget-modal-2" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel"
+					 aria-hidden="true">
+						<div class="modal-dialog ">
+							<div class="modal-content">
+								<form action="" enctype="multipart/form-data" method="post">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">
+											<span aria-hidden="true">×</span>
+											<span class="sr-only">Close</span>
+										</button>
+										<h4 class="modal-title">Registro Usuario</h4>
+									</div>
+									<!--/.modal-header-->
+									<div class="modal-body">
+										<div class="form-row">
+
+											<div class="form-group ">
+												<label for="name2">Nombre completo</label>
+												<input type="text" class="form-control" id="name3" placeholder="Escriba tu Nombre completo" onkeypress="return soloLetras(event)"
+												 onpaste="return false">
+												<label for="name2" class="errores2" id="mensaje4">Digite su nombre</label>
+												<label for="name2" class="errores2" id="alerta1">Campo solo recibe Texto</label>
+												<label for="name2" class="errores2" id="alerta1_5">Ingrese máximo 100
+													caracteres</label>
+											</div>
+
+											<div class="form-group col-md-6">
+												<label for="email2">Correo electrónico</label>
+												<input type="email" class="form-control" id="email3" placeholder="Correo electrónico">
+												<label for="email2" class="errores2" id="mensaje5">Digite su correo</label>
+												<label for="name2" class="errores2" id="alerta2">Digite un correo
+													Válido</label>
+											</div>
+
+										</div>
+										<!--/.form-row-->
+										<div class="form-group col-md-6">
+											<label for="password2">Contraseña</label>
+											<input type="password" class="form-control" id="password3" placeholder="Contraseña">
+											<label for="password2" class="errores2" id="mensaje6">Digite su contraseña</label>
+											<label for="name2" class="errores2" id="alerta3">La contraseña debe contener 8 caracteres</label>
+										</div>
+
+										<div class="form-group col-md-6">
+											<label for="repassword2">Repetir contraseña</label>
+											<input type="password" class="form-control" name="repassword3" id="repassword3" placeholder="Repetir contraseña">
+											<label for="repassword2" class="errores2" id="mensaje7">Digite de nuevo su contraseña</label>
+											<label for="name2" class="errores2" id="alerta4">La contraseña debe contener 8 caracteres</label>
+											<label for="name2" class="errores2" id="alerta4_1">Contraseñas no coinciden</label>
+										</div>
+
+										<div class="form-row">
+											<div class="form-group col-md-6">
+												<label for="telefono2">Teléfono</label>
+												<input type="text" class="form-control" name="telefono3" id="telefono3" placeholder="Teléfono" onkeydown="return soloNumeros(event)"
+												 onpaste="return false">
+												<label for="telefono2" class="errores2" id="mensaje8">Digite su teléfono</label>
+												<label for="name2" class="errores2" id="alerta3">Campo solo recibe Números</label>
+											</div>
+
+											<div class="form-group col-md-6">
+												<label for="empresa2">Tipo empresa</label>
+												<select class="form-control" name="empresa3" id="empresa3">
+													<option value="0" selected="selected">Tipo empresa</option>
+													<option value="1">Corhuila</option>
+													<option value="2">Empresa Externa</option>
+												</select>
+												<label for="empresa2" class="errores2" id="mensaje9">Seleccione una Opción</label>
+											</div>
+
+											<div class="form-group col-md-6">
+												<label for="persona2">Tipo persona</label>
+												<select class="form-control" name="persona3" id="persona3">
+													<option value="0" selected="selected">Tipo Persona</option>
+													<option value="1">Estudiante</option>
+													<option value="2">Docente</option>
+													<option value="3">Externa</option>
+													<option value="4">Biblioteca</option>
+												</select>
+												<label for="persona2" class="errores2" id="mensaje10">Seleccione una Opción</label>
+											</div>
+
+										</div>
+										<!--/.form-row-tow-->
+									</div>
+									<!--/.Modal-body-->
+									<div class="modal-footer">
+										<div class="modal-footer">
+											<input id="submitFive" class="btn btn-success botonEn" data-dismiss="modal" value="Registrar">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+										</div>
+									</div>
+									<!--/.Modal-footer-->
+								</form>
+								<!--Fin Formulario-->
+
+							</div> <!-- /.modal-content -->
+						</div> <!-- /.modal-dialog -->
+					</div> <!-- /.modal -->
+					<!--Fin Modal-->
 				</div><!-- /.col-->
-				
-				<div class="col-sm-12">
-					<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
-				</div>
-		</div><!-- /.row -->
-		</div><!--/.main-->
+			</div><!-- /.row -->
+		</div>
+		<!--/.main-->
 
 		<!--JavaScript-->
 		<script src="js/jquery-1.11.1.min.js"></script>

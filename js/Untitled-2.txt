@@ -1,0 +1,55 @@
+ if(nombreCompleto == '' || !letra.test(nombreCompleto)){
+      $("#mensaje4").fadeIn("slow");
+      $("#mensaje4").slideToggle("fast");
+      return false;  
+    }else{
+      $("#mensaje4").fadeOut();
+    }
+
+    if(email == '' || !expre.test(email)){
+      
+      $("#mensaje5").fadeIn("slow");
+      $("#mensaje5").slideToggle("fast");
+      return false;  
+    }else{
+      if(password == ''){
+        $("#mensaje5").fadeOut();
+        $("#mensaje6").fadeIn("slow");
+        $("#mensaje6").slideToggle("fast");
+        return false;
+      }else{
+        if(repassword == ''){
+          $("#mensaje6").fadeOut();
+          $("#mensaje7").fadeIn("slow");
+          $("#mensaje7").slideToggle("fast");
+          return false;
+        }else{
+          if(telefono == '' || !numero.test(telefono)){
+            $("#mensaje7").fadeOut();
+            $("#mensaje8").fadeIn("slow");
+            $("#mensaje8").slideToggle("fast");
+            return false;
+          }
+          else{
+            if(empresa == 0){
+              $("#mensaje8").fadeOut();
+              $("#mensaje9").fadeIn("slow");
+              $("#mensaje9").slideToggle("fast");
+              return false;
+            }else{
+              if(persona == 0){
+                $("#mensaje9").fadeOut();
+                $("#mensaje10").fadeIn("slow");
+                $("#mensaje10").slideToggle("fast");
+                return false;
+              }else{
+                $("#mensaje10").fadeOut();
+                ajaxPost(nombreCompleto, email, password,telefono, empresa, persona);
+              }
+              
+            }
+          }
+        }
+        
+      }
+    }

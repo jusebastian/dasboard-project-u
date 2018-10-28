@@ -1,10 +1,13 @@
-$(document).on('ready', function(){
-  
+$(document).on('ready', function () {
+
+  //Expresiones regulares
   var expre = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-  var letra = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g
+  var letra = /[a-zA-Z]/;
   var numero = /^([0-9])*$/;
 
-  $("#submitThree").click(function(){
+  $("#submitSix").click(function () {
+
+    //Variables definidas o cargadas------------------
 
     var nombreCompleto = $("#name2").val();
     var email = $("#email2").val();
@@ -14,114 +17,175 @@ $(document).on('ready', function(){
     var empresa = $("#empresa2").val();
     var persona = $("#persona2").val();
 
-    if(nombreCompleto == '' || !letra.test(nombreCompleto)){
+    //------------------------------------------------
+    //Validar nombre Completo-------------------------
+
+    if(nombreCompleto == '') {
       $("#mensaje4").fadeIn("slow");
       $("#mensaje4").slideToggle("fast");
-      return false;  
-
+      return false;
+    }else if((!letra.test(nombreCompleto))){
+      $("#alerta1").fadeIn("slow");
+      $("#alerta1").slideToggle("fast");
+      return false;
+    }else if(nombreCompleto.length>100){
+      $("#alerta1_5").fadeIn("slow");
+      $("#alerta1_5").slideToggle("fast");
+      return false;
     }else{
-      if(email == '' || !expre.test(email)){
-        $("#mensaje4").fadeOut();
-        $("#mensaje5").fadeIn("slow");
-        $("#mensaje5").slideToggle("fast");
-        return false;  
-      }else{
-        if(password == ''){
-          $("#mensaje5").fadeOut();
-          $("#mensaje6").fadeIn("slow");
-          $("#mensaje6").slideToggle("fast");
-          return false;
-        }else{
-          if(repassword == ''){
-            $("#mensaje6").fadeOut();
-            $("#mensaje7").fadeIn("slow");
-            $("#mensaje7").slideToggle("fast");
-            return false;
-          }else{
-            if(telefono == '' || !numero.test(telefono)){
-              $("#mensaje7").fadeOut();
-              $("#mensaje8").fadeIn("slow");
-              $("#mensaje8").slideToggle("fast");
-              return false;
-            }
-            else{
-              if(empresa == 0){
-                $("#mensaje8").fadeOut();
-                $("#mensaje9").fadeIn("slow");
-                $("#mensaje9").slideToggle("fast");
-                return false;
-              }else{
-                if(persona == 0){
-                  $("#mensaje9").fadeOut();
-                  $("#mensaje10").fadeIn("slow");
-                  $("#mensaje10").slideToggle("fast");
-                  return false;
-                }else{
-                  $("#mensaje10").fadeOut();
-                }
-                
-              }
-            }
-          }
-          
-        }
-      }
+      $("#mensaje4").fadeOut();
     }
 
-    //Funcion
-    ajaxPost();
+    //----------------------------------------------
+    // Validar email--------------------------------
 
-  });
+    if(email == '') {
+      $("#mensaje5").fadeIn("slow");
+      $("#mensaje5").slideToggle("fast");
+      return false;
+    }else if((!expre.test(email))){
+      $("#alerta2").fadeIn("slow");
+      $("#alerta2").slideToggle("fast");
+      return false;
+    } else {
+      $("#mensaje5").fadeOut();
+    }
 
-  //-------------------------------------------------------
+    //-----------------------------------------------
+    //Validar password-------------------------------
 
-  //--Funcio AjaxPost
+    if (password == '') {
+      $("#mensaje6").fadeIn("slow");
+      $("#mensaje6").slideToggle("fast");
+      return false;
+    }else if(password.length > 8){
+      $("#alerta3").fadeIn("slow");
+      $("#alerta3").slideToggle("fast");
+      return false;
+    } else {
+      $("#mensaje6").fadeOut();
+    }
+
+    //------------------------------------------------
+    //Validar repassword------------------------------
+
+    if (repassword == '') {
+      $("#mensaje7").fadeIn("slow");
+      $("#mensaje7").slideToggle("fast");
+      return false;
+    }else if(repassword.length > 8){
+      $("#alerta4").fadeIn("slow");
+      $("#alerta4").slideToggle("fast");
+      return false;
+    }else if(repassword != password){
+      $("#alerta4_1").fadeIn('slow');
+      $("#alerta4_1").slideToggle('fast');
+      return false;
+    } else {
+      $("#mensaje7").fadeOut();
+    }
+
+    //------------------------------------------------
+   
+    
+
+    //------------------------------------------------
+    //Validar telefono--------------------------------
+
+    if (telefono == '') {
+      $("#mensaje8").fadeIn("slow");
+      $("#mensaje8").slideToggle("fast");
+      return false;
+    }else if((!numero.test(telefono))){
+      $("#alerta2").fadeIn("slow");
+      $("#alerta2").slideToggle("fast");
+      return false;
+    }else {
+      $("#mensaje8").fadeOut();
+    }
+    //--------------------------------------------------
+    //Validar Empresa-----------------------------------
+
+    if (empresa == 0) {
+      $("#mensaje9").fadeIn("slow");
+      $("#mensaje9").slideToggle("fast");
+      return false;
+    } else {
+      $("#mensaje9").fadeOut();
+    }
+
+    //--------------------------------------------------
+    //Validar Persona-----------------------------------
+
+    if (persona == 0) {
+      $("#mensaje10").fadeIn("slow");
+      $("#mensaje10").slideToggle("fast");
+      return false;
+    } else {
+      $("#mensaje10").fadeOut();
+      ajaxPost(nombreCompleto, email, password, telefono, empresa, persona);
+      
+    }
+
+    //---------------------------------------------------
+    limpiarCampos();
   
-  function ajaxPost() {
+  });//submit
+  
 
-    var formData = new FormData();
-    formData.append("file", file);
+  //-----------------------------------------------------------------------------
+  //Funciòn AjaxPost-------------------------------------------------------------
+
+  function ajaxPost(nombreCompleto, email, password, telefono, empresa, persona) {
+
+    var parametros = {
+
+      'nombre': nombreCompleto,
+      'email': email,
+      'password': password,
+      'empresa': empresa,
+      'rol': persona,
+      'telefono': telefono,
+      'estado': true,
+    };
+
+    console.log(JSON.stringify(parametros));
+    //var formData = new FormData(parametros);
 
     $.ajax({
       type: 'POST',
-      enctype: 'multipart/form-data',
       url: '',
-      data: formdata,
-      processData: false,
-      contentType: false,
+      data: JSON.stringify(parametros),
       cache: false,
-      success: function (result) {
-        var json = $.parseJSON(result);
-        var fileDownloadUp = json.fileDownloadUri;
+      contentType: false,
+      processData: false,
+      success: function (data) {
         console.log("datos almacenados");
-        saveProject(fileDownloadUp);
-        /*$("#resultado").html(response)*/
+        console.log(data);
       },
-      error: function (e) {
-        alert("Error!");
-        console.log("Error")
+      error: function (data) {
+        console.log("Error al almacenar los datos");
+        console.log(data);
       },
       /*contentType: "application/json",*/
       /*dataType: 'json',*/
-    });
 
-    function saveProject(fileDownloadUp) {
-
-      var parametros = {
-        
-        'nombre' : nombreCompleto,
-        'email' :email,
-        'password' : password,
-        'empresa' : empresa,
-        'rol' : persona,
-        'telefono' : telefono,
-        'estado' : estado,
-        
-      };
-    }
+    });//$.ajax
   }//Funcion AjaxPost
 
+  //Limpia campos---------------------------------------
+  function limpiarCampos(){
 
-  
+    nombreCompleto = "";
+    nombreCompleto = "";
+    email = "";
+    password = "";
+    repassword = "";
+    empresa = "";
+    persona = "";
+    telefono = "";
+
+  }//Función limpiar
 
 });
+

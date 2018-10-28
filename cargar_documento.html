@@ -2,266 +2,332 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ReproCorhuila - Dashboard</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/datepicker3.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReproCorhuila - Dashboard</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/datepicker3.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
 
-	<!--Font aweson-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-	 crossorigin="anonymous">
+  <!--Font aweson-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
 
-	<!--Custom Font-->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-	<!--[if lt IE 9]>
+  <!--Custom Font-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
-	<![endif]-->
+    <![endif]-->
+  <script>
+    //Validar solo nùmeros
+
+    function soloLetras(e) {
+      key = e.keyCode || e.which;
+      teclado = String.fromCharCode(key).toLowerCase();
+      letras = "([ abcdefghijklmnñopqrstuvwxyz])\(áéíóúñüàèìòù))";
+      especiales = "8-37-38-46-164";
+      teclado_especial = false;
+
+      //Iterando
+      for (var i in especiales) {
+        if (key == especiales[i]) {
+          teclado_especial = true;
+          break;
+        }
+      }
+
+      //Condiciones
+      if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+        return false;
+      }
+
+    }
+
+  </script>
 </head>
 
 <body>
 
-	<!--Navggaciòn-->
-	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span
-					 class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span></button>
-				<a class="navbar-brand" href="#"><span></span>ReproCorhuila</a>
-			</div><!--nav-header-->
-		</div><!-- /.container-fluid -->
-	</nav><!--/.Nav-bar-->
+  <!--Navggaciòn-->
+  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span
+            class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span></button>
+        <a class="navbar-brand" href="#"><span></span>ReproCorhuila</a>
+      </div>
+      <!--nav-header-->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <!--/.Nav-bar-->
 
-	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+  <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 
-		<div class="profile-sidebar">
-			<div class="profile-userpic">
-				<!--<img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">-->
-				<i class="far fa-user-circle fa-3x"></i>
-			</div>
-			<div class="profile-usertitle">
-				<div class="profile-usertitle-name">Username</div>
-				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
-				<a href="profile.html"><button class="btn btn-danger">Editar</button></a>
-			</div>
-			<div class="clear"></div>
-		</div><!--Profile-sidebar-->
+    <div class="profile-sidebar">
+      <div class="profile-userpic">
+        <!--<img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">-->
+        <i class="far fa-user-circle fa-3x"></i>
+      </div>
+      <div class="profile-usertitle">
+        <div class="profile-usertitle-name">Username</div>
+        <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+        <a href="profile.html"><button class="btn btn-danger">Editar</button></a>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <!--Profile-sidebar-->
 
-		<div class="divider"></div>
-		<form action="" role="search" >
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search">
-			</div>
-		</form><!--Form-search-->
+    <div class="divider"></div>
+    <form action="" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+    </form>
+    <!--Form-search-->
 
-		<ul class="nav menu">
-			<li><a href="busqueda.html"><i class="fas fa-search"> &nbsp;</i>Búsqueda</a></li>
-			<li><a href="dashboard.html"><i class="fas fa-tachometer-alt">&nbsp;</i> Dashboard</a></li>
+    <ul class="nav menu">
+      <li><a href="busqueda.html"><i class="fas fa-search"> &nbsp;</i>Búsqueda</a></li>
+      <li><a href="dashboard.html"><i class="fas fa-tachometer-alt">&nbsp;</i> Dashboard</a></li>
       <li><a href="historial.html"><i class="fas fa-history">&nbsp;</i> Historial</a></li>
-				<!--<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>-->
-			<li><a href="cargar_documento.html"><em class="fa fa-toggle-off">&nbsp;</em>Cargar Documento</a></li>
-			<li><a href="usuario.html"><em class="fa fa-user">&nbsp;</em>Usuarios</a></li>
-			<!---<li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>-->
-			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
-		</ul><!--Menu-->
-	</div><!--/.sidebar-->
+      <!--<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>-->
+      <li><a href="cargar_documento.html"><em class="fa fa-toggle-off">&nbsp;</em>Cargar Documento</a></li>
+      <li><a href="usuario.html"><em class="fa fa-user">&nbsp;</em>Usuarios</a></li>
+      <!---<li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>-->
+      <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+    </ul>
+    <!--Menu-->
+  </div>
+  <!--/.sidebar-->
 
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+  <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
-		<div class="row">
-			<ol class="breadcrumb">
-				<li><a href="#">
-						<em class="fa fa-home"></em>
-					</a></li>
-				<li class="active">Cargar Documento</li>
-			</ol>
-		</div><!--/.row-->
+    <div class="row">
+      <ol class="breadcrumb">
+        <li>
+          <a href="#">
+            <em class="fa fa-home"></em>
+          </a>
+        </li>
+        <li class="active">Cargar Documento</li>
+      </ol>
+    </div>
+    <!--/.row-->
 
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">Cargar Documento</h1>
-			</div>
-		</div><!--/.row-->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Cargar Documento</h1>
+      </div>
+    </div>
+    <!--/.row-->
 
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="panel panel-default">
-					<!--<div class="panel-heading">Buttons</div>-->
-					<div class="panel-body">
-						<div class="panel panel-default">
-							<div class="panel-heading">Información del Documento</div>
-							<div class="panel-body">
-								<div class="col-md-6">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <!--<div class="panel-heading">Buttons</div>-->
+          <div class="panel-body">
+            <div class="panel panel-default">
+              <div class="panel-heading">Información del Documento</div>
+              <div class="panel-body">
+                <div class="col-md-6">
 
-									<form action="#" role="form" method="post" id="formulario1" enctype="multipart/form-data">
-										<div class="form-group">
-											<label>Tipo Proyecto</label>
-											<select class="form-control" id="tipoTrabajo">
-												<option value="">Seleccione una Opción.</option>
-												<option value="option00">Investigación</option>
-												<option value="option01">Tesis</option>
-												<option value="option02">Trabajo De grado</option>
-											</select>
-											<label for="mensajeEmail8" class="errores2" id="mensaje11">Seleccione una Opción</label>
-										</div>
+                  <form action="#" role="form" method="post" id="formulario1" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label>Tipo Proyecto</label>
+                      <select class="form-control" id="tipoTrabajo">
+                        <option value="0">Seleccione una Opción.</option>
+                        <option value="1">Investigación</option>
+                        <option value="2">Tesis</option>
+                        <option value="3">Trabajo De grado</option>
+                      </select>
+                      <label for="mensajeEmail8" class="errores2" id="mensaje10">Seleccione una
+                        Opción</label>
+                    </div>
 
-										<div class="form-group">
-											<label>Categoria del Proyecto</label>
-											<select class="form-control" id="categoria-id" name="selector1">
-												<!--<option value="0" selected="selected">Escoge una opción...</option>-->
-											</select>
-											<label for="mensajeEmail8" class="errores2" id="mensaje11">Seleccione una Opción</label>
-										</div>
+                    <div class="form-group">
+                      <label>Categoria del Proyecto</label>
+                      <select class="form-control" id="categoria">
+                        <option value="0">Seleccione una Opción.</option>
+                        <option value="1">Investigación</option>
+                      </select>
+                      <label for="categoria" class="errores2" id="mensaje11">Seleccione una
+                        Opción</label>
+                    </div>
 
-										<div class="form-group">
-											<label>Tìtulo proyecto</label>
-											<input type="text" class="form-control" id="tituloProyecto" placeholder="Tìtulo Proyecto">
-											<label for="mensajeEmail8" class="errores2" id="mensaje12">Digite título proyecto</label>
-										</div>
+                    <div class="form-group">
+                      <input class="form-control" type="text" id="categoriasSelec" disabled>
+                    </div>
 
-										<div class="form-group">
-											<label>Correo Autor</label>
-											<input type="text" class="form-control"  id="nombreAutor" placeholder="Correo Autor">
-											<label for="mensajeEmail8" class="errores2" id="mensaje13">Digite correo Autor</label>
-										</div>
+                    <div class="form-group">
+                      <label>Tìtulo proyecto</label>
+                      <input type="text" class="form-control" id="tituloProyecto" placeholder="Tìtulo Proyecto"
+                        onkeypress="return soloLetras(event)" onpaste="return false">
+                      <label for="mensajeEmail8" class="errores2" id="mensaje12">Digite título
+                        proyecto</label>
+                      <label for="mensajeEmail8" class="errores2" id="alerta1">Ingrese solo
+                        letras</label>
+                      <label for="mensajeEmail8" class="errores2" id="alerta2">Ingrese máximo 50
+                        caracteres</label>
+                    </div>
 
-										<div class="form-group">
-											<label>Resumen del proyecto</label>
-											<textarea class="form-control" rows="4" id="textarea"></textarea>
-											<label for="mensajeEmail8" class="errores2" id="mensaje14">Escriba el resumen del proyecto</label>
-										</div>
+                    <div class="form-group">
+                      <label>Correo Autor</label>
+                      <input type="text" class="form-control" id="nombreAutor" placeholder="Correo Autor">
+                      <label for="nombreAutor" class="errores2" id="mensaje13">Digite correo
+                        Autor</label>
+                      <label for="nombreAutor" class="errores2" id="alerta3">Digite un correo
+                        Válido</label>
+                    </div>
 
-										<div class="form-group">
-											<label>Subir Archivo</label>
-											<input type="file" class="" id="file">
-											<!--<p class="help-block">Example block-level help text here.</p>-->
-											<label for="mensajeEmail8" class="errores2" id="mensaje15" >Cargue el archivo</label>
-									
-										</div>
+                    <div class="form-group">
+                      <label>Resumen del proyecto</label>
+                      <textarea class="form-control" rows="4" id="textarea"></textarea>
+                      <label for="mensajeEmail8" class="errores2" id="mensaje14">Escriba el
+                        resumen del proyecto</label>
+                    </div>
 
-									
-								</div>
-								<div class="col-md-6">
-									
-									<div class="form-group">
-										<label>Programa</label>
-										<select class="form-control" id="tipoPrograma">
-											<option value="">Programa a la que pertenece</option>
-											<option value="option4">Programa de Administración Bancaria y Financiera</option>
-											<option value="option5">Programa de Administración Comercial</option>
-											<option value="option6">Programa de Administración de Empresas Turísticas</option>
-											<option value="option7">Programa de Negocios Internacionales</option>
-											<option value="option8">Programa de Mercadeo, Publicidad y Ventas</option>
-											<option value="option9">Programa de Ingeniería Industrial</option>
-											<option value="option10">Programa de Ingeniería Ambiental</option>
-											<option value="option11">Programa de Ingeniería de Sistemas</option>
-											<option value="option12">Programa de Medicina Veterinaria y Zootecnia</option>
-											<option value="option13">Programa de Ingeniería Mecatrónica </option>
-											<option value="option14">Programa de Ingeniería en Energías Renovables</option>
-										</select>
-										<label for="mensajeEmail8" class="errores2" id="mensaje17">Seleccione una Opción</label>
-									</div>
+                    <div class="form-group">
+                      <label>Subir Archivo</label>
+                      <input type="file" class="" id="file">
+                      <!--<p class="help-block">Example block-level help text here.</p>-->
+                      <label for="mensajeEmail8" class="errores2" id="mensaje15">Cargue el
+                        archivo</label>
 
-									<div class="form-group">
-										<label>Palabras Claves</label>
-										<input type="text" class="form-control"  id="palabraClave" placeholder="Palabras Claves" >
-										<!--<p class="help-block">Example block-level help text here.</p>-->
-										<label for="mensajeEmail8" class="errores2" id="mensaje18">Escribe las palabras claves</label>
-									</div> 
+                    </div>
 
-									<div class="form-group">
-										<label>Project summary</label>
-										<textarea class="form-control" rows="4" id="Abstract"></textarea>
-										<label for="Abstract" class="errores2" id="mensaje19">Write the project summary</label>
-									</div>
 
-									<div class="form-group">
-										<label>Finalidad</label>
-										<input type="text" class="form-control"  id="finalidad" placeholder="Finalidad del Proyecto" maxlength="50">
-										<label for="finalidad" class="errores2" id="mensaje20">Escriba la finalidad</label>
-									</div>
-						
-									<div class="form-group">
-										<label for="">Fecha Publicación</label>
-										<input type="date" class="form-control"  id="fechaPublicacion" placeholder="Nombre autor" >
-										<label for="fechaPublicacion" class="errores2" id="mensaje22">Seleccione una fecha</label>
-									</div>
+                </div>
+                <div class="col-md-6">
 
-									<button  id="submitFour" class="btn btn-default" data-dismiss="modal">Guardar</button>
-									<input  type="reset" class="btn btn-default" id="limpiar" value="limpiar">
-									
-								</div>
-								</form>
-								<label for="" id="resultado"></label>
-							</div>
-						</div>
+                  <div class="form-group">
+                    <label>Programa</label>
+                    <select class="form-control" id="tipoPrograma">
+                      <option value="">Programa a la que pertenece</option>
+                      <option value="option4">Programa de Administración Bancaria y Financiera</option>
+                      <option value="option5">Programa de Administración Comercial</option>
+                      <option value="option6">Programa de Administración de Empresas Turísticas</option>
+                      <option value="option7">Programa de Negocios Internacionales</option>
+                      <option value="option8">Programa de Mercadeo, Publicidad y Ventas</option>
+                      <option value="option9">Programa de Ingeniería Industrial</option>
+                      <option value="option10">Programa de Ingeniería Ambiental</option>
+                      <option value="option11">Programa de Ingeniería de Sistemas</option>
+                      <option value="option12">Programa de Medicina Veterinaria y Zootecnia</option>
+                      <option value="option13">Programa de Ingeniería Mecatrónica </option>
+                      <option value="option14">Programa de Ingeniería en Energías Renovables</option>
+                    </select>
+                    <label for="mensajeEmail8" class="errores2" id="mensaje17">Seleccione una
+                      Opción</label>
+                  </div>
 
-						<!--Mostrar Informaciòn Base de datos-->
-						<div class="col-sm-12">
-								<table class="table">
-										<thead>
-											<tr>
-												<th scope="col">#</th>
-												<th scope="col">Tìtulo Proyecto</th>
-												<th scope="col">Nombre Autor</th>
-												<th scope="col"></th>
-												<th scope="col"></th>
+                  <div class="form-group">
+                    <label>Palabras Claves</label>
+                    <input type="text" class="form-control" id="palabraClave" placeholder="Palabras Claves" onpaste="return false">
+                    <!--<p class="help-block">Example block-level help text here.</p>-->
+                    <label for="mensajeEmail8" class="errores2" id="mensaje18">Escribe las palabras
+                      claves</label>
+                    <label for="mensajeEmail8" class="errores2" id="alerta4">Campo solo recibe
+                      Texto</label>
+                  </div>
 
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<th scope="row">1</th>
-												<td>Mark</td>
-												<td>Otto</td>
-												<td><button class="btn btn-warning">Editar</button></td>
-												<td><button class="btn btn-danger">Eliminar</button></td>
-											</tr>
-											<tr>
-												<th scope="row">2</th>
-												<td>Jacob</td>
-												<td>Thornton</td>
-												<td><button class="btn btn-warning">Editar</button></td>
-												<td><button class="btn btn-danger">Eliminar</button></td>
-											</tr>
-											<tr>
-												<th scope="row">3</th>
-												<td>Larry</td>
-												<td>the Bird</td>
-												<td><button class="btn btn-warning">Editar</button></td>
-												<td><button class="btn btn-danger">Eliminar</button></td>
-											</tr>
-										</tbody>
-									</table>
-						</div>
-					</div><!-- /.panel-->
-					
-				</div><!-- /.col-->
-				
-				<div class="col-sm-12">
-					<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
-				</div>
-		</div><!-- /.row -->
-		</div>
-		<!--/.main-->
+                  <div class="form-group">
+                    <label>Project summary</label>
+                    <textarea class="form-control" rows="4" id="Abstract"></textarea>
+                    <label for="Abstract" class="errores2" id="mensaje19">Write the project summary</label>
+                  </div>
 
-		<!--JavaScript-->
-		<script src="js/jquery-1.11.1.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/chart.min.js"></script>
-		<script src="js/chart-data.js"></script>
-		<script src="js/easypiechart.js"></script>
-		<script src="js/easypiechart-data.js"></script>
-		<script src="js/bootstrap-datepicker.js"></script>
-		<script src="js/custom.js"></script>
-		<script src="js/valFormDocument.js"></script>
-		<script src="js/valFormDocumentSetData.js"></script>
+                  <div class="form-group">
+                    <label>Finalidad</label>
+                    <input type="text" class="form-control" id="finalidad" placeholder="Finalidad del Proyecto"
+                      onkeypress="return soloLetras(event)" onpaste="return false">
+                    <label for="finalidad" class="errores2" id="mensaje20">Escriba la finalidad</label>
+                    <label for="finalidad" class="errores2" id="alerta5">Campo solo recibe Texto</label>
+                    <label for="finalidad" class="errores2" id="alerta2">Ingrese máximo 50
+                      caracteres</label>
+
+
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">Fecha Publicación</label>
+                    <input type="date" class="form-control" id="fechaPublicacion" placeholder="Nombre autor">
+                    <label for="fechaPublicacion" class="errores2" id="mensaje22">Seleccione una
+                      fecha</label>
+                  </div>
+
+                  <button id="submitFour" class="btn btn-success" data-dismiss="modal">Guardar</button>
+                  <input type="reset" class="btn btn-default" id="limpiar" value="limpiar">
+
+                </div>
+                </form>
+                <label for="" id="resultado"></label>
+              </div>
+            </div>
+
+            <!--Mostrar Informaciòn Base de datos-->
+            <div class="col-sm-12">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tìtulo Proyecto</th>
+                    <th scope="col">Nombre Autor</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td><button class="btn btn-warning">Editar</button></td>
+                    <td><button class="btn btn-danger">Eliminar</button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td><button class="btn btn-warning">Editar</button></td>
+                    <td><button class="btn btn-danger">Eliminar</button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td><button class="btn btn-warning">Editar</button></td>
+                    <td><button class="btn btn-danger">Eliminar</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- /.panel-->
+
+        </div>
+        <!-- /.col-->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!--/.main-->
+
+
+    <!--JavaScript-->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/chart-data.js"></script>
+    <script src="js/easypiechart.js"></script>
+    <script src="js/easypiechart-data.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/valFormDocument.js"></script>
+    <script src="js/valFormDocumentSetData.js"></script>
 
 
 </body>
