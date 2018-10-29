@@ -1,27 +1,41 @@
 $(document).on('ready', function(){
+
+  //Expresiones Regulares
   var expre = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-  
+
+  //
+
   $("#submit").click(function(e){
+
     e.preventDefault();
+
     var email = $("#email").val();
     var password = $("#password").val(); 
     var checkbox = $("#checkbox").val();
     
   
-    if(email == "" || !expre.test(email)){
-        $("#mensaje1").fadeIn("slow");
-        $("#mensaje1").slideToggle("fast");
-        return false;  
-                 
+    if(email == ""){
+      $("#mensaje1").fadeIn("slow");
+      $("#mensaje1").slideToggle("fast");
+      return false;
+    }else if((!expre.test(email))){
+      $("#alerta1").fadeIn("slow");
+      $("#alerta1").slideToggle("fast");
+      return false;         
     }else{
-      if(password == ""){
-        $("#mensaje1").fadeOut();
-        $("#mensaje2").fadeIn();
-        $("#mensaje2").slideToggle("fast");
-        return false;
-      }else{
-        $("#mensaje2").fadeOut();
-      }
+      $("#mensaje1").fadeOut();
+    }
+
+    if(password == ""){
+      $("#mensaje2").fadeIn();
+      $("#mensaje2").slideToggle("fast");
+      return false;
+    }else if(password.length > 8){
+      $("#alerta2").fadeIn();
+      $("#alerta2").slideToggle("fast");
+      return false;
+    }else{
+      $("#mensaje2").fadeOut();
     }
 
     ajaxPost();
@@ -31,50 +45,44 @@ $(document).on('ready', function(){
 
   //-------------------------------------------------------
 
-  //--Funcio AjaxPost
-  
-  function ajaxPost() {
+  //-----------------------------------------------------------------------------
+  //Funciòn AjaxPost-------------------------------------------------------------
 
-    var formData = new FormData();
-    formData.append("file", file);
+  function ajaxPost(nombreCompleto, email, password, telefono, empresa, persona) {
+
+    var parametros = {
+
+      'nombre': nombreCompleto,
+      'email': email,
+      'password': password,
+      'empresa': empresa,
+      'rol': persona,
+      'telefono': telefono,
+      'estado': true,
+    };
+
+    console.log(JSON.stringify(parametros));
+    //var formData = new FormData(parametros);
 
     $.ajax({
       type: 'POST',
-      enctype: 'multipart/form-data',
       url: '',
-      data: formdata,
-      processData: false,
-      contentType: false,
+      data: JSON.stringify(parametros),
       cache: false,
-      success: function (result) {
-        var json = $.parseJSON(result);
-        /*var fileDownloadUp = json.fileDownloadUri;*/  
+      contentType: false,
+      processData: false,
+      success: function (data) {
         console.log("datos almacenados");
-        saveProject(fileDownloadUp);
-        /*$("#resultado").html(response)*/
+        console.log(data);
       },
-      error: function (e) {
-        alert("Error!");
-        console.log("Error")
+      error: function (data) {
+        console.log("Error al almacenar los datos");
+        console.log(data);
       },
       /*contentType: "application/json",*/
       /*dataType: 'json',*/
-    });
 
-    function saveProject(fileDownloadUp) {
-
-      var parametros = {
-        
-        'nombre' : nombreCompleto,
-        'email' :email,
-        'password' : password,
-        'empresa' : empresa,
-        'rol' : persona,
-        'telefono' : telefono,
-        'estado' : estado,
-        
-      };
-    }
+    });//$.ajax
   }//Funcion AjaxPost
 
 

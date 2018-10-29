@@ -1222,6 +1222,26 @@ a.registro:hover{
 
 }
 
+.errores3{
+  -webkit-boxshadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background: red;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  display: none;
+  font-size: 14px;
+  margin-top: -20px;
+  margin-left: 150px;
+  padding: 10px;
+  position: absolute;
+  transition-duration:2s;
+  transition-delay:2s;
+  transition-timing-function: linear;
+  z-index: 100;
+
+}
+
 .mensaje1{
   /*visibility: hidden;*/
   display: inline;

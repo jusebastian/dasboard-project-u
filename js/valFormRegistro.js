@@ -44,8 +44,8 @@ $(document).on('ready', function () {
       $("#mensaje5").slideToggle("fast");
       return false;
     }else if((!expre.test(email))){
-      $("#alerta2").fadeIn("slow");
-      $("#alerta2").slideToggle("fast");
+      $("#mensaje6").fadeIn("slow");
+      $("#mensaje6").slideToggle("fast");
       return false;
     } else {
       $("#mensaje5").fadeOut();
@@ -124,11 +124,11 @@ $(document).on('ready', function () {
     } else {
       $("#mensaje10").fadeOut();
       ajaxPost(nombreCompleto, email, password, telefono, empresa, persona);
-      
+      limpiarCampos();
     }
 
     //---------------------------------------------------
-    limpiarCampos();
+    
   
   });//submit
   

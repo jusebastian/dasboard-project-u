@@ -56,8 +56,6 @@
 		}
 
 	</script>
-
-
 </head>
 
 <body>
@@ -72,15 +70,17 @@
 					</div><!--./panel-headingg-->
 					<div class="panel-body">
 						<!--Inicio Formulario-->
-						<form accept-charset="UTF-8" role="form" id="miFormulario" method="GET">
+						<form accept-charset="UTF-8" role="form" id="miFormulario" method="GET" action="#">
 							<fieldset>
 								<div class="form-group">
 									<input class="form-control" id="email" placeholder="Correo" name="email" type="text">
 									<label for="mensajeEmail" class="errores" id="mensaje1">Digite su correo</label>
+									<label for="name2" class="errores2" id="alerta1">Digite un correo Válido</label>
 								</div>
 								<div class="form-group">
-									<input class="form-control" id="password" placeholder="Contraseña" name="password" type="password" value="">
-									<label for="mensajePass" class="errores" id="mensaje2">Digite su contraseña</label>
+									<input class="form-control" placeholder="Contraseña" name="password"  id="password" type="password" value="">
+									<label for="password" class="errores" id="mensaje2">Digite su contraseña</label>
+									<label for="password" class="errores2" id="alerta2">La contraseña debe contener 8 caracteres</label>
 								</div>
 								<div class="form-group">
 									<input name="submit" id="submit" class="btn btn-lg btn-success btn-block" type="submit" value="Iniciar sesión">
@@ -101,14 +101,14 @@
 			</div><!--./col-->
 		</div><!--./row-->
 	</div><!--./Container-->
-
 	<!--Formulario login-->
 
+	<!--------------------------------------------------------------------------------------------------------------------------->
 	<!-- Formulario Cambiar contraseña-->
 	<div class="modal fade forget-modal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
-				<form action="">
+				<form >
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">
 							<span aria-hidden="true">×</span>
@@ -119,11 +119,13 @@
 					<div class="modal-body">
 						<p>Escriba su cuenta de correo electrónico</p>
 						<input type="email" name="recovery-email" id="recovery-email" class="form-control" autocomplete="off" placeholder="micorreo@gmail.com">
-						<label for="mensajeEmail3" class="errores1" id="mensaje3">Digite su correo</label>
+						<label for="mensajeEmail3" class="errores3" id="alerta7">Digite su correo</label>
+						<label for="name2" class="errores3" id="alerta8">Digite un correo Válido</label>
+						<!--<label for="password" class="errores3" id="alerta9">La contraseña debe contener 8 caracteres</label>-->
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 						<input type="submit" id="submitTwo" class="btn btn-custom" >
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 					</div>
 				</form><!-- /. Formulario-->
 			</div> <!-- /.modal-content -->
@@ -163,8 +165,7 @@
 								<label for="email2">Correo electrónico</label>
 								<input type="email" class="form-control" id="email2" placeholder="Correo electrónico">
 								<label for="email2" class="errores2" id="mensaje5">Digite su correo</label>
-								<label for="name2" class="errores2" id="alerta2">Digite un correo
-									Válido</label>
+								<label for="email2" class="errores2" id="mensaje6">Digite un correo Válido</label>
 							</div>
 
 						</div>
