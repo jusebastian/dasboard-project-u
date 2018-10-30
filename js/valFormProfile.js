@@ -195,7 +195,7 @@ $(document).on('ready',function(){
     
 
     $.ajax({
-      type: 'POST',
+      type: 'PUT',
       url: 'api/usuario/',
       data: JSON.stringify(parametros),
       cache: false,
