@@ -38,7 +38,7 @@ $(document).on('ready', function(){
       $("#mensaje2").fadeOut();
     }
 
-    ajaxPost();
+    ajaxPost(email, password);
 
   });
 
@@ -48,24 +48,18 @@ $(document).on('ready', function(){
   //-----------------------------------------------------------------------------
   //Funciòn AjaxPost-------------------------------------------------------------
 
-  function ajaxPost(nombreCompleto, email, password, telefono, empresa, persona) {
+  function ajaxPost(email, password) {
 
     var parametros = {
-
-      'nombre': nombreCompleto,
       'email': email,
       'password': password,
-      'empresa': empresa,
-      'rol': persona,
-      'telefono': telefono,
-      'estado': true,
     };
 
     console.log(JSON.stringify(parametros));
     //var formData = new FormData(parametros);
 
     $.ajax({
-      type: 'POST',
+      type: 'GET',
       url: '',
       data: JSON.stringify(parametros),
       cache: false,

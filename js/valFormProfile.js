@@ -155,7 +155,7 @@ $(document).on('ready',function(){
       return false;
     }else{
       $("#mensaje7").fadeOut();
-      ajaxPost(nombre, email, password, empresa, telefono,  persona);
+      
     }
 
     //--------------------------------------------
@@ -169,9 +169,13 @@ $(document).on('ready',function(){
       return false; 
     }else{
       $("#mensaje8").fadeOut();
+      //Ejecutando Función------------------------------------------
+      ajaxPost(nombre, email, password, empresa, telefono,  persona);
     }
 
     //--------------------------------------------
+
+    
 
   });//./Funcion Submit
 

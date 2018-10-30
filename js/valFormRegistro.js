@@ -44,8 +44,8 @@ $(document).on('ready', function () {
       $("#mensaje5").slideToggle("fast");
       return false;
     }else if((!expre.test(email))){
-      $("#mensaje6").fadeIn("slow");
-      $("#mensaje6").slideToggle("fast");
+      $("#alerta0").fadeIn("slow");
+      $("#alerta0").slideToggle("fast");
       return false;
     } else {
       $("#mensaje5").fadeOut();
@@ -123,8 +123,10 @@ $(document).on('ready', function () {
       return false;
     } else {
       $("#mensaje10").fadeOut();
-      ajaxPost(nombreCompleto, email, password, telefono, empresa, persona);
-      limpiarCampos();
+      //Ejecutando Función
+      //ajaxPost(nombreCompleto, email, password, telefono, empresa, persona);
+      //limpiarCampos();
+      
     }
 
     //---------------------------------------------------
@@ -139,7 +141,6 @@ $(document).on('ready', function () {
   function ajaxPost(nombreCompleto, email, password, telefono, empresa, persona) {
 
     var parametros = {
-
       'nombre': nombreCompleto,
       'email': email,
       'password': password,

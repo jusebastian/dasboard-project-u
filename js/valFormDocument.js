@@ -448,8 +448,6 @@ $(document).on('ready', function () {
         'resumen': textTarea,
         'url': fileDownloadUp,
         'programa': tipoPrograma,
-        /*'tipoFacultad' : tipoFacultad,*/
-        /*'semestre' : semestre,*/
         'visitas': visitas,
         'puntuacion': puntuacion,
         'tamano': tamano,

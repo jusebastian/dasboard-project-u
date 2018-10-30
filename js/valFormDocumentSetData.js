@@ -7,7 +7,7 @@ $(document).on('ready', function(){
 
   $.ajax({
 
-    type: "get",
+    type: "GET",
     url: "/api/categoria/all",
     sucess: function(data){
       //Retorna Json data

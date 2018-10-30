@@ -123,11 +123,13 @@ $(document).on('ready', function () {
       return false;
     } else {
       $("#mensaje10").fadeOut();
-      ajaxPost(nombreCompleto, email, password, telefono, empresa, persona);
+      //Ejecutando función
+      ajaxPost(nombreCompleto, email, password, empresa, telefono,  persona);
+      
     }
 
     //---------------------------------------------------
-
+    
   
   });//submit
 
@@ -135,16 +137,15 @@ $(document).on('ready', function () {
   //-----------------------------------------------------------------------------
   //Funciòn AjaxPost-------------------------------------------------------------
 
-  function ajaxPost(nombreCompleto, email, password, telefono, empresa, persona) {
+  function ajaxPost(nombreCompleto, email, password, empresa, telefono,  persona) {
 
     var parametros = {
-
       'nombre': nombreCompleto,
       'email': email,
       'password': password,
       'empresa': empresa,
-      'rol': persona,
       'telefono': telefono,
+      'rol': persona,
       'estado': true,
     };
 

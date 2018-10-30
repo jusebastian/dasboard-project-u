@@ -19,10 +19,12 @@ $(document).on('ready', function(){
       return false;
     }else {
       $("#mensaje3").fadeOut();
+      //Ejecutando Función
+      ajaxPost(recoveryEmail);
+      
     }
 
-    //Funcion
-    ajaxPost();
+    
   });
 
 
@@ -32,40 +34,29 @@ $(document).on('ready', function(){
   
   function ajaxPost() {
 
-    var formData = new FormData();
-    formData.append("file", file);
+    var parametros = {
+      'recoveryEmail': recoveryEmail
+    }
 
     $.ajax({
-      type: 'POST',
-      enctype: 'multipart/form-data',
+      type: 'GET',
       url: '',
-      data: formdata,
-      processData: false,
-      contentType: false,
+      data: JSON.stringify(parametros),
       cache: false,
-      success: function (result) {
-        var json = $.parseJSON(result);
-        var fileDownloadUp = json.fileDownloadUri;
+      contentType: false,
+      processData: false,
+      success: function (data) {
         console.log("datos almacenados");
-        saveProject(fileDownloadUp);
-        /*$("#resultado").html(response)*/
+        console.log(data);
       },
-      error: function (e) {
-        alert("Error!");
-        console.log("Error")
+      error: function (data) {
+        console.log("Error al almacenar los datos");
+        console.log(data);
       },
       /*contentType: "application/json",*/
       /*dataType: 'json',*/
-    });
 
-    function saveProject(fileDownloadUp) {
-
-      var parametros = {
-        
-        'recontra' : recoveryEmail,
-        
-      };
-    }
-  }//Funcion AjaxPost
+    });//$.ajax
+  }
 
 });
