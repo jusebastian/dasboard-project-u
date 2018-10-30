@@ -144,8 +144,8 @@ $(document).on('ready', function () {
       'email': email,
       'password': password,
       'empresa': empresa,
-      'rol': persona,
       'telefono': telefono,
+      'rol': persona,
       'estado': true,
     };
 
@@ -154,7 +154,7 @@ $(document).on('ready', function () {
 
     $.ajax({
       type: 'POST',
-      url: '',
+      url: 'api/usuario/',
       data: JSON.stringify(parametros),
       cache: false,
       contentType: false,

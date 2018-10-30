@@ -156,39 +156,71 @@
 
                     <div class="form-group">
                       <label>Correo</label>
-                      <input type="email" class="form-control" id="correo" placeholder="Tìtulo Proyecto">
+                      <input type="email" class="form-control" id="correo" placeholder="Correo Electrónico">
                       <label for="correo" class="errores2" id="mensaje3">Digite correo</label>
                       <label for="name2" class="errores2" id="alerta2">Digite un correo
 													Válido</label>
                     </div>
 
-                    <div class="form-group">
+                    <!--<div class="form-group">
                       <label>Empresa</label>
-                      <input type="text" class="form-control" id="empresa" placeholder="Empresa">
+                      <input type="text" class="form-control" id="empresa" placeholder="Empresa" onkeypress="return soloLetras(event)"
+                      onpaste="return false">
                       <label for="empresa" class="errores2" id="mensaje4">Digite empresa</label>
                       
                         <label for="empresa" class="errores2" id="alerta3">Ingrese máximo 50
                           caracteres</label>
                         <label for="empresa" class="errores2" id="alerta4">Ingrese solo
                               letras</label>
+                    </div>-->
+
+                    <div class="form-group col-md-6">
+                      <label for="empresa">Tipo empresa</label>
+                      <select class="form-control" name="empresa" id="empresa">
+                        <option value="0" selected="selected">Tipo empresa</option>
+                        <option value="1">Corhuila</option>
+                        <option value="2">Empresa Externa</option>
+                      </select>
+                      <label for="empresa2" class="errores2" id="mensaje4">Seleccione una Opción</label>
+                    </div>
+      
+                    <div class="form-group col-md-6">
+                      <label for="persona">Tipo persona</label>
+                      <select class="form-control" name="persona" id="persona">
+                        <option value="0" selected="selected">Tipo Persona</option>
+                        <option value="1">Estudiante</option>
+                        <option value="2">Docente</option>
+                        <option value="3">Externa</option>
+                        <option value="4">Biblioteca</option>
+                      </select>
+                      <label for="persona2" class="errores2" id="mensaje4_1">Seleccione una Opción</label>
                     </div>
 
                     <div class="form-group">
                       <label>Teléfono</label>
-                      <input type="text" class="form-control" id="telefono" placeholder="Teléfono">
+                      <input type="text" class="form-control" id="telefono" placeholder="Teléfono" onkeydown="return soloNumeros(event)"
+                      onpaste="return false">
                       <label for="telefono" class="errores2" id="mensaje5">Digite teléfono</label>
+                      <label for="name2" class="errores2" id="alerta5">Campo solo recibe Números</label>
+                      <label for="empresa" class="errores2" id="alerta6">Ingrese máximo 10
+                        números</label>
                     </div>
 
                     <div class="form-group">
                       <label>Constraseña</label>
                       <input type="password" class="form-control" id="constraseña" placeholder="Contraseña">
                       <label for="constraseña" class="errores2" id="mensaje6">Digite contraseña</label>
+                      <label for="empresa" class="errores2" id="alerta7">Ingrese máximo 8
+                        caracteres</label>
                     </div>
 
                     <div class="form-group">
                         <label>Repetir Constraseña</label>
                         <input type="password" class="form-control" id="recontraseña" placeholder="Repetir Contraseña">
                         <label for="recontraseña" class="errores2" id="mensaje7">Digite de nuevo la contraseña</label>
+                        <label for="empresa" class="errores2" id="alerta8">Ingrese máximo 8
+                          caracteres</label>
+                        <label for="name2" class="errores2" id="alerta8_1">Contraseñas no coinciden</label>
                     </div>
                 </div><!--/.col-m-6-->
 

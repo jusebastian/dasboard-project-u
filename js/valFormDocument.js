@@ -178,12 +178,21 @@ $(document).on('ready', function () {
     }
     //----------------------------------------------------------
 
+    //Objeto date
+    var hoy = new Date;
     //Validaciòn Fecha------------------------------------------
 
-    if (fechaPublicacion == "" || (!fecha.test(fechaPublicacion))) {
-
+    if (fechaPublicacion == "" ) {
       $("#mensaje22").fadeIn("slow");
       $("#mensaje22").slideToggle("fast");
+      return false;
+    }else if(fechaPublicacion < hoy){
+      $("#alerta8").fadeIn("slow");
+      $("#alerta8").slideToggle("fast");
+      return false;
+    }else if((!validate_fecha(fechaPublicacion))){
+      $("#alerta7").fadeIn("slow");
+      $("#alerta7").slideToggle("fast");
       return false;
     } else {
       $("#mensaje22").fadeOut();
@@ -243,7 +252,7 @@ $(document).on('ready', function () {
 
   //--------------------------------------------------
 
-  //Validar solo nùmeros
+  //Validar solo Letras
 
   function soloLetras(tituloProyecto) {
     key = tituloProyecto.keyCode || tituloProyecto.which;
@@ -267,13 +276,62 @@ $(document).on('ready', function () {
 
   }
 
-
-
-
+  //--------------------------------------------------
 
 
   //--------------------------------------------------
+  //Validar dias-------------------------------------
+  function isValidDate(day,month,year)
+  {
+      var dteDate;
+  
+      // En javascript, el mes empieza en la posicion 0 y termina en la 11 
+      //   siendo 0 el mes de enero
+      // Por esta razon, tenemos que restar 1 al mes
+      month=month-1;
+      // Establecemos un objeto Data con los valore recibidos
+      // Los parametros son: año, mes, dia, hora, minuto y segundos
+      // getDate(); devuelve el dia como un entero entre 1 y 31
+      // getDay(); devuelve un num del 0 al 6 indicando siel dia es lunes,
+      //   martes, miercoles ...
+      // getHours(); Devuelve la hora
+      // getMinutes(); Devuelve los minutos
+      // getMonth(); devuelve el mes como un numero de 0 a 11
+      // getTime(); Devuelve el tiempo transcurrido en milisegundos desde el 1
+      //   de enero de 1970 hasta el momento definido en el objeto date
+      // setTime(); Establece una fecha pasandole en milisegundos el valor de esta.
+      // getYear(); devuelve el año
+      // getFullYear(); devuelve el año
+      dteDate=new Date(year,month,day);
+  
+      //Devuelva true o false...
+      return ((day==dteDate.getDate()) && (month==dteDate.getMonth()) && (year==dteDate.getFullYear()));
+  }
 
+  //------------------------------------------------
+
+
+  //Funcion validar fecha----------------------------
+  function validate_fecha(fechaPublicacion)
+  {
+      var patron=new RegExp("^(19|20)+([0-9]{2})([-])([0-9]{1,2})([-])([0-9]{1,2})$");
+  
+      if(fechaPublicacion.search(patron)==0)
+      {
+          var values=fechaPublicacion.split("-");
+          if(isValidDate(values[2],values[1],values[0]))
+          {
+              return true;
+          }
+      }
+      return false;
+  }
+
+  //-------------------------------------------------
+  //Funcion validar fecha Hoy
+
+ 
+  
   //Validar Tamaño Archivo
   /*function arcValidation(file) {
 
@@ -311,7 +369,48 @@ $(document).on('ready', function () {
 
   //--------------------------------------------------
 
-  //Function Ajax
+
+  //function validar formato archivo------------------
+  /*
+  
+    var fileInput = file;
+    var allowedExtensions = /(.doc|.pdf)$/i;
+
+    if(!allowedExtensions.exec(fileInput)){
+      console.alert('Please upload file having extensions');
+      file = '';
+      return false;
+      
+    }else{
+
+      if (fileInput.files && fileInput.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('imagePreview').innerHTML = '<img src="'+e.target.result+'"/>';
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+
+          var FileSize = file;
+          var filesi = FileSize.file;
+    
+          // Si hay (por lo menos) un archivo seleccionado
+          if (filesi.length > 0) {
+            if (filesi[0].size > 200 * 1000) { // Validar la restricción
+              FileSize.setCustomValidity("El archivo seleccionado no debe ser mayor a 200MB");
+              return;
+            }
+          }else{
+            // No hay incumplimiento de la restricción
+            FileSize.setCustomValidity("");
+          }
+      
+      }
+
+    }
+  */
+
+  //----------------------------------------------------------------
+  //Function Ajax---------------------------------------------------
 
   function ajaxPost(file) {
 
