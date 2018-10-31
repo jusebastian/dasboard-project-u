@@ -59,7 +59,7 @@ $(document).on('ready', function(){
     //var formData = new FormData(parametros);
 
     $.ajax({
-      type: 'GET',
+      type: 'POST',
       url: '',
       data: JSON.stringify(parametros),
       cache: false,
