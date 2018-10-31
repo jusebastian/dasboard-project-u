@@ -8,9 +8,9 @@ $(document).on('ready',function(){
 
   //Funciòn submit------------------------------------
   
-  $("#editar").click(function(e){
+  $("#editar").click(function(){
     
-    e.preventDefault();
+    //e.preventDefault();
 
     //Variables definidas o iniciliazadas--------------
 
@@ -170,8 +170,10 @@ $(document).on('ready',function(){
     }else{
       $("#mensaje8").fadeOut();
       //Ejecutando Función------------------------------------------
-      ajaxPost(nombre, email, password, empresa, telefono,  persona);
+      //ajaxPost(nombre, email, password, empresa, telefono,  persona);
+      archivoValidate(file);
     }
+
 
     //--------------------------------------------
 
@@ -184,7 +186,7 @@ $(document).on('ready',function(){
   function archivoValidate(file)
   {
     file.onchange = (ev) => {
-      console.log(ev);
+      console.log('evento' + ev);
     }
   }
 

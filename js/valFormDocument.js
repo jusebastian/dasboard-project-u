@@ -328,7 +328,33 @@ $(document).on('ready', function () {
   }
 
   //-------------------------------------------------
-  //Funcion validar fecha Hoy
+  //Funcion valida tipo de archivo y tamaño
+  function fileValidation(){
+    var fileInput = file
+    //var filePath = fileInput.value;
+    var allowedExtensions = /(.doc|.pdf|)$/i;
+    if(!allowedExtensions.exec(fileInput)){
+        alert('Please upload file having extensions .doc/.pdf only.');
+        fileInput.value = '';
+        return false;
+    }else{
+        //Image preview
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#imagePreview').innerHTML = '<div>'+e.target.result+'</div>';
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+  }
+
+
+  //Mostrar input
+  function mostrarDatosInput(){
+    
+  }
+
 
  
   
