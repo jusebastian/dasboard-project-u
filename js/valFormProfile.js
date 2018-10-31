@@ -180,6 +180,14 @@ $(document).on('ready',function(){
   });//./Funcion Submit
 
 
+  //Validando Archivo imagen
+  function archivoValidate(file)
+  {
+    file.onchange = (ev) => {
+      console.log(ev);
+    }
+  }
+
 
      
   //----------------------------------------------
