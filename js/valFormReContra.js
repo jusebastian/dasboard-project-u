@@ -16,6 +16,7 @@ $(document).on('ready', function(){
     }else if((!expre.test(recoveryEmail))){
       $("#alerta8").fadeIn("slow");
       $("#alerta8").slideToggle("fast");
+      $("#recovery-email").val('');
       return false;
     }else {
       $("#mensaje3").fadeOut();
@@ -23,10 +24,13 @@ $(document).on('ready', function(){
       ajaxPost(recoveryEmail);
       
     }
-
+    limpiarCampos();
     
   });
-
+ //Limpiar campos
+ function limpiarCampos(){
+  $("#recovery-email").val('');
+ }
 
   //-------------------------------------------------------
 
