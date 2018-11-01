@@ -31,7 +31,6 @@ $(document).on('ready', function () {
     }else if(nombreCompleto.length>100){
       $("#alerta1_5").fadeIn("slow");
       $("#alerta1_5").slideToggle("fast");
-      nombreCompleto.val("");
       return false;
     }else{
       $("#mensaje4").fadeOut();
@@ -96,7 +95,6 @@ $(document).on('ready', function () {
     if (telefono == '') {
       $("#mensaje8").fadeIn("slow");
       $("#mensaje8").slideToggle("fast");
-      
       return false;
     }else if((!numero.test(telefono))){
       $("#alerta2").fadeIn("slow");

@@ -34,9 +34,9 @@ $(document).on('ready', function () {
       $("#mensaje10").fadeIn("slow");
       $("#mensaje10").slideToggle("fast");
       return false;
-
     } else {
       $("#mensaje11").fadeOut();
+      
     }
     //--------------------------------------
 
@@ -349,10 +349,13 @@ $(document).on('ready', function () {
     }
   }
 
-
-  //Mostrar input
+  //------------------------------------------------------------------------
+  //Mostrar input------------------------------------------------------------
   function mostrarDatosInput(){
-    
+    var catSelected = $("#tipoTrabajo");
+    var opcionSelected = catSelected.options[catSelected.selectedIndex].val();
+    $("categoriasSelec").val() = opcionSelected;
+
   }
 
 
