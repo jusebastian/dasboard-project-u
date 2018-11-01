@@ -31,7 +31,8 @@ $(document).on('ready', function () {
     }else if(nombreCompleto.length>100){
       $("#alerta1_5").fadeIn("slow");
       $("#alerta1_5").slideToggle("fast");
-      return false;
+      $("#name3").val(''); 
+      return false;   
     }else{
       $("#mensaje4").fadeOut();
     }
@@ -46,6 +47,7 @@ $(document).on('ready', function () {
     }else if((!expre.test(email))){
       $("#alerta2").fadeIn("slow");
       $("#alerta2").slideToggle("fast");
+      $("#email3").val('');
       return false;
     } else {
       $("#mensaje5").fadeOut();
@@ -61,6 +63,7 @@ $(document).on('ready', function () {
     }else if(password.length > 8){
       $("#alerta3").fadeIn("slow");
       $("#alerta3").slideToggle("fast");
+      $("#password3").val('');
       return false;
     } else {
       $("#mensaje6").fadeOut();
@@ -76,10 +79,12 @@ $(document).on('ready', function () {
     }else if(repassword.length > 8){
       $("#alerta4").fadeIn("slow");
       $("#alerta4").slideToggle("fast");
+      $("#repassword3").val('');
       return false;
     }else if(repassword != password){
       $("#alerta4_1").fadeIn('slow');
       $("#alerta4_1").slideToggle('fast');
+      $("#repassword3").val('');
       return false;
     } else {
       $("#mensaje7").fadeOut();
@@ -97,8 +102,14 @@ $(document).on('ready', function () {
       $("#mensaje8").slideToggle("fast");
       return false;
     }else if((!numero.test(telefono))){
-      $("#alerta2").fadeIn("slow");
-      $("#alerta2").slideToggle("fast");
+      $("#alerta5").fadeIn("slow");
+      $("#alerta5").slideToggle("fast");
+      $("#telefono3").val('');
+      return false;
+    }else if(telefono.length > 10){
+      $("#alerta5_1").fadeIn("slow");
+      $("#alerta5_1").slideToggle("fast");
+      $("#telefono3").val('');
       return false;
     }else {
       $("#mensaje8").fadeOut();
@@ -124,14 +135,26 @@ $(document).on('ready', function () {
     } else {
       $("#mensaje10").fadeOut();
       //Ejecutando función
+
       ajaxPost(nombreCompleto, email, password, empresa, telefono,  persona);
       
     }
 
     //---------------------------------------------------
+    //limpia Datos
+    limpiarCampos();
     
-  
   });//submit
+
+  function limpiarCampos(){
+    $("#name3").val('');
+    $("#email3").val('');
+    $("#password3").val('');
+    $("#repassword3").val('');
+    $("#telefono3").val('');
+    $("#empresa3").val('');
+    $("#persona3").val('');
+  }
 
 
   //-----------------------------------------------------------------------------

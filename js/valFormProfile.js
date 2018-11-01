@@ -15,7 +15,6 @@ $(document).on('ready',function(){
     //Variables definidas o iniciliazadas--------------
 
     var nombre = $("#nombre").val();
-    //var apellido = $("#apellido").val();
     var email = $("#correo").val();
     var empresa = $("#empresa").val();
     var telefono = $("#telefono").val();
@@ -35,11 +34,13 @@ $(document).on('ready',function(){
       return false;
     }else if(nombre.length > 100){
       $("#alerta1_5").fadeIn("slow");
-      $("#alerta1_5").slideToggle("fast");
+      $("#alerta1_5").delay(2000).slideToggle("fast");
+      $("#nombre").val('');
       return false;
     }else if((!letra.test(nombre))){
       $("#alerta1").fadeIn("slow");
-      $("#alerta1").slideToggle("fast");
+      $("#alerta1").delay(2000).slideToggle("fast");
+      $("#nombre").val('');
       return false;
     }else{
       $("#mensaje1").fadeOut();
@@ -55,7 +56,8 @@ $(document).on('ready',function(){
       return false;
     }else if((!expre.test(email))){
       $("#alerta2").fadeIn("slow");
-      $("#alerta2").slideToggle("fast");
+      $("#alerta2").delay(2000).slideToggle("fast");
+      $("#correo").val('');
       return false;
     } else {
       $("#mensaje3").fadeOut();
@@ -112,11 +114,13 @@ $(document).on('ready',function(){
       return false; 
     }else if((!nume.test(telefono))){
       $("#alerta5").fadeIn("slow");
-      $("#alerta5").slideToggle("fast");
+      $("#alerta5").delay(2000).slideToggle("fast");
+      $("#telefono").val('');
       return false; 
     }else if(telefono.length > 10){
       $("#alerta6").fadeIn("slow");
-      $("#alerta6").slideToggle("fast");
+      $("#alerta6").delay(2000).slideToggle("fast");
+      $("#telefono").val('');
       return false; 
     }else{
       $("#mensaje5").fadeOut();
@@ -131,7 +135,8 @@ $(document).on('ready',function(){
       return false; 
     }else if(password.length > 8){
       $("#alerta7").fadeIn("slow");
-      $("#alerta7").slideToggle("fast");
+      $("#alerta7").delay(2000).slideToggle("fast");
+      $("#constraseña").val('');
       return false; 
     }else{
       $("#mensaje6").fadeOut();
@@ -147,11 +152,13 @@ $(document).on('ready',function(){
       return false;
     }else if(recontraseña.length > 8){
       $("#alerta8").fadeIn("slow");
-      $("#alerta8").slideToggle("fast");
+      $("#alerta8").delay(2000).delay(2500).slideToggle("fast");
+      $("#recontraseña").val('');
       return false;  
     }else if(recontraseña != password){
       $("#alerta8_1").fadeIn('slow');
-      $("#alerta8_1").slideToggle('fast');
+      $("#alerta8_1").delay(2000).slideToggle('fast');
+      $("#recontraseña").val('');
       return false;
     }else{
       $("#mensaje7").fadeOut();
@@ -171,15 +178,27 @@ $(document).on('ready',function(){
       $("#mensaje8").fadeOut();
       //Ejecutando Función------------------------------------------
       //ajaxPost(nombre, email, password, empresa, telefono,  persona);
-      archivoValidate(file);
+      //archivoValidate(file);
+
     }
 
 
     //--------------------------------------------
-
+    //Limpia Campos
+    limpiarCampos();
     
 
   });//./Funcion Submit
+  function limpiarCampos(){
+    $("#nombre").val('');
+    $("#correo").val('');
+    $("#empresa").val('');
+    $("#telefono").val('');
+    $("#constraseña").val('');
+    $("#recontraseña").val('');
+    $("#persona").val('');
+    $("#file").val('');
+  }
 
 
   //Validando Archivo imagen

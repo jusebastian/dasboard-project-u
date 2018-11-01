@@ -27,10 +27,12 @@ $(document).on('ready', function () {
     }else if((!letra.test(nombreCompleto))){
       $("#alerta1").fadeIn("slow");
       $("#alerta1").slideToggle("fast");
+      $("#name2").val('');
       return false;
     }else if(nombreCompleto.length>100){
       $("#alerta1_5").fadeIn("slow");
       $("#alerta1_5").slideToggle("fast");
+      $("#name2").val('');
       return false;
     }else{
       $("#mensaje4").fadeOut();
@@ -46,6 +48,7 @@ $(document).on('ready', function () {
     }else if((!expre.test(email))){
       $("#alerta0").fadeIn("slow");
       $("#alerta0").slideToggle("fast");
+      $("#email2").val('');
       return false;
     } else {
       $("#mensaje5").fadeOut();
@@ -61,6 +64,7 @@ $(document).on('ready', function () {
     }else if(password.length > 8){
       $("#alerta3").fadeIn("slow");
       $("#alerta3").slideToggle("fast");
+      $("#password2").val('');
       return false;
     } else {
       $("#mensaje6").fadeOut();
@@ -76,10 +80,12 @@ $(document).on('ready', function () {
     }else if(repassword.length > 8){
       $("#alerta4").fadeIn("slow");
       $("#alerta4").slideToggle("fast");
+      $("#repassword2").val('');
       return false;
     }else if(repassword != password){
       $("#alerta4_1").fadeIn('slow');
       $("#alerta4_1").slideToggle('fast');
+      $("#repassword2").val('');
       return false;
     } else {
       $("#mensaje7").fadeOut();
@@ -97,8 +103,14 @@ $(document).on('ready', function () {
       $("#mensaje8").slideToggle("fast");
       return false;
     }else if((!numero.test(telefono))){
-      $("#alerta2").fadeIn("slow");
-      $("#alerta2").slideToggle("fast");
+      $("#alerta5").fadeIn("slow");
+      $("#alerta5").slideToggle("fast");
+      $("#telefono2").val('');
+      return false;
+    }else if(telefono.length > 10){
+      $("#alerta5_1").fadeIn("slow");
+      $("#alerta5_1").slideToggle("fast");
+      $("#telefono2").val('');
       return false;
     }else {
       $("#mensaje8").fadeOut();
@@ -130,10 +142,22 @@ $(document).on('ready', function () {
     }
 
     //---------------------------------------------------
-    
+    //Limpiar Datos
+    limpiaCampos();
   
   });//submit
-  
+  //---------------------------------------------------------------------------
+  //function limpia campos------------------------------------------------------
+  function limpiaCampos(){
+    $("#name2").val('');
+    $("#email2").val('');
+    $("#password2").val('');
+    $("#repassword2").val('');
+    $("#telefono2").val('');
+    $("#empresa2").val('');
+    $("#persona2").val('');
+  }
+
 
   //-----------------------------------------------------------------------------
   //Funciòn AjaxPost-------------------------------------------------------------

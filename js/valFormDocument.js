@@ -68,11 +68,13 @@ $(document).on('ready', function () {
     } else if ((tituloProyecto.length > 50)) {
       $("#alerta2").fadeIn("slow");
       $("#alerta2").slideToggle("fast");
+      $("#tituloProyecto").val('');
       return false;
     } else if ((!letra.test(tituloProyecto))) {
       $("#alerta2").fadeOut();
       $("#alerta1").fadeIn("slow");
       $("#alerta1").slideToggle("fast");
+      $("#tituloProyecto").val('');
       return false;
     } else {
       $("#mensaje12").fadeOut();
@@ -89,6 +91,7 @@ $(document).on('ready', function () {
     } else if (!validarEmail(nombreAutor)) {
       $("#alerta3").fadeIn("slow");
       $("#alerta3").slideToggle("fast");
+      $("#nombreAutor").val('');
       return false;
     } else {
       $("#mensaje13").fadeOut();
@@ -101,6 +104,11 @@ $(document).on('ready', function () {
     if (textarea == "") {
       $("#mensaje14").fadeIn("slow");
       $("#mensaje14").slideToggle("fast");
+      return false;
+    }else if(textarea.length > 500){
+      $("#alerta3_1").fadeIn("slow");
+      $("#alerta3_1").slideToggle("fast");
+      $("#textarea").val('');
       return false;
     } else {
       $("#mensaje14").fadeOut();
@@ -140,6 +148,7 @@ $(document).on('ready', function () {
     } else if ((!validarPalabraClave(palabraClave))) {
       $("#alerta4").fadeIn("slow");
       $("#alerta4").slideToggle("fast");
+      //$("#palabraClave").val('');
       //console.log(JSON.stringify(validarPalabraClave(palabraClave)));
       return false;
     } else {
@@ -152,6 +161,11 @@ $(document).on('ready', function () {
     if (Abstract == "") {
       $("#mensaje19").fadeIn("slow");
       $("#mensaje19").slideToggle("fast");
+      return false;
+    }else if(Abstract.length > 500 ){
+      $("#alerta4_1").fadeIn("slow");
+      $("#alerta4_1").slideToggle("fast");
+      $("#Abstract").val('');
       return false;
     } else {
       $("#mensaje19").fadeOut();
@@ -168,10 +182,12 @@ $(document).on('ready', function () {
     } else if ((!letra.test(finalidad))) {
       $("#alerta5").fadeIn("slow");
       $("#alerta5").slideToggle("fast");
+      $("#finalidad").val('');
       return false;
     } else if ((finalidad.length > 50)) {
       $("#alerta6").fadeIn("slow");
       $("#alerta6").slideToggle("fast");
+      $("#finalidad").val('');
       return false;
     } else {
       $("#mensaje21").fadeOut();
@@ -200,9 +216,28 @@ $(document).on('ready', function () {
     }
 
     //----------------------------------------------------------
-
+    //Limpiar campos
+    limpiarCampos();
 
   }); //Fin submitFour
+
+  //_----------------------------------------------------------
+  //Función Limpia Campos
+  function limpiarCampos(){
+
+    $("#tipoTrabajo").val('');
+    $("#tituloProyecto").val('');
+    $("#nombreAutor").val('')
+    $("#textarea").val('');
+    $("#file").val('');
+    $("#categoria").val('');
+    $("#tipoPrograma").val('');
+    $("#palabraClave").val('')
+    $("#Abstract").val('');
+    $("#finalidad").val('');
+    $("#fechaPublicacion").val('');
+
+  }
 
 
   //Funciones

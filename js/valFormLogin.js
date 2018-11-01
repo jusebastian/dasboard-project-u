@@ -5,9 +5,9 @@ $(document).on('ready', function(){
 
   //
 
-  $("#submit").click(function(e){
+  $("#submit").click(function(){
 
-    e.preventDefault();
+    //e.preventDefault();
 
     var email = $("#email").val();
     var password = $("#password").val(); 
@@ -16,11 +16,12 @@ $(document).on('ready', function(){
   
     if(email == ""){
       $("#mensaje1").fadeIn("slow");
-      $("#mensaje1").slideToggle("fast");
+      $("#mensaje1").delay(1000).slideToggle("fast");
       return false;
     }else if((!expre.test(email))){
       $("#alerta1").fadeIn("slow");
-      $("#alerta1").slideToggle("fast");
+      $("#alerta1").delay(1000).slideToggle("fast");
+      $("#email").val('');
       return false;         
     }else{
       $("#mensaje1").fadeOut();
@@ -30,9 +31,10 @@ $(document).on('ready', function(){
       $("#mensaje2").fadeIn();
       $("#mensaje2").slideToggle("fast");
       return false;
-    }else if(password.length > 8){
+    }else if(password.length < 8 || password.length > 16){
       $("#alerta2").fadeIn();
-      $("#alerta2").slideToggle("fast");
+      $("#alerta2").delay(2000).slideToggle("fast");
+      $("#password").val(''); 
       return false;
     }else{
       $("#mensaje2").fadeOut();
@@ -40,8 +42,14 @@ $(document).on('ready', function(){
 
     ajaxPost(email, password);
 
-  });
+    limpiar();
 
+  });
+  //Funcion Limpiar
+  function limpiar(){
+    $("#email").val('');
+    $("#password").val(''); 
+  }
 
   //-------------------------------------------------------
 
