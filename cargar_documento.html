@@ -251,8 +251,6 @@
                     <label for="finalidad" class="errores2" id="alerta5">Campo solo recibe Texto</label>
                     <label for="finalidad" class="errores2" id="alerta6">Ingrese máximo 50
                       caracteres</label>
-
-
                   </div>
 
                   <div class="form-group">
@@ -283,7 +281,7 @@
             <!--Mostrar Informaciòn Base de datos-->
             <button type="button" class="pull-right clickable panel-toggle panel-button-tab-left " data-toggle="collapse" data-target="#demo"><em class="fa fa-toggle-down fa-1x"></em></button>
             <div class="col-sm-12 collapse out"  id="demo">
-              <table class="table" id="tabla">
+              <table class="table" id="tableId">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -291,11 +289,11 @@
                     <th scope="col">Finalidad</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
-
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
+                <tbody id="tbodyProducto">
+                  
+                  <!--<tr>
                     <th scope="row">1</th>
                     <td>Mark</td>
                     <td>Otto</td>
@@ -315,7 +313,7 @@
                     <td>the Bird</td>
                     <td><button class="btn btn-warning">Editar</button></td>
                     <td><button class="btn btn-danger">Eliminar</button></td>
-                  </tr>
+                  </tr>-->
                 </tbody>
               </table>
             </div>
@@ -341,6 +339,7 @@
     <script src="js/custom.js"></script>
     <script src="js/valFormDocument.js"></script>
     <script src="js/valFormDocumentSetData.js"></script>
+    <script src="js/valDocumentGetData.js"></script>
 
 
 </body>
