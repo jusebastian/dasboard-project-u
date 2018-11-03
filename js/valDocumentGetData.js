@@ -5,7 +5,7 @@ $(document).on('ready',function(){
   
   $.ajax({
     url: URL,
-    type: 'POST',
+    type: 'GET',
     DataType: 'json',
     success: function(data) {
       var valor = '<tr>' +

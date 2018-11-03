@@ -36,7 +36,7 @@ $(document).on('ready', function () {
       return false;
     } else {
       $("#mensaje11").fadeOut();
-      
+      //mostrarDatosInput();
     }
     //--------------------------------------
 
@@ -388,10 +388,16 @@ $(document).on('ready', function () {
   //Mostrar input------------------------------------------------------------
   function mostrarDatosInput(){
     var catSelected = $("#tipoTrabajo");
-    var opcionSelected = catSelected.options[catSelected.selectedIndex].val();
-    $("categoriasSelec").val() = opcionSelected;
+    var opcionSelected = $("categoriasSelec");
+    //var opcionSelected = catSelected.options[catSelected.selectedIndex].val();
+    
+    opcionSelected.val() = catSelected.val(); 
 
   }
+
+  /*$('select#tipoTrabajo').change(function(){
+    $('categoriasSelec').val($(this).val());  
+  });*/
 
 
  
