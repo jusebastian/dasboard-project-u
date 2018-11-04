@@ -1,8 +1,6 @@
 $(document).on('ready', function () {
 
-  //var base_url = $("#base_url").val();
-  //var URL = base_url + 'clientes/listarProducto';
-
+  //Ejemplo --  prueba
   var cont = 0;
   for (var i = 0; i < 10; i++) {
 
@@ -13,54 +11,56 @@ $(document).on('ready', function () {
       '<th scope="row"> ' +  i + '</th>' +
       '<td>' + "dos " + i + '</td>' +
       '<td>' + "tres" + i + '</td>' +
+      '<td>' + "cuatro" + i + '</td>' +
+      '<td>' + "cinco" + i + '</td>' +
+      '<td>' + "seis" + i + '</td>' +
       '<td><button  class="btn btn-warning"  id="bt_edit" onclick="seleccionar(' + i + ')">Editar</button></td>' +
       '<td><button class="btn btn-danger" id="bt_del" onclick="eliminar(' + i + ')">Eliminar</button></td>' +
       '</tr>';
-    $('#tbodyProducto').append(valor);
+    $('#tableBodyUser').append(valor);
     console.log(valor);
     cont++;
 
   }
 
-  /*$('#bt_del').click(function(){
-    eliminar(id_fila_selected);
-  });*/
-
-  /*var tr = $('tr');
-  addRowHandlers();
-  console.log(tr);*/
-
-  //----------------------------------------
-  //Get Ajax-------------------------------
-/*
-  $.ajax({
+  //Function Ajax-------------------
+  //--------------------------------
+  /*$.ajax({
     type: 'GET',
-    url: 'api/proyecto/all',
+    url: 'api/usuario/',
     success: function (data) {
-      var cont = 0;
+      console.log(data);
+      //Retornar Jeison Data
+      //Iterando los valores de JSON
       for (var i = 0; i < data.length; i++) {
+        var cont = 0;
         var id = data[i];
-        //inserte el contenido, especificado por el parámetro,
-        //$('#categoria').append('<option value=">' + id.id + '">' + id.nombre + '</option>');
+        //inserte el contenido, especificado por el parámetro
         var valor = '<tr id="fila' + cont + '" >' +
-          '<th scope="row">' + id.id +'</th>' +
-          '<td>' + id.titulo+ '</td>' +
-          '<td>' + id.finalidad + i + '</td>' +
+          '<th scope="row"> ' + id.id + '</th>' +
+          '<td>' + id.nombre + '</td>' +
+          '<td>' + id.email + '</td>' +
+          '<td>' + id.telefono + '</td>'+
+          '<td>' + id.empresa + '</td>'+
+          '<td>' + id.rol + '</td>'+
           '<td><button  class="btn btn-warning"  id="bt_edit" onclick="seleccionar(' + i + ')">Editar</button></td>' +
           '<td><button class="btn btn-danger" id="bt_del" onclick="eliminar(' + i + ')">Eliminar</button></td>' +
           '</tr>';
-        $('#tbodyProducto').append(valor);
+        $('#tableBodyUser').append(valor);
         console.log(valor);
         cont++;
 
       }
+
     }
 
-  });//--/.Function ajax---------------------------*/
 
-  //-----------------------------------------------
 
-}); //--./Fin Ready
+  });//--/.Fin Ajax*/
+
+
+
+});//-/.Function Ready
 
 //Array-----------------------------
 var id_fila_selected = [];
@@ -86,8 +86,3 @@ function eliminar(id_fila) {
   console.log("filaID" + id_fila);
   $('#fila' + id_fila).remove();
 }//--/.Fin Function-----------------
-
-
-
-
-

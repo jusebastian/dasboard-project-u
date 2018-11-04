@@ -53,3 +53,42 @@
         
       }
     }
+
+
+    for (var i = 0; i < data.length; i++) {
+        var id = data[i];
+        //inserte el contenido, especificado por el parámetro,
+        //$('#categoria').append('<option value=">' + id.id + '">' + id.nombre + '</option>');
+        var valor = '<tr>' +
+          '<th>' + id.id + '</th>' +
+          '<td>' + id.titulo + '</td>' +
+          '<td>' + id.finalidad + '</td>' +
+          '<td><button  class="btn btn-warning"  id="bt_edit" onclick="seleccionar(' + i + ')">Editar</button></td>' +
+          '<td><button class="btn btn-danger" id="bt_del" onclick="eliminar(' + i + ')">Eliminar</button></td>' +
+          '</tr>';
+        $("#tbodyProducto").append(valor);
+      }
+
+
+
+       //funcion Handlers()-----------------------
+  //----------------------------------------
+  /*function addRowHandlers() {
+    var table = $('#tableId');
+    var rows = table.$('tr');
+    for (i = 0; i < rows.length; i++) {
+      var currentRow = rows[i];
+      var createClickHandler = function (row) {
+        return function () {
+          var cell = row.$('td')[0];
+          var id = cell.innerHTML;
+          alert("id:" + id);
+        };
+      };
+
+      currentRow.onclick = createClickHandler(currentRow);
+    }
+  }*/
+  //window.onload = addRowHandlers();
+  //Fin Handlers----------------------
+  //-----------------------------------
