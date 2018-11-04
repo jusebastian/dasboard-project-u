@@ -148,7 +148,7 @@ $(document).on('ready', function () {
     } else if ((!validarPalabraClave(palabraClave))) {
       $("#alerta4").fadeIn("slow");
       $("#alerta4").slideToggle("fast");
-      //$("#palabraClave").val('');
+      $("#palabraClave").val('');
       //console.log(JSON.stringify(validarPalabraClave(palabraClave)));
       return false;
     } else {

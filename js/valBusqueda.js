@@ -30,7 +30,8 @@ $(document).on('ready', function () {
 
   //Ejemplo llenado datos
 
-
+  
+  
 
   //Ajax pata trae datos del servidor por meddio de get
   //-----------------------------------------------------
@@ -41,8 +42,7 @@ $(document).on('ready', function () {
       console.log(data);
       //Retorna Json data
       //Iterando los valores de JSON
-      for (var i = 0; i < 6; i++) {
-
+      for (var i = 0; i < data.length; i++) {
         var id = data[i];
         //inserte el contenido, especificado por el parámetro,
         var valor = '<a href="' + cont + '" >' +

@@ -53,11 +53,45 @@ $(document).on('ready', function () {
       }
 
     }
-
-
-
   });//--/.Fin Ajax*/
 
+  //_-----------------------------------------
+  //---Filtros de Busqueda--------------------
+
+  //Varibales que lo acompaña
+  
+  var contenido_fila;
+  var coincidencias;
+  var exp;
+
+  //Opción buscar
+  $('#btn-input').keyup(function(){
+    if($(this).val().length >=3 ){
+      filtrar($(this).val());
+    }
+    console.log($(this).val().length);
+  });
+  
+  //Función filtrar
+  function filtrar(cadena){
+    $('#tableBodyUser tr').each(function(){
+      contenido_fila=$(this).find('td:eq(0)').html();
+      exp = new RegExp(cadena, 'gi');
+      coincidencias = contenido_fila.match(exp);
+      console.log("coincidencias:" + coincidencias);
+      console.log("contenido" + contenido_fila);
+      if(coincidencias != null){
+        $(this).addClass('resaltar');
+      }else{
+        $(this).addClass('ocultar');
+      }
+      
+    });
+
+
+  }
+  //--/.Fin Filtro------------------------------
+  //--------------------------------------------
 
 
 });//-/.Function Ready

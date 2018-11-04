@@ -1280,3 +1280,10 @@ a.registro:hover{
 .botonEn{
   background: #00612F !important;
 }
+
+.resaltar{
+  background: #ec971f;
+}
+.ocultar{
+  background: none;
+}
