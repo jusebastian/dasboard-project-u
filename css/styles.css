@@ -1287,3 +1287,14 @@ a.registro:hover{
 .ocultar{
   background: none;
 }
+
+
+/*opciones mostrar y ocultar busqueda*/
+#ocultar{
+  display: block;
+}
+
+#mostrar{
+  display: none;
+}
+

@@ -128,15 +128,17 @@
 
 
           <div class="panel panel-body buscar">
+
             <div class="input-group">
-              <input id="btn-input" type="text" class="form-control input-md" placeholder="Buscar"/>
+              <input type="text" class="form-control input-md" placeholder="Buscar" id="buscar" />
+              <!--/.Input Buscar-->
               <span class="input-group-btn">
-                <button class="btn btn-primary btn-md" id="btn-chat"><i class="fas fa-search"> &nbsp;</i></button>
+                <button class="btn btn-primary btn-md" id="btn-buscar"><i class="fa fa-search"> &nbsp;</i></button>
               </span>
             </div>
 
             <div class="check-input">
-              <input type="checkbox"> Busqueda avanzada
+              <!---<input type="checkbox"> Busqueda avanzada-->
             </div>
             <!--<span class="pull-right clickable panel-toggle panel-button-tab-right"><em class="fa fa-toggle-up"></em></span>-->
           </div>
@@ -145,12 +147,11 @@
 
         <div class="col-md-9">
           <div class="panel panel-default chat">
-            <div class="panel-heading">
+            <div class="panel-heading" id="texto">
               Recientes
-
               <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
             </div>
-            <div class="panel-body">
+            <div class="panel-body" id="ocultar">
               <ul id="Informacion">
                 <!--<a href="Informacion.html">
                   <li class="left clearfix">
@@ -171,8 +172,43 @@
                     </div>
                   </li>
                 </a>-->
-              </ul><!---->
-            </div> <!--/.Col-md-9-->
+              </ul>
+              <!---->
+            </div>
+            <!--/.Col-md-9-->
+            <!--Div mostrar datos busqueda-->
+            <!-------------------------------------------------------------------------------------->
+
+            <!--Mostrar datos de busqueda -->
+            <!-------------------------------------------------------------------------------------->
+            <div class="panel-body" id="mostrar">
+              <ul id="resultadoBusqueda">
+                <!--<a href="Informacion.html">
+                    <li class="left clearfix">
+                      <span class="chat-img pull-left">
+                        
+                        <i class="fas fa-graduation-cap fa-5x"></i>
+                      </span>
+                      <div class="chat-body clearfix ">
+                        <div class="header">
+                          <strong class="primary-font">John Doe</strong>
+                        </div>
+                        <p class="">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ante
+                          turpis, rutrum ut ullamcorper sed, dapibus ac nunc.
+                        </p>
+  
+                        <small class="text-muted pull-right">32 mins ago</small>
+                      </div>
+                    </li>
+                  </a>-->
+              </ul>
+              <!---->
+            </div>
+            <!--/.Col-md-9-->
+            <!--/.Fin mostrar Datos de buqueda-->
+            <!----------------------------------------------------------------------------------------->
+
 
             <!--Pagination-->
             <nav aria-label="Page navigation example" class="page">
