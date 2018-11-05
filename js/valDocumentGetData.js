@@ -10,10 +10,10 @@ $(document).on('ready', function () {
     //inserte el contenido, especificado por el parámetro,
     //$('#categoria').append('<option value=">' + id.id + '">' + id.nombre + '</option>');
     var valor = '<tr id="fila' + cont + '" >' +
-      '<th scope="row"> ' +  i + '</th>' +
+      '<th scope="row"> ' + i + '</th>' +
       '<td>' + "dos " + i + '</td>' +
       '<td>' + "tres" + i + '</td>' +
-      '<td><button  class="btn btn-warning"  id="bt_edit" onclick="seleccionar(' + i + ')">Editar</button></td>' +
+      '<td><button  class="btn btn-warning"  id="bt_edit" onclick="editar(' + i + ')">Editar</button></td>' +
       '<td><button class="btn btn-danger" id="bt_del" onclick="eliminar(' + i + ')">Eliminar</button></td>' +
       '</tr>';
     $('#tbodyProducto').append(valor);
@@ -32,31 +32,31 @@ $(document).on('ready', function () {
 
   //----------------------------------------
   //Get Ajax-------------------------------
-/*
-  $.ajax({
-    type: 'GET',
-    url: 'api/proyecto/all',
-    success: function (data) {
-      var cont = 0;
-      for (var i = 0; i < data.length; i++) {
-        var id = data[i];
-        //inserte el contenido, especificado por el parámetro,
-        //$('#categoria').append('<option value=">' + id.id + '">' + id.nombre + '</option>');
-        var valor = '<tr id="fila' + cont + '" >' +
-          '<th scope="row">' + id.id +'</th>' +
-          '<td>' + id.titulo+ '</td>' +
-          '<td>' + id.finalidad + i + '</td>' +
-          '<td><button  class="btn btn-warning"  id="bt_edit" onclick="seleccionar(' + i + ')">Editar</button></td>' +
-          '<td><button class="btn btn-danger" id="bt_del" onclick="eliminar(' + i + ')">Eliminar</button></td>' +
-          '</tr>';
-        $('#tbodyProducto').append(valor);
-        console.log(valor);
-        cont++;
-
+  /*
+    $.ajax({
+      type: 'GET',
+      url: 'api/proyecto/all',
+      success: function (data) {
+        var cont = 0;
+        for (var i = 0; i < data.length; i++) {
+          var id = data[i];
+          //inserte el contenido, especificado por el parámetro,
+          //$('#categoria').append('<option value=">' + id.id + '">' + id.nombre + '</option>');
+          var valor = '<tr id="fila' + cont + '" >' +
+            '<th scope="row">' + id.id +'</th>' +
+            '<td>' + id.titulo+ '</td>' +
+            '<td>' + id.finalidad + i + '</td>' +
+            '<td><button  class="btn btn-warning"  id="bt_edit" onclick="seleccionar(' + i + ')">Editar</button></td>' +
+            '<td><button class="btn btn-danger" id="bt_del" onclick="eliminar(' + i + ')">Eliminar</button></td>' +
+            '</tr>';
+          $('#tbodyProducto').append(valor);
+          console.log(valor);
+          cont++;
+  
+        }
       }
-    }
-
-  });//--/.Function ajax---------------------------*/
+  
+    });//--/.Function ajax---------------------------*/
 
   //-----------------------------------------------
 
@@ -86,6 +86,41 @@ function eliminar(id_fila) {
   console.log("filaID" + id_fila);
   $('#fila' + id_fila).remove();
 }//--/.Fin Function-----------------
+
+//Function Edita Campo--------------
+//----------------------------------
+
+function editar(id_fila) {
+ var item = $("#tipoTrabajo");
+ //item.val() = 
+}
+
+
+/*this.Edit = function (item) {
+  var el = document.getElementById('edit-name');
+  // Display value in the field
+  el.value = this.countries[item];
+  // Display fields
+  document.getElementById('spoiler').style.display = 'block';
+  self = this;
+  document.getElementById('saveEdit').onsubmit = function() {
+    // Get value
+    var country = el.value;
+    if (country) {
+      // Edit value
+      self.countries.splice(item, 1, country.trim());
+      // Display the new list
+      self.FetchAll();
+      // Hide fields
+      CloseInput();
+    }
+  }
+};*/
+
+
+
+//----------------------------------
+
 
 
 

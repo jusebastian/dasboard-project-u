@@ -540,4 +540,18 @@ $(document).on('ready', function () {
 
   } //Funcion AjaxPost
 
+  $('#tipoTrabajo').change(function(){
+    $('#categoriasSelec').val($("#tipoTrabajo option:selected").text());
+  });
+
+  
+
+  
+
 }); //Funcion
+
+//Seleccionar el valo de un select y mostrarlo en un input
+/*$(document).on('change', '#tipoTrabajo', function(event) {
+  $('#categoriasSelec').val($("#tipoTrabajo option:selected").text());
+});*/
+
