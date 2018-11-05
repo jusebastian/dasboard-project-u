@@ -154,10 +154,12 @@ $(document).on('ready', function () {
         //Agregamos un nuevo atributo o cambio de este
         $(clase).attr('class', 'fa fa-times');
         console.log('esta activo');
+        $('#texto').html('Resultados de Busqueda');
       } else {
         console.log('esta vacio');
         //Agregamos un nuevo atributo o cambio de este
         $(clase).attr('class', 'fa fa-search');
+        $('#texto').html('Recientes');
 
       }
       if ($(clase).hasClass('fa fa-times')) {
@@ -169,6 +171,7 @@ $(document).on('ready', function () {
           $(li).parent().show();
           //volvemos a añadir la clase para mostrar la lupa
           $(clase).attr('class', 'fa fa-search');
+          $('#texto').html('Resultados de Busqueda');
         });
       }
       //ocultamos toda la lista
@@ -180,6 +183,7 @@ $(document).on('ready', function () {
       //si hay coincidencias en la búsqueda cambiando a minusculas
       if ($(li).text().toLowerCase().indexOf(txt) > -1) {
         //mostramos las listas que coincidan
+       
         $(li).parent().show();
         $(Image).parent().show();
       }
