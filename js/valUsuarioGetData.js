@@ -112,11 +112,53 @@ $(document).on('ready', function () {
     });//--/.Fin Filtro escritura por teclado
   });//--/.Fin-each----------------------------
   //-------------------------------------------
+  //-------------------------------------------
+
+  //Funcional
+  //--Evento para obtemner datos y poderlos editar----------------
+  //--------------------------------------------------------------
+  $("#bt_edit").on('click', function () {
+    //$('#buscar').keyup(function(e){
+    //var texto = $('#buscar').val();
+    console.log("ocultar");
+    var res = [];
+    //Creando Ajax
+    $.ajax({
+      type: 'GET',
+      url: '',
+      success: function (data) {
+
+        for (var i = 0; i < data.length; i++) {
+          res.push(i);
+        }
+      }
+    });//--/.Fin ajax-------
+
+    obtenerDatos(res);
+
+    //$('#resultadoBusqueda').css('display' , 'block');
+    //$('#Informacion').css('display', 'none');
+    //$('#texto').html('Resultados de Busqueda');
+    //});
+  });//--./fin funciòn buscar
 
   //-------------------------------------------
   //-------------------------------------------
-  function obtenerDatos(res){
-    
+  //Funcion Obtenerdatos y colocarlos dentro del input-------
+  //---------------------------------------------------------
+
+  function obtenerDatos(res) {
+    for (var i = 0; i < res.length; i++) {
+
+      $("#name3").val() = nombre ;
+      $("#email3").val() = email;
+      $("#password3").val() = password;
+      $("#repassword3").val('');
+      $("#telefono3").val() = telefono;
+      $("#empresa3").val() = empresa;
+      $("#persona3").val() = rol;
+
+    }
   }
 
 
