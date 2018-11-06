@@ -99,9 +99,6 @@ $(document).on('ready', function () {
           '</li>' +
           '</a>';
         $('#Informacion').append(valor);
-
-
-
       }
     });//--/.Fin Ajax--------------------------------------
   });//--/.Buscar-------------------------------------------
@@ -136,7 +133,7 @@ $(document).on('ready', function () {
   //--------------------------------------------------
   //--------------------------------------------------
 
-
+  //Funcion Filtros-------------------------------------------------------
   //Funcion escrito por teclado-----------------------------------
   //----------------------------------------------------------------
   var buscar = $('#buscar');
@@ -169,6 +166,8 @@ $(document).on('ready', function () {
           $(buscar).val('');
           //mostramos todas las listas
           $(li).parent().show();
+          //Muestra las lista de imagenes
+          $(Image).parent().show();
           //volvemos a añadir la clase para mostrar la lupa
           $(clase).attr('class', 'fa fa-search');
           $('#texto').html('Resultados de Busqueda');
@@ -187,18 +186,18 @@ $(document).on('ready', function () {
         $(li).parent().show();
         $(Image).parent().show();
       }
-    });//--/.Fin escritura por teclado
+    });//--/.Fin Filtro escritura por teclado
 
 
 
-  });
+  });//--/.Fin each
 
 
   //-----------------------------------------------------------------
   //-----------------------------------------------------------------
 
 
-  function mostrarResultados(res) {
+  /*function mostrarResultados(res) {
 
     for (var i = 0; i < res.length; i++) {
 
@@ -228,7 +227,7 @@ $(document).on('ready', function () {
 
     $('#resultadoBusqueda').css('display', 'block');
     $('#Informacion').css('display', 'none');
-  }//-
+  }//-----*/
 
 
 

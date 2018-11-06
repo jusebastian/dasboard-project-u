@@ -194,6 +194,7 @@ $(document).on('ready', function () {
       /*dataType: 'json',*/
 
     });//$.ajax
+    
   }//Funcion AjaxPost
 
 

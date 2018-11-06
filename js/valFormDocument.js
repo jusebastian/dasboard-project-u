@@ -534,11 +534,9 @@ $(document).on('ready', function () {
       /*$.ajax({
 
       });*/
-    }
+    }//--./Funcion downloasUp----------------
 
-
-
-  } //Funcion AjaxPost
+  } //--./Funcion AjaxPost-------------------
 
   $('#tipoTrabajo').change(function(){
     $('#categoriasSelec').val($("#tipoTrabajo option:selected").text());
@@ -548,7 +546,7 @@ $(document).on('ready', function () {
 
   
 
-}); //Funcion
+}); //Funcion Ready
 
 //Seleccionar el valo de un select y mostrarlo en un input
 /*$(document).on('change', '#tipoTrabajo', function(event) {
