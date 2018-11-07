@@ -214,12 +214,14 @@ $(document).on('ready', function () {
       $("#mensaje22").fadeOut();
       ajaxPost(file);
     }
-
+    
     //----------------------------------------------------------
     //Limpiar campos
     limpiarCampos();
+    //$("#demo").show();
+    $('#recargar').load('cargar_documento.html');
 
-  }); //Fin submitFour
+  }); //Fin submitFour---------------------------------------------------
 
   //_----------------------------------------------------------
   //Función Limpia Campos

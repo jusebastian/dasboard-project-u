@@ -1,5 +1,10 @@
 $(document).on('ready', function () {
 
+
+  //Mostra datos----------------------------
+  
+
+
   //var base_url = $("#base_url").val();
   //var URL = base_url + 'clientes/listarProducto';
 
@@ -11,7 +16,7 @@ $(document).on('ready', function () {
     //$('#categoria').append('<option value=">' + id.id + '">' + id.nombre + '</option>');
     var valor = '<tr id="fila' + cont + '" >' +
       '<th scope="row"> ' + i + '</th>' +
-      '<td>' + "dos " + i + '</td>' +
+      '<td id="nombre">' + "dos " + i + '</td>' +
       '<td>' + "tres" + i + '</td>' +
       '<td><button  class="btn btn-warning"  id="bt_edit" onclick="editar(' + i + ')">Editar</button></td>' +
       '<td><button class="btn btn-danger" id="bt_del" onclick="eliminar(' + i + ')">Eliminar</button></td>' +
@@ -30,8 +35,9 @@ $(document).on('ready', function () {
   addRowHandlers();
   console.log(tr);*/
 
-  //----------------------------------------
-  //Get Ajax-------------------------------
+  //Funcional------------------------------------
+  //---------------------------------------------
+  //Get Ajax-------------------------------------
   /*
     $.ajax({
       type: 'GET',
@@ -58,7 +64,65 @@ $(document).on('ready', function () {
   
     });//--/.Function ajax---------------------------*/
 
-  //-----------------------------------------------
+  //-------------------------------------------------
+  //Funcional
+  //_-----------------------------------------
+  //---Filtros de Busqueda--------------------
+  var buscar = $('#buscarProyecto');
+  proyecto = $('#tableId #tbodyProducto tr #nombre');
+
+  //Image = $('ul li .chat-img i');
+  $(proyecto).each(function () {
+    var tr = $(this);
+    //si presionamos la tecla
+    $(buscar).keyup(function () {
+      //cambiamos a minusculas
+      this.value = this.value.toLowerCase();
+      //Ingresando al icono
+      var clase = $('.input-group .input-group-btn button i');
+      if ($(buscar).val() != '') {
+        //Agregamos un nuevo atributo o cambio de este
+        $(clase).attr('class', 'fa fa-times');
+        console.log('esta activo');
+        //$('#texto').html('Resultados de Busqueda');
+      } else {
+        console.log('esta vacio');
+        //Agregamos un nuevo atributo o cambio de este
+        $(clase).attr('class', 'fa fa-search');
+        //$('#texto').html('Recientes');
+
+      }
+      if ($(clase).hasClass('fa fa-times')) {
+        //Agregamos un nuevo evento
+        $(clase).click(function () {
+          //borramos el contenido del input
+          $(buscar).val('');
+          //mostramos todas las listas
+          $(tr).parent().show();
+          //Muestra las lista de imagenes
+          //$(Image).parent().show();
+          //volvemos a añadir la clase para mostrar la lupa
+          $(clase).attr('class', 'fa fa-search');
+          //$('#texto').html('Resultados de Busqueda');
+        });
+      }
+      //ocultamos toda la lista
+      $(tr).parent().hide();
+      //$(Image).parent().hide();
+
+      //valor del h3
+      var txt = $(this).val();
+      //si hay coincidencias en la búsqueda cambiando a minusculas
+      if ($(tr).text().toLowerCase().indexOf(txt) > -1) {
+        //mostramos las listas que coincidan
+
+        $(tr).parent().show();
+        //$(Image).parent().show();
+      }
+    });//--/.Fin Filtro escritura por teclado
+  });//--/.Fin-each----------------------------
+  //-------------------------------------------
+  //-------------------------------------------
 
 }); //--./Fin Ready
 

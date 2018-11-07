@@ -60,7 +60,8 @@ $(document).on('ready', function () {
   //_-----------------------------------------
   //---Filtros de Busqueda--------------------
   var buscar = $('#buscarUsuario');
-  usuario = $('#table-filtro #tableBodyUser tr #nombre, #email, #telefono');
+  usuario = $('#table-filtro #tableBodyUser tr #nombre');
+
   //Image = $('ul li .chat-img i');
   $(usuario).each(function () {
     var tr = $(this);
