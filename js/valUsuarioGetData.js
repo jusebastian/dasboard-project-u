@@ -14,7 +14,7 @@ $(document).on('ready', function () {
       '<td id="telefono">' + "cuatro" + i + '</td>' +
       '<td>' + "cinco" + i + '</td>' +
       '<td>' + "seis" + i + '</td>' +
-      '<td><button  class="btn btn-warning"  data-toggle="modal" data-target=".forget-modal-2" id="bt_edit" onclick="seleccionar(' + i + ')">Editar</button></td>' +
+      '<td><button  class="btn btn-warning"  data-toggle="modal" data-target=".forget-modal-3" id="bt_edit" onclick="seleccionar(' + i + ')">Editar</button></td>' +
       '<td><button class="btn btn-danger" id="bt_del" onclick="eliminar(' + i + ')">Eliminar</button></td>' +
       '</tr>';
     $('#tableBodyUser').append(valor);
@@ -151,13 +151,13 @@ $(document).on('ready', function () {
   function obtenerDatos(res) {
     for (var i = 0; i < res.length; i++) {
 
-      $("#name3").val() = nombre ;
-      $("#email3").val() = email;
-      $("#password3").val() = password;
-      $("#repassword3").val('');
-      $("#telefono3").val() = telefono;
-      $("#empresa3").val() = empresa;
-      $("#persona3").val() = rol;
+      $("#name3").val(res.nombre);
+      $("#email3").val(res.email)
+      $("#password3").val(res.password); 
+      $("#repassword3").val(res.password); 
+      $("#telefono3").val(res.telefono);
+      $("#empresa3").val(res.empresa);
+      $("#persona3").val(res.rol);
 
     }
   }

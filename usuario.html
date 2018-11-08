@@ -310,6 +310,114 @@
 						</div> <!-- /.modal-dialog -->
 					</div> <!-- /.modal -->
 					<!--Fin Modal-->
+					<!---------------------------------------------------------------------------------------------------------------------------------------------------------->
+					<!---------------------------------------Modal paa editar--------------------------------------------------------------------------------------------------->
+					<!--Modal Formulario Registro-->
+
+					<div class="modal fade forget-modal-3" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel"
+					 aria-hidden="true">
+						<div class="modal-dialog ">
+							<div class="modal-content">
+								<form action="" enctype="multipart/form-data" method="post">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">
+											<span aria-hidden="true">×</span>
+											<span class="sr-only">Close</span>
+										</button>
+										<h4 class="modal-title">Registro Usuario modal 3</h4>
+									</div>
+									<!--/.modal-header-->
+									<div class="modal-body">
+										<div class="form-row">
+
+											<div class="form-group ">
+												<label for="name2">Nombre completo</label>
+												<input type="text" class="form-control" id="name3" placeholder="Escriba tu Nombre completo" onkeypress="return soloLetras(event)"
+												 onpaste="return false">
+												<label for="name2" class="errores2" id="mensaje4">Digite su nombre</label>
+												<label for="name2" class="errores2" id="alerta1">Campo solo recibe Texto</label>
+												<label for="name2" class="errores2" id="alerta1_5">Ingrese máximo 100
+													caracteres</label>
+											</div>
+
+											<div class="form-group col-md-6">
+												<label for="email2">Correo electrónico</label>
+												<input type="email" class="form-control" id="email3" placeholder="Correo electrónico">
+												<label for="email2" class="errores2" id="mensaje5">Digite su correo</label>
+												<label for="name2" class="errores2" id="alerta2">Digite un correo
+													Válido</label>
+											</div>
+
+										</div>
+										<!--/.form-row-->
+										<div class="form-group col-md-6">
+											<label for="password2">Contraseña</label>
+											<input type="password" class="form-control" id="password3" placeholder="Contraseña">
+											<label for="password2" class="errores2" id="mensaje6">Digite su contraseña</label>
+											<label for="name2" class="errores2" id="alerta3">La contraseña debe contener 8 caracteres</label>
+										</div>
+
+										<div class="form-group col-md-6">
+											<label for="repassword2">Repetir contraseña</label>
+											<input type="password" class="form-control" name="repassword3" id="repassword3" placeholder="Repetir contraseña">
+											<label for="repassword2" class="errores2" id="mensaje7">Digite de nuevo su contraseña</label>
+											<label for="name2" class="errores2" id="alerta4">La contraseña debe contener 8 caracteres</label>
+											<label for="name2" class="errores2" id="alerta4_1">Contraseñas no coinciden</label>
+										</div>
+
+										<div class="form-row">
+											<div class="form-group col-md-6">
+												<label for="telefono2">Teléfono</label>
+												<input type="text" class="form-control" name="telefono3" id="telefono3" placeholder="Teléfono" onkeydown="return soloNumeros(event)"
+												 onpaste="return false">
+												<label for="telefono2" class="errores2" id="mensaje8">Digite su teléfono</label>
+												<label for="name2" class="errores2" id="alerta5">Campo solo recibe Números</label>
+												<label for="name2" class="errores2" id="alerta5_1">El teléfono debe tener 10 dígitos</label>
+											</div>
+
+											<div class="form-group col-md-6">
+												<label for="empresa2">Tipo empresa</label>
+												<select class="form-control" name="empresa3" id="empresa3">
+													<option value="0" selected="selected">Tipo empresa</option>
+													<option value="1">Corhuila</option>
+													<option value="2">Empresa Externa</option>
+												</select>
+												<label for="empresa2" class="errores2" id="mensaje9">Seleccione una Opción</label>
+											</div>
+
+											<div class="form-group col-md-6">
+												<label for="persona2">Tipo persona</label>
+												<select class="form-control" name="persona3" id="persona3">
+													<option value="0" selected="selected">Tipo Persona</option>
+													<option value="1">Estudiante</option>
+													<option value="2">Docente</option>
+													<option value="3">Externa</option>
+													<option value="4">Biblioteca</option>
+												</select>
+												<label for="persona2" class="errores2" id="mensaje10">Seleccione una Opción</label>
+											</div>
+
+										</div>
+										<!--/.form-row-tow-->
+									</div>
+									<!--/.Modal-body-->
+									<div class="modal-footer">
+										<div class="modal-footer">
+											<input id="submitFive" class="btn btn-success botonEn" data-dismiss="modal" value="Registrar">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+										</div>
+									</div>
+									<!--/.Modal-footer-->
+								</form>
+								<!--Fin Formulario-->
+
+							</div> <!-- /.modal-content -->
+						</div> <!-- /.modal-dialog -->
+					</div> <!-- /.modal -->
+					<!--Fin Modal-->
+
+
+					<!--Fin modal editar-------------------------------------------------------------------------------------------------------------------------->
 				</div><!-- /.col-->
 			</div><!-- /.row -->
 		</div>
