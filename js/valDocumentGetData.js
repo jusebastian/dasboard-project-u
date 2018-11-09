@@ -18,7 +18,7 @@ $(document).on('ready', function () {
       '<th scope="row"> ' + i + '</th>' +
       '<td id="nombre">' + "dos " + i + '</td>' +
       '<td>' + "tres" + i + '</td>' +
-      '<td><button  class="btn btn-warning"  id="bt_edit" onclick="editar(' + i + ')">Editar</button></td>' +
+      '<td><button  class="btn btn-warning"  data-toggle="modal" data-target=".forget-modal-4" id="bt_edit" onclick="seleccionar(' + i + ')">Editar</button></td>' +
       '<td><button class="btn btn-danger" id="bt_del" onclick="eliminar(' + i + ')">Eliminar</button></td>' +
       '</tr>';
     $('#tbodyProducto').append(valor);
@@ -181,12 +181,7 @@ function editar(id_fila) {
   }
 };*/
 
-
-
 //----------------------------------
-
-
-
 
 
 
