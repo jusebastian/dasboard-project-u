@@ -17,7 +17,7 @@ $(document).on('ready', function () {
     var valor = '<tr id="fila' + cont + '" >' +
       '<th scope="row"> ' + i + '</th>' +
       '<td id="nombre">' + "dos " + i + '</td>' +
-      '<td>' + "tres" + i + '</td>' +
+      '<td id="finalidad">' + "tres" + i + '</td>' +
       '<td><button  class="btn btn-warning"  data-toggle="modal" data-target=".forget-modal-4" id="bt_edit" onclick="seleccionar(' + i + ')">Editar</button></td>' +
       '<td><button class="btn btn-danger" id="bt_del" onclick="eliminar(' + i + ')">Eliminar</button></td>' +
       '</tr>';

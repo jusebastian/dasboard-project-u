@@ -1,7 +1,7 @@
 $.fn.pageMe = function(opts) {
   var $this = this,
     defaults = {
-      perPage: 7,
+      perPage: 3,
       showPrevNext: false,
       hidePageNumbers: false
     },
@@ -29,12 +29,12 @@ $.fn.pageMe = function(opts) {
     $('<li class="page-item"><a href="#" class="prev_link" aria-label="Previous">' +
       '<span aria-hidden="true">&laquo;</span>' +
       '<span class="sr-only">Previous</span>'
-      + '</a></li>').appendTo(pager);
+      + '</a></li>').append(pager);
   }
 
   var curr = 0;
   while (numPages > curr && (settings.hidePageNumbers == false)) {
-    $('<li class="page-item"><a href="#" class="page_link">' + (curr + 1) + '</a></li>').appendTo(pager);
+    $('<li class="page-item"><a href="#" class="page_link">' + (curr + 1) + '</a></li>').append(pager);
     curr++;
   }
 
@@ -42,7 +42,7 @@ $.fn.pageMe = function(opts) {
     $('<li class="page-item"><a href="#" class="next_link" aria-label="Next">' +
       '<span aria-hidden="true">&raquo;</span>' +
       '<span class="sr-only">Next</span>' +
-      + '</a></li>').appendTo(pager);
+      + '</a></li>').append(pager);
   }
 
   pager.find('.page_link:first').addClass('active');
@@ -108,7 +108,7 @@ $.fn.pageMe = function(opts) {
 
 $(document).on('ready', function () {
 
-  $('#resultadoBusqueda').pageMe({ pagerSelector: '#myPager', showPrevNext: true, hidePageNumbers: false, perPage: 4 });
+  $('#resultadoBusqueda').pageMe({ pagerSelector: '#myPager', showPrevNext: true, hidePageNumbers: false, perPage: 5 });
   console.log('estoy acà');
 });
 
