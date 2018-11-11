@@ -1,5 +1,13 @@
 $(document).on('ready', function () {
 
+  //llamando url
+  
+  //console.log(window.data);
+  //Traer informacion para ver utl
+  window.onload = console.log(localStorage.getItem("proyecto"));
+  
+  
+
   //Ejemplo
   var cont = 0;
   var Titulo = "John Doe";

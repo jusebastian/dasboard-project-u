@@ -1,14 +1,21 @@
 $(document).on('ready', function () {
 
+ 
+  //enviar archivo a otro archivo
+  var data = "Informacion personal";
+
+  //Enviatr archivo a otro
+  //localStorage.setItem("informacion_personal", "hola mundo");
+
   //Ejemplo
-  var cont = 0;
+  var cont = "informacion.html";
   var Titulo = "John Doe";
   for (var i = 0; i < 6; i++) {
 
     //var id = data[i];
     //inserte el contenido, especificado por el parámetro,
     //$('#categoria').append('<option value=">' + id.id + '">' + id.nombre + '</option>');
-    var valor = '<a href="' + cont + '" >' +
+    var valor = '<a href="#" onclick="seleccionar('+ i +');return false;">' +
       '<li class="left clearfix">' +
       '<span class="chat-img pull-left">' +
       '<i class="fas fa-graduation-cap fa-5x">' + '</i>' +
@@ -30,6 +37,14 @@ $(document).on('ready', function () {
   }//Ejemplo llenado datos--------------------------------------
   //------------------------------------------------------------
 
+  //Funcion seleccionar Input---------
+  //----------------------------------
+  function seleccionar(id_fila) {
+    //2702id_fila_selected=id_fila;
+    localStorage.setItem("proyecto",id_fila);
+    location.href = "informacion.html";
+    
+  }//--/.Fin function------------------
 
 
 
@@ -182,7 +197,7 @@ $(document).on('ready', function () {
       //si hay coincidencias en la búsqueda cambiando a minusculas
       if ($(li).text().toLowerCase().indexOf(txt) > -1) {
         //mostramos las listas que coincidan
-       
+
         $(li).parent().show();
         $(Image).parent().show();
       }
@@ -229,7 +244,7 @@ $(document).on('ready', function () {
     $('#Informacion').css('display', 'none');
   }//-----*/
 
-  
+
 
 
 
