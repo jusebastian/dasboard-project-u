@@ -130,68 +130,56 @@
 						Artículo
 						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
 					</div>
-					<div class="panel-body">
-						<div class="panel-heading">
+					<div class="panel-body"  id="todo">
+						<!--<div class="panel-heading">
 							TÍTULO PROYECTO
 						</div>
 						<div class="panel-body">
 							<div class="row">
-								<div class="col-xs-3">
-									<div class="img-institute">
+								<div class="col-xs-3" id="proyectoInfo">
+									<div id="Informe">
+										<div class="img-institute" id="img-institute">
 											<img src="http://repository.urosario.edu.co/themes/Mirage2/images/ur/portadaRI.png" alt="" class="imagenes">
-									</div>
-									<div class="">
-										<h5>Nombre del proyecto traido del archivo</h5>
-										<div class="botones">
+										</div>
+										<div class="cuadro-informe" id="cuadro-informe">
+											<h5>Nombre del proyecto traido del archivo</h5>
+											<div class="botones" id="botones">
 												<a href="" class="btn btn-info"><i class="far fa-eye fa-2x"></i></a>
 												<a href="" class="btn btn-primary"><i class="fas fa-download fa-2x"></i></a>
-										</div>
-										<div class="info-autor">
-											<h5 class="title">
-												Autor
-											</h5>
-											<p>Nombre autor</p>
-										</div>
-										<div class="info-autor">
-												<h5 class="title">
-													Director
-												</h5>
-												<p>Nombre autor</p>
 											</div>
-										
-									</div>
-										
-										
+											<div class="info-autor" id="info-auto">
+												<h5 class="title">
+														Autor
+												</h5>
+												<p id="nom-autor">Nombre autor</p>
+											</div>
+											<div class="info-autor">
+												<h5 class="title">
+													Finalidad
+												</h5>
+												<p id="finalidad">Nombre autor</p>
+											</div>
+										</div>
+									</div>/Informe
 								</div>
+								-/.PoyectoInfo
 								<div class="col-xs-9">
-									<h4 class="title">Resumen</h4>
-									<p class="info">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-										Mollitia officiis rem soluta, ex repellat voluptates deleniti, optio quos omnis, 
-										totam quaerat! Consequatur beatae impedit tempora labore facere porro nesciunt vero, 
-										fugiat similique quos ipsam nobis error nostrum quibusdam commodi quas quisquam earum reiciendis unde! Animi omnis esse,
-										modi eveniet repellat quod exercitationem alias veritatis tenetur sunt minus voluptatum quas voluptates recusandae natus reiciendis illo,
-										pariatur mollitia impedit facilis. Quisquam ullam consectetur, dolor pariatur, ipsam veritatis, blanditiis minima animi quasi architecto necessitatibus alias impedit! Minus incidunt corporis,
-										culpa pariatur animi corrupti sit in quam recusandae quae odio delectus sint mollitia harum.
-									</p>
-									<hr>
-									<h4 class="title">Abstract</h4>
-									<p class="info">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-										Mollitia officiis rem soluta, ex repellat voluptates deleniti, optio quos omnis, 
-										totam quaerat! Consequatur beatae impedit tempora labore facere porro nesciunt vero, 
-										fugiat similique quos ipsam nobis error nostrum quibusdam commodi quas quisquam earum reiciendis unde! Animi omnis esse,
-										modi eveniet repellat quod exercitationem alias veritatis tenetur sunt minus voluptatum quas voluptates recusandae natus reiciendis illo,
-										pariatur mollitia impedit facilis. Quisquam ullam consectetur, dolor pariatur, ipsam veritatis, blanditiis minima animi quasi architecto necessitatibus alias impedit! Minus incidunt corporis,
-										culpa pariatur animi corrupti sit in quam recusandae quae odio delectus sint mollitia harum.
-									</p>
-
-
+									<div id="description">
+										<h4 class="title">Resumen</h4>
+										<p class="info">
+											Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id, provident.
+										</p>
+										<hr>
+										<h4 class="title">Abstract</h4>
+										<p class="info">
+											Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, labore.
+										</p>
+									</div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 
-					</div>
+					</div><!--/.row-todo-->
 
 				</div>
 
@@ -226,7 +214,7 @@
 		</div>
 		<!--/.col-->
 		<div class="col-sm-12">
-			<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
+			<p class="back-link"><a href="https://www.medialoot.com"></a></p>
 		</div>
 	</div>
 	<!--/.row-->
@@ -241,7 +229,8 @@
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script>
-	<script>
+	<script src="js/valInformacionProjecto.js"></script>
+	<!----<script>
 		window.onload = function () {
 			var chart1 = document.getElementById("line-chart").getContext("2d");
 			window.myLine = new Chart(chart1).Line(lineChartData, {
@@ -251,7 +240,7 @@
 				scaleFontColor: "#c5c7cc"
 			});
 		};
-	</script>
+	</script>-->
 
 </body>
 
