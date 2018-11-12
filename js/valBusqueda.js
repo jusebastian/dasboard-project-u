@@ -1,6 +1,21 @@
 $(document).on('ready', function () {
 
  
+  //Alerta boostrap para busqueda
+  $("#btn-buscar").click(function(){
+    var Alerta = '<div class="alert alert-success alert-dismissible">'
+      + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
+      '<strong>' + ' Success! ' + '</strong>' + 'Datos Almacenados Correctamente'
+      + '</div>';
+    $("#resultado").append(Alerta);
+
+
+    /*var Alerta2 = '<div class="alert alert-danger alert-dismissible">'
+      + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
+      '<strong>' + ' Danger! ' + '</strong>' + 'Los datos no fueorn Almacenados Correctamente'
+      + '</div>';
+    $("#resultado2").append(Alerta2);*/
+  });
   //enviar archivo a otro archivo
   var data = "Informacion personal";
 

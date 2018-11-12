@@ -8,6 +8,25 @@ $(document).on('ready', function () {
 
   $("#submitFour").click(function () {
 
+
+    //Mensaje Alerta Boostrap-----------------------------------------------------------------------
+    var Alerta = '<div class="alert alert-success alert-dismissible">'
+      + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
+      '<strong>' + ' Success! ' + '</strong>' + 'Datos Almacenados Correctamente'
+      + '</div>';
+    $("#resultado").append(Alerta);
+
+
+    var Alerta2 = '<div class="alert alert-danger alert-dismissible">'
+      + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
+      '<strong>' + ' Danger! ' + '</strong>' + 'Los datos no fueorn Almacenados Correctamente'
+      + '</div>';
+    $("#resultado2").append(Alerta2);
+
+    //Fin mensaje alerta Boostrap----------------------------------------------------------------------
+
+
+
     /**Variables globales*/
     var visitas = 0;
     var puntuacion = 0;
@@ -105,7 +124,7 @@ $(document).on('ready', function () {
       $("#mensaje14").fadeIn("slow");
       $("#mensaje14").slideToggle("fast");
       return false;
-    }else if(textarea.length > 500){
+    } else if (textarea.length > 500) {
       $("#alerta3_1").fadeIn("slow");
       $("#alerta3_1").slideToggle("fast");
       $("#textarea").val('');
@@ -162,7 +181,7 @@ $(document).on('ready', function () {
       $("#mensaje19").fadeIn("slow");
       $("#mensaje19").slideToggle("fast");
       return false;
-    }else if(Abstract.length > 500 ){
+    } else if (Abstract.length > 500) {
       $("#alerta4_1").fadeIn("slow");
       $("#alerta4_1").slideToggle("fast");
       $("#Abstract").val('');
@@ -198,15 +217,15 @@ $(document).on('ready', function () {
     var hoy = new Date;
     //Validaciòn Fecha------------------------------------------
 
-    if (fechaPublicacion == "" ) {
+    if (fechaPublicacion == "") {
       $("#mensaje22").fadeIn("slow");
       $("#mensaje22").slideToggle("fast");
       return false;
-    }else if(fechaPublicacion < hoy){
+    } else if (fechaPublicacion < hoy) {
       $("#alerta8").fadeIn("slow");
       $("#alerta8").slideToggle("fast");
       return false;
-    }else if((!validate_fecha(fechaPublicacion))){
+    } else if ((!validate_fecha(fechaPublicacion))) {
       $("#alerta7").fadeIn("slow");
       $("#alerta7").slideToggle("fast");
       return false;
@@ -214,18 +233,19 @@ $(document).on('ready', function () {
       $("#mensaje22").fadeOut();
       ajaxPost(file);
     }
-    
+
     //----------------------------------------------------------
     //Limpiar campos
     limpiarCampos();
     //$("#demo").show();
-    $('#recargar').load('cargar_documento.html');
+    //$('#recargar').load('cargar_documento.html');
+
 
   }); //Fin submitFour---------------------------------------------------
 
   //_----------------------------------------------------------
   //Función Limpia Campos
-  function limpiarCampos(){
+  function limpiarCampos() {
 
     $("#tipoTrabajo").val('');
     $("#tituloProyecto").val('');
@@ -258,6 +278,7 @@ $(document).on('ready', function () {
       } else {
         valido = true;
         console.log(nombreAutor[i]);
+        console.log(nombreAutor[i] + "Valido");
       }
     }
     return valido;
@@ -318,82 +339,78 @@ $(document).on('ready', function () {
 
   //--------------------------------------------------
   //Validar dias-------------------------------------
-  function isValidDate(day,month,year)
-  {
-      var dteDate;
-  
-      // En javascript, el mes empieza en la posicion 0 y termina en la 11 
-      //   siendo 0 el mes de enero
-      // Por esta razon, tenemos que restar 1 al mes
-      month=month-1;
-      // Establecemos un objeto Data con los valore recibidos
-      // Los parametros son: año, mes, dia, hora, minuto y segundos
-      // getDate(); devuelve el dia como un entero entre 1 y 31
-      // getDay(); devuelve un num del 0 al 6 indicando siel dia es lunes,
-      //   martes, miercoles ...
-      // getHours(); Devuelve la hora
-      // getMinutes(); Devuelve los minutos
-      // getMonth(); devuelve el mes como un numero de 0 a 11
-      // getTime(); Devuelve el tiempo transcurrido en milisegundos desde el 1
-      //   de enero de 1970 hasta el momento definido en el objeto date
-      // setTime(); Establece una fecha pasandole en milisegundos el valor de esta.
-      // getYear(); devuelve el año
-      // getFullYear(); devuelve el año
-      dteDate=new Date(year,month,day);
-  
-      //Devuelva true o false...
-      return ((day==dteDate.getDate()) && (month==dteDate.getMonth()) && (year==dteDate.getFullYear()));
+  function isValidDate(day, month, year) {
+    var dteDate;
+
+    // En javascript, el mes empieza en la posicion 0 y termina en la 11 
+    //   siendo 0 el mes de enero
+    // Por esta razon, tenemos que restar 1 al mes
+    month = month - 1;
+    // Establecemos un objeto Data con los valore recibidos
+    // Los parametros son: año, mes, dia, hora, minuto y segundos
+    // getDate(); devuelve el dia como un entero entre 1 y 31
+    // getDay(); devuelve un num del 0 al 6 indicando siel dia es lunes,
+    //   martes, miercoles ...
+    // getHours(); Devuelve la hora
+    // getMinutes(); Devuelve los minutos
+    // getMonth(); devuelve el mes como un numero de 0 a 11
+    // getTime(); Devuelve el tiempo transcurrido en milisegundos desde el 1
+    //   de enero de 1970 hasta el momento definido en el objeto date
+    // setTime(); Establece una fecha pasandole en milisegundos el valor de esta.
+    // getYear(); devuelve el año
+    // getFullYear(); devuelve el año
+    dteDate = new Date(year, month, day);
+
+    //Devuelva true o false...
+    return ((day == dteDate.getDate()) && (month == dteDate.getMonth()) && (year == dteDate.getFullYear()));
   }
 
   //------------------------------------------------
 
 
   //Funcion validar fecha----------------------------
-  function validate_fecha(fechaPublicacion)
-  {
-      var patron=new RegExp("^(19|20)+([0-9]{2})([-])([0-9]{1,2})([-])([0-9]{1,2})$");
-  
-      if(fechaPublicacion.search(patron)==0)
-      {
-          var values=fechaPublicacion.split("-");
-          if(isValidDate(values[2],values[1],values[0]))
-          {
-              return true;
-          }
+  function validate_fecha(fechaPublicacion) {
+    var patron = new RegExp("^(19|20)+([0-9]{2})([-])([0-9]{1,2})([-])([0-9]{1,2})$");
+
+    if (fechaPublicacion.search(patron) == 0) {
+      var values = fechaPublicacion.split("-");
+      if (isValidDate(values[2], values[1], values[0])) {
+        return true;
       }
-      return false;
+    }
+    return false;
   }
 
   //-------------------------------------------------
   //Funcion valida tipo de archivo y tamaño
-  function fileValidation(){
+  function fileValidation() {
     var fileInput = file
     //var filePath = fileInput.value;
     var allowedExtensions = /(.doc|.pdf|)$/i;
-    if(!allowedExtensions.exec(fileInput)){
-        alert('Please upload file having extensions .doc/.pdf only.');
-        fileInput.value = '';
-        return false;
-    }else{
-        //Image preview
-        if (fileInput.files && fileInput.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#imagePreview').innerHTML = '<div>'+e.target.result+'</div>';
-            };
-            reader.readAsDataURL(fileInput.files[0]);
-        }
+    if (!allowedExtensions.exec(fileInput)) {
+      alert('Please upload file having extensions .doc/.pdf only.');
+      fileInput.value = '';
+      return false;
+    } else {
+      //Image preview
+      if (fileInput.files && fileInput.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#imagePreview').innerHTML = '<div>' + e.target.result + '</div>';
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+      }
     }
   }
 
   //------------------------------------------------------------------------
   //Mostrar input------------------------------------------------------------
-  function mostrarDatosInput(){
+  function mostrarDatosInput() {
     var catSelected = $("#tipoTrabajo");
     var opcionSelected = $("categoriasSelec");
     //var opcionSelected = catSelected.options[catSelected.selectedIndex].val();
-    
-    opcionSelected.val() = catSelected.val(); 
+
+    opcionSelected.val() = catSelected.val();
 
   }
 
@@ -402,8 +419,8 @@ $(document).on('ready', function () {
   });*/
 
 
- 
-  
+
+
   //Validar Tamaño Archivo
   /*function arcValidation(file) {
 
@@ -540,13 +557,13 @@ $(document).on('ready', function () {
 
   } //--./Funcion AjaxPost-------------------
 
-  $('#tipoTrabajo').change(function(){
+  $('#tipoTrabajo').change(function () {
     $('#categoriasSelec').val($("#tipoTrabajo option:selected").text());
   });
 
-  
 
-  
+
+
 
 }); //Funcion Ready
 

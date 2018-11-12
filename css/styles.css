@@ -1303,6 +1303,15 @@ a.registro:hover{
   padding: 5px 100px;
 }
 .editar-boton1{
-  
   padding: 5px 40px;
+}
+
+#resultado{
+  top: 0;
+  left: 0;
+}
+
+#resultado2{
+  top: 0;
+  left: 0;
 }

@@ -7,6 +7,23 @@ $(document).on('ready', function () {
 
   $("#submitseven").click(function () {
 
+    //Mensaje Alerta Boostrap-----------------------------------------------------------------------
+    
+    var Alerta = '<div class="alert alert-success alert-dismissible">'
+      + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
+      '<strong>' + ' Success! ' + '</strong>' + 'Datos editados y almacenados Correctamente'
+      + '</div>';
+    $("#resultado3").append(Alerta);
+
+
+    var Alerta2 = '<div class="alert alert-danger alert-dismissible">'
+      + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
+      '<strong>' + ' Danger! ' + '</strong>' + 'Los datos no fueorn editados y almacenados '
+      + '</div>';
+    $("#resultado4").append(Alerta2);
+
+    //Fin mensaje alerta Boostrap----------------------------------------------------------------------
+
     /**Variables globales*/
     var visitas = 0;
     var puntuacion = 0;
