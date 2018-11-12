@@ -5,7 +5,23 @@ $(document).on('ready', function () {
   var letra = /[a-zA-Z]/;
   var numero = /^([0-9])*$/;
 
+
+  //Alertas para el cuadro de busqueda
+  $(".btn-busqueda").click(function(){
+    //Alertify-------------------------------------------------------
+    alertify.success('Busqueda Exitosa');
+    alertify.error('No se encontró lo que desea buscar');
+    //Fin Alertify---------------------------------------------------
+  })
+
   $("#submitFive").click(function () {
+
+
+
+    //Alertify-------------------------------------------------------
+    alertify.success('Datos Almacenados Correctamente');
+    alertify.error('Los datos no fueorn Almacenados Correctamente');
+    //Fin Alertify---------------------------------------------------
 
     //Variables definidas o cargadas------------------
 

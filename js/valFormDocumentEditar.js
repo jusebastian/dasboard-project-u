@@ -7,9 +7,15 @@ $(document).on('ready', function () {
 
   $("#submitseven").click(function () {
 
+
+    //--Alerta Entify----------------------------------------------------
+    alertify.success('Datos Actualizados Correctamente');
+    alertify.error('Los datos no fueorn Actualizados');
+    //--./Alerta Entify--------------------------------------------------
+
     //Mensaje Alerta Boostrap-----------------------------------------------------------------------
     
-    var Alerta = '<div class="alert alert-success alert-dismissible">'
+    /*var Alerta = '<div class="alert alert-success alert-dismissible">'
       + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
       '<strong>' + ' Success! ' + '</strong>' + 'Datos editados y almacenados Correctamente'
       + '</div>';
@@ -20,7 +26,7 @@ $(document).on('ready', function () {
       + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
       '<strong>' + ' Danger! ' + '</strong>' + 'Los datos no fueorn editados y almacenados '
       + '</div>';
-    $("#resultado4").append(Alerta2);
+    $("#resultado4").append(Alerta2);*/
 
     //Fin mensaje alerta Boostrap----------------------------------------------------------------------
 

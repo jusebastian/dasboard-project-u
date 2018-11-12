@@ -3,9 +3,33 @@ $(document).on('ready', function(){
   //Expresiones Regulares
   var expre = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
-  //
+  var session = true;
+
+
+  //Submit---------------------------------------------------------------------
+
 
   $("#submit").click(function(){
+
+
+
+    //LocalStore---------------------------------------------------------------
+    localStorage.setItem("nombre","juan sebastian ramirez");
+    localStorage.setItem("correo","juan@gmail.com");
+    localStorage.setItem("tipoEmpresa",1);
+    localStorage.setItem("rol",3);
+    localStorage.setItem("telefono","3106339847");
+    localStorage.setItem("contraseña","12345");
+    localStorage.setItem("recontraseña","12345");
+    location.href = "dashboard.html";
+    //--------------------------------------------------------------------
+
+    //SessionStorage-----------------------------------------------------
+    sessionStorage.setItem("nombre","Juan Sebastian Ramirez");
+    sessionStorage.setItem("12345");
+
+    //-------------------------------------------------------------------
+
 
     //e.preventDefault();
 

@@ -9,8 +9,14 @@ $(document).on('ready', function () {
   $("#submitFour").click(function () {
 
 
+    //Alertify-------------------------------------------------------
+    alertify.success('Datos Almacenados Correctamente');
+    alertify.error('Los datos no fueorn Almacenados Correctamente');
+    //Fin Alertify---------------------------------------------------
+
+    
     //Mensaje Alerta Boostrap-----------------------------------------------------------------------
-    var Alerta = '<div class="alert alert-success alert-dismissible">'
+    /*var Alerta = '<div class="alert alert-success alert-dismissible">'
       + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
       '<strong>' + ' Success! ' + '</strong>' + 'Datos Almacenados Correctamente'
       + '</div>';
@@ -21,7 +27,7 @@ $(document).on('ready', function () {
       + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
       '<strong>' + ' Danger! ' + '</strong>' + 'Los datos no fueorn Almacenados Correctamente'
       + '</div>';
-    $("#resultado2").append(Alerta2);
+    $("#resultado2").append(Alerta2);*/
 
     //Fin mensaje alerta Boostrap----------------------------------------------------------------------
 

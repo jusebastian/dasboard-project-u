@@ -9,6 +9,9 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/datepicker3.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <!--AlertTify-->
+  <link href="alertifyjs/css/alertify.min.css" rel="stylesheet" >
+  <link href="alertifyjs/css/themes/default.min.css" rel="stylesheet">
 
   <!--Font aweson-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
@@ -75,7 +78,7 @@
         <i class="far fa-user-circle fa-3x"></i>
       </div>
       <div class="profile-usertitle">
-        <div class="profile-usertitle-name">Username</div>
+        <div class="profile-usertitle-name" id="username"></div>
         <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
         <a href="profile.html"><button class="btn btn-danger">Editar</button></a>
       </div>
@@ -563,6 +566,17 @@
     <script src="js/valFormDocumentSetData.js"></script>
     <script src="js/valDocumentGetData.js"></script>
     <script src="js/valFormDocumentEditar.js"></script>
+    <script src="alertifyjs/alertify.js"></script>
+
+    <script>
+        //Mostrar nombre de usuario
+        $(document).on('ready', function () {
+            //window.onload = console.log(localStorage.getItem("proyecto"));
+            console.log(localStorage.getItem("nombre"));
+            $("#username").append(localStorage.getItem("nombre"));
+        });
+
+    </script>
 
 
 </body>

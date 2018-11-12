@@ -1,13 +1,17 @@
 $(document).on('ready', function () {
 
- 
+
+  
   //Alerta boostrap para busqueda
   $("#btn-buscar").click(function(){
-    var Alerta = '<div class="alert alert-success alert-dismissible">'
+
+    alertify.success('Busqueda Exitosa');
+    alertify.error('No se encontró lo que desea buscar');
+    /*var Alerta = '<div class="alert alert-success alert-dismissible">'
       + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
       '<strong>' + ' Success! ' + '</strong>' + 'Datos Almacenados Correctamente'
       + '</div>';
-    $("#resultado").append(Alerta);
+    $("#resultado").append(Alerta);*/
 
 
     /*var Alerta2 = '<div class="alert alert-danger alert-dismissible">'

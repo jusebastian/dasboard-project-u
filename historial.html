@@ -40,7 +40,7 @@
                 <i class="far fa-user-circle fa-3x"></i>
             </div>
             <div class="profile-usertitle">
-                <div class="profile-usertitle-name">Username</div>
+                <div class="profile-usertitle-name" id="username"></div>
                 <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
                 <a href="profile.html"><button class="btn btn-danger">Editar</button></a>
             </div>
@@ -188,6 +188,15 @@
     <script src="js/easypiechart-data.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/custom.js"></script>
+    <script>
+            //Mostrar nombre de usuario
+            $(document).on('ready', function () {
+                //window.onload = console.log(localStorage.getItem("proyecto"));
+                console.log(localStorage.getItem("nombre"));
+                $("#username").append(localStorage.getItem("nombre"));
+            });
+    
+        </script>
 
 </body>
 

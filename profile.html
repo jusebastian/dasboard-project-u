@@ -86,7 +86,7 @@
         <i class="far fa-user-circle fa-3x"></i>
       </div>
       <div class="profile-usertitle">
-        <div class="profile-usertitle-name">Username</div>
+        <div class="profile-usertitle-name" id="username"></div>
         <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
         <a href="profile.html"><button class="btn btn-danger">Editar</button></a>
       </div>
@@ -230,10 +230,11 @@
 
                     <div align="center">
                       <i class="far fa-user-circle fa-10x" id="profile-image1"></i>
-                      <input type="file" id="file" class="foto" >
-                      <!--<div style="color:#999;">click here to change profile image</div>-->
-                      <label for="file" class="errores2" id="mensaje8">Cargue foto</label>
-                    </div><!--/.div-->
+                      <!--<input type="file" id="file" class="foto" >
+                      <label for="file" class="errores2" id="mensaje8">Cargue foto</label>-->
+                    </div>
+                    <!--<div style="color:#999;">click here to change profile image</div>-->
+                    <!--/.div-->
                      
                   </div><!--form-group-->
                   <div class="form-group posicion-btn" >
@@ -258,6 +259,29 @@
       <script src="js/bootstrap-datepicker.js"></script>
       <script src="js/custom.js"></script>
       <script src="js/valFormProfile.js"></script>
+      
+      <!--LocalStorea-------------------------------------------------------------------------------------->
+      <script>
+          $(document).on('ready', function () {
+
+              //Ver datos en logeo usuario
+              console.log(localStorage.getItem("nombre"));
+              $("#username").append(localStorage.getItem("nombre"));
+  
+              //window.onload = console.log(localStorage.getItem("proyecto"));
+              console.log(localStorage.getItem("nombre"));
+              $("#nombre").val(localStorage.getItem("nombre"));
+              $("#correo").val(localStorage.getItem("correo"));
+              $("#empresa").val(localStorage.getItem("tipoEmpresa"));
+              $("#persona").val(localStorage.getItem("rol"));
+              $("#telefono").val(localStorage.getItem("telefono"));
+              $("#constraseña").val(localStorage.getItem("contraseña"));
+              $("#recontraseña").val(localStorage.getItem("recontraseña"));
+              
+          });
+  
+      </script>
+      <!--LocalStorage----------------------------------------------------------------------------------------->
 
 </body>
 

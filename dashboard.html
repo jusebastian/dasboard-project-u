@@ -10,13 +10,24 @@
     <link href="css/datepicker3.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <!--Font aweson-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
     <!--Custom Font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
-	<![endif]-->
+    <![endif]-->
+
+    <!--<script>
+        $(document).on('ready', function () {
+            //window.onload = console.log(localStorage.getItem("proyecto"));
+            $("#username").append(localStorage.getItem("nombre"));
+
+
+
+        });
+    </script>-->
 </head>
 
 <body>
@@ -25,10 +36,11 @@
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span></button>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span
+                        class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span></button>
                 <a class="navbar-brand" href="#"><span></span>REPROCORHUILA</a>
             </div>
         </div>
@@ -42,7 +54,7 @@
                 <i class="far fa-user-circle fa-3x"></i>
             </div>
             <div class="profile-usertitle">
-                <div class="profile-usertitle-name">Username</div>
+                <div class="profile-usertitle-name" id="username"></div>
                 <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
                 <a href="profile.html"><button class="btn btn-danger">Editar</button></a>
             </div>
@@ -182,8 +194,18 @@
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/valCountVisitas.js"></script>
+    <script src="js/dashboard.js"></script>
     <script>
-        window.onload = function() {
+        //Mostrar nombre de usuario
+        $(document).on('ready', function () {
+            //window.onload = console.log(localStorage.getItem("proyecto"));
+            console.log(localStorage.getItem("nombre"));
+            $("#username").append(localStorage.getItem("nombre"));
+        });
+
+    </script>
+    <script>
+        window.onload = function () {
             var chart1 = document.getElementById("line-chart").getContext("2d");
             window.myLine = new Chart(chart1).Line(lineChartData, {
                 responsive: true,
