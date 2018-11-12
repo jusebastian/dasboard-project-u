@@ -201,23 +201,40 @@
     <script>
         //Mostrar nombre de usuario
         $(document).on('ready', function () {
-            //window.onload = console.log(localStorage.getItem("proyecto"));
-            console.log(localStorage.getItem("nombre"));
-            $("#username").append(localStorage.getItem("nombre"));
 
-            //Ocultar  Menu segùn el Rol---------------------------------------------------------
+            if (localStorage.getItem("login")) {
 
-            console.log("imprimiendo");
-            var rol = localStorage.getItem("rol");
-            //alertify.error('Error message' + rol);
+                //window.onload = console.log(localStorage.getItem("proyecto"));
+                console.log(localStorage.getItem("nombre"));
+                $("#username").append(localStorage.getItem("nombre"));
 
-            if (rol == 1 || rol == 2 || rol == 3) {
-                alertify.error('Error message');
-                $("#cargarDocumento").hide();
-                $("#usuario").hide();
+                //Ocultar  Menu segùn el Rol---------------------------------------------------------
+
+                console.log("imprimiendo");
+                var rol = localStorage.getItem("rol");
+                //alertify.error('Error message' + rol);
+
+                if (rol == 1 || rol == 2 || rol == 3) {
+                    alertify.error('Error message');
+                    $("#cargarDocumento").hide();
+                    $("#usuario").hide();
+                }
+
+                $("#login").on("click",function(){
+
+                    localStorage.setItem("nombre","");
+                    localStorage.setItem("login", false);
+                    location.href = "login.html";
+
+                });
+
+                //fin Ocultar Menu Segùn Rol---------------------------------------------------------------
+
+            }else{
+                location.href = "login.html";
             }
 
-            //fin Ocultar Menu Segùn Rol---------------------------------------------------------------
+
         });
 
     </script>
@@ -230,6 +247,8 @@
                 scaleGridLineColor: "rgba(0,0,0,.05)",
                 scaleFontColor: "#c5c7cc"
             });
+
+            
         };
     </script>
 

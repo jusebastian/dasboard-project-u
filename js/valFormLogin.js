@@ -11,8 +11,7 @@ $(document).on('ready', function(){
 
   $("#submit").click(function(){
 
-
-
+    localStorage.setItem("login",true);
     //LocalStore---------------------------------------------------------------
     localStorage.setItem("nombre","juan sebastian ramirez");
     localStorage.setItem("correo","juan@gmail.com");
