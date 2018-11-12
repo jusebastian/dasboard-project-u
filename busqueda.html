@@ -62,13 +62,15 @@
       </div>
     </form>
 
+  
+
     <ul class="nav menu">
-      <li><a href="busqueda.html"><i class="fas fa-search"> &nbsp;</i>Búsqueda</a></li>
-      <li><a href="dashboard.html"><i class="fas fa-tachometer-alt">&nbsp;</i> Dashboard</a></li>
-      <li><a href="historial.html"><i class="fas fa-history">&nbsp;</i> Historial</a></li>
-      <li><a href="cargar_documento.html"><em class="fa fa-toggle-off">&nbsp;</em>Cargar Documento</a></li>
-      <li><a href="usuario.html"><em class="fa fa-user">&nbsp;</em>Usuarios</a></li>
-      <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+      <li id="busqueda"><a href="busqueda.html"><i class="fas fa-search"> &nbsp;</i>Búsqueda</a></li>
+      <li id="dashboard"><a href="dashboard.html"><i class="fas fa-tachometer-alt">&nbsp;</i> Dashboard</a></li>
+      <li id="historial"><a href="historial.html"><i class="fas fa-history">&nbsp;</i> Historial</a></li>
+      <li id="cargarDocumento"><a href="cargar_documento.html"><em class="fa fa-toggle-off">&nbsp;</em>Cargar Documento</a></li>
+      <li id="usuario"><a href="usuario.html"><em class="fa fa-user">&nbsp;</em>Usuarios</a></li>
+      <li id="login"><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
     </ul>
   </div>
   <!--/.sidebar-->
@@ -293,7 +295,24 @@
           //window.onload = console.log(localStorage.getItem("proyecto"));
           console.log(localStorage.getItem("nombre"));
           $("#username").append(localStorage.getItem("nombre"));
+
+
+
+          //Ocultar  Menu segùn el Rol---------------------------------------------------------
+
+          console.log("imprimiendo");
+          var rol = localStorage.getItem("rol");
+          //alertify.error('Error message' + rol);
+
+          if (rol == 1 || rol == 2 || rol == 3) {
+            alertify.error('Error message');
+            $("#cargarDocumento").hide();
+            $("#usuario").hide();
+          }
+
+          //fin Ocultar Menu Segùn Rol---------------------------------------------------------------
       });
+      
 
   </script>
   

@@ -9,6 +9,9 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/datepicker3.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <!--AlertTify-->
+  <link href="alertifyjs/css/alertify.min.css" rel="stylesheet">
+  <link href="alertifyjs/css/themes/default.min.css" rel="stylesheet">
 
   <!--Font aweson-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
@@ -22,48 +25,63 @@
   <![endif]-->
   <script>
 
-      //Validar solo Letras
-      function soloLetras(e) {
-        key = e.keyCode || e.which;
-        teclado = String.fromCharCode(key).toLowerCase();
-        letras = "([ abcdefghijklmnñopqrstuvwxyz])\(áéíóúñüàèìòù))";
-        especiales = "8-37-38-46-164";
-        teclado_especial = false;
-  
-        //Iterando
-        for (var i in especiales) {
-          if (key == especiales[i]) {
-            teclado_especial = true;
-            break;
-          }
+    //Validar solo Letras
+    function soloLetras(e) {
+      key = e.keyCode || e.which;
+      teclado = String.fromCharCode(key).toLowerCase();
+      letras = "([ abcdefghijklmnñopqrstuvwxyz])\(áéíóúñüàèìòù))";
+      especiales = "8-37-38-46-164";
+      teclado_especial = false;
+
+      //Iterando
+      for (var i in especiales) {
+        if (key == especiales[i]) {
+          teclado_especial = true;
+          break;
         }
-  
-        //Condiciones
-        if (letras.indexOf(teclado) == -1 && !teclado_especial) {
-          return false;
-        }
-  
       }
-  
-      function soloNumeros(e) {
-        key = e.keyCode || e.which;
-        teclado = String.fromCharCode(key);
-        numeros = "0123456789";
-        especiales = "8-37-38-46"; //array
-        teclado_especial = false;
-  
-        for (var i in especiales) {
-          if (key == especiales[i]) {
-            teclado_especial = true;
-          }
-        }
-        if (numeros.indexOf(teclado) == -1 && !teclado_especial) {
-          return false;
-        }
-  
+
+      //Condiciones
+      if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+        return false;
       }
-  
-    </script>
+
+    }
+
+    function soloNumeros(e) {
+      key = e.keyCode || e.which;
+      teclado = String.fromCharCode(key);
+      numeros = "0123456789";
+      especiales = "8-37-38-46"; //array
+      teclado_especial = false;
+
+      for (var i in especiales) {
+        if (key == especiales[i]) {
+          teclado_especial = true;
+        }
+      }
+      if (numeros.indexOf(teclado) == -1 && !teclado_especial) {
+        return false;
+      }
+
+    }
+
+
+
+
+
+    /*function rolUsuario() {
+
+
+      /*switch(rol){
+        case '1': alertify.error('Error message'); break;
+        case '2': alertify.error('Error message'); break;
+        case '3': alertify.error('Error message'); break;
+        case 4: location.href = "cargar_documento.html";
+      }
+    }*/
+
+  </script>
 </head>
 
 <body>
@@ -91,24 +109,29 @@
         <a href="profile.html"><button class="btn btn-danger">Editar</button></a>
       </div>
       <div class="clear"></div>
-    </div><!--Profile-sidebar-->
+    </div>
+    <!--Profile-sidebar-->
     <div class="divider"></div>
     <form role="search">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Search">
       </div>
-    </form><!--/.Search-->
+    </form>
+    <!--/.Search-->
     <ul class="nav menu">
-      <li><a href="busqueda.html"><i class="fas fa-search"> &nbsp;</i>Búsqueda</a></li>
-      <li><a href="dashboard.html"><i class="fas fa-tachometer-alt">&nbsp;</i> Dashboard</a></li>
-      <li><a href="historial.html"><i class="fas fa-history">&nbsp;</i> Historial</a></li>
-        <!--<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>-->
-      <li><a href="cargar_documento.html"><em class="fa fa-toggle-off">&nbsp;</em>Cargar Documento</a></li>
-      <li><a href="usuario.html"><em class="fa fa-user">&nbsp;</em>Usuarios</a></li>
+      <li id="busqueda"><a href="busqueda.html"><i class="fas fa-search"> &nbsp;</i>Búsqueda</a></li>
+      <li id="dashboard"><a href="dashboard.html"><i class="fas fa-tachometer-alt">&nbsp;</i> Dashboard</a></li>
+      <li id="historial"><a href="historial.html"><i class="fas fa-history">&nbsp;</i> Historial</a></li>
+      <!--<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>-->
+      <li id="cargarDocumento"><a href="#" onclick="rolUsuario()"><em class="fa fa-toggle-off">&nbsp;</em>Cargar
+          Documento</a></li>
+      <li id="usuario"><a href="#"><em class="fa fa-user">&nbsp;</em>Usuarios</a></li>
       <!--<li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>-->
-      <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
-    </ul><!--/.nav menu-->
-  </div><!--/.sidebar-->
+      <li id="login"><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+    </ul>
+    <!--/.nav menu-->
+  </div>
+  <!--/.sidebar-->
 
   <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
@@ -118,13 +141,15 @@
           </a></li>
         <li class="active">Editar perfil</li>
       </ol>
-    </div><!--/.row-->
+    </div>
+    <!--/.row-->
 
     <div class="row">
       <div class="col-lg-12">
         <h1 class="page-header">Editar perfil</h1>
       </div>
-    </div><!--/.row-->
+    </div>
+    <!--/.row-->
 
     <div class="row">
       <div class="col-lg-12">
@@ -140,12 +165,12 @@
 
                     <div class="form-group">
                       <label>Nombres</label>
-                      <input type="text" class="form-control" id="nombre" placeholder="Escriba tu Nombre completo" onkeypress="return soloLetras(event)"
-												 onpaste="return false">
+                      <input type="text" class="form-control" id="nombre" placeholder="Escriba tu Nombre completo"
+                        onkeypress="return soloLetras(event)" onpaste="return false">
                       <label for="nombre" class="errores2" id="mensaje1">Digite nombre</label>
                       <label for="name" class="errores2" id="alerta1">Campo solo recibe Texto</label>
-								      <label for="name" class="errores2" id="alerta1_5">Ingrese máximo 100
-									caracteres</label>
+                      <label for="name" class="errores2" id="alerta1_5">Ingrese máximo 100
+                        caracteres</label>
                     </div>
 
                     <!--<div class="form-group">
@@ -159,7 +184,7 @@
                       <input type="email" class="form-control" id="correo" placeholder="Correo Electrónico">
                       <label for="correo" class="errores2" id="mensaje3">Digite correo</label>
                       <label for="name2" class="errores2" id="alerta2">Digite un correo
-													Válido</label>
+                        Válido</label>
                     </div>
 
                     <!--<div class="form-group">
@@ -183,7 +208,7 @@
                       </select>
                       <label for="empresa2" class="errores2" id="mensaje4">Seleccione una Opción</label>
                     </div>
-      
+
                     <div class="form-group col-md-6">
                       <label for="persona">Tipo persona</label>
                       <select class="form-control" name="persona" id="persona">
@@ -199,7 +224,7 @@
                     <div class="form-group">
                       <label>Teléfono</label>
                       <input type="text" class="form-control" id="telefono" placeholder="Teléfono" onkeydown="return soloNumeros(event)"
-                      onpaste="return false">
+                        onpaste="return false">
                       <label for="telefono" class="errores2" id="mensaje5">Digite teléfono</label>
                       <label for="name2" class="errores2" id="alerta5">Campo solo recibe Números</label>
                       <label for="empresa" class="errores2" id="alerta6">Ingrese máximo 10
@@ -215,14 +240,15 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Repetir Constraseña</label>
-                        <input type="password" class="form-control" id="recontraseña" placeholder="Repetir Contraseña">
-                        <label for="recontraseña" class="errores2" id="mensaje7">Digite de nuevo la contraseña</label>
-                        <label for="empresa" class="errores2" id="alerta8">Ingrese máximo 8
-                          caracteres</label>
-                        <label for="name2" class="errores2" id="alerta8_1">Contraseñas no coinciden</label>
+                      <label>Repetir Constraseña</label>
+                      <input type="password" class="form-control" id="recontraseña" placeholder="Repetir Contraseña">
+                      <label for="recontraseña" class="errores2" id="mensaje7">Digite de nuevo la contraseña</label>
+                      <label for="empresa" class="errores2" id="alerta8">Ingrese máximo 8
+                        caracteres</label>
+                      <label for="name2" class="errores2" id="alerta8_1">Contraseñas no coinciden</label>
                     </div>
-                </div><!--/.col-m-6-->
+                </div>
+                <!--/.col-m-6-->
 
                 <div class="col-md-6">
                   <div class="form-group">
@@ -235,15 +261,19 @@
                     </div>
                     <!--<div style="color:#999;">click here to change profile image</div>-->
                     <!--/.div-->
-                     
-                  </div><!--form-group-->
-                  <div class="form-group posicion-btn" >
+
+                  </div>
+                  <!--form-group-->
+                  <div class="form-group posicion-btn">
                     <input type="submit" class="btn btn-danger" id="editar" value="Guardar">
                     <button type="reset" class="btn btn-default" id="limpiar">Limpiar</button>
                   </div>
-                  </form><!--form-group-->
-                </div><!--Col-md-6-->
-              </div><!--/.panel-body-->
+                  </form>
+                  <!--form-group-->
+                </div>
+                <!--Col-md-6-->
+              </div>
+              <!--/.panel-body-->
             </div><!-- /.panel-->
           </div><!-- /.col-->
         </div><!-- /.row -->
@@ -259,27 +289,44 @@
       <script src="js/bootstrap-datepicker.js"></script>
       <script src="js/custom.js"></script>
       <script src="js/valFormProfile.js"></script>
-      
+      <script src="alertifyjs/alertify.js"></script>
+
       <!--LocalStorea-------------------------------------------------------------------------------------->
       <script>
-          $(document).on('ready', function () {
+        $(document).on('ready', function () {
 
-              //Ver datos en logeo usuario
-              console.log(localStorage.getItem("nombre"));
-              $("#username").append(localStorage.getItem("nombre"));
-  
-              //window.onload = console.log(localStorage.getItem("proyecto"));
-              console.log(localStorage.getItem("nombre"));
-              $("#nombre").val(localStorage.getItem("nombre"));
-              $("#correo").val(localStorage.getItem("correo"));
-              $("#empresa").val(localStorage.getItem("tipoEmpresa"));
-              $("#persona").val(localStorage.getItem("rol"));
-              $("#telefono").val(localStorage.getItem("telefono"));
-              $("#constraseña").val(localStorage.getItem("contraseña"));
-              $("#recontraseña").val(localStorage.getItem("recontraseña"));
-              
-          });
-  
+          //Ver datos en logeo usuario
+          console.log(localStorage.getItem("nombre"));
+          $("#username").append(localStorage.getItem("nombre"));
+
+          //window.onload = console.log(localStorage.getItem("proyecto"));
+          console.log(localStorage.getItem("nombre"));
+          $("#nombre").val(localStorage.getItem("nombre"));
+          $("#correo").val(localStorage.getItem("correo"));
+          $("#empresa").val(localStorage.getItem("tipoEmpresa"));
+          $("#persona").val(localStorage.getItem("rol"));
+          $("#telefono").val(localStorage.getItem("telefono"));
+          $("#constraseña").val(localStorage.getItem("contraseña"));
+          $("#recontraseña").val(localStorage.getItem("recontraseña"));
+
+
+
+          //Ocultar  Menu segùn el Rol---------------------------------------------------------
+
+          console.log("imprimiendo");
+          var rol = localStorage.getItem("rol");
+          //alertify.error('Error message' + rol);
+
+          if (rol == 1 || rol == 2 || rol == 3) {
+            alertify.error('Error message');
+            $("#cargarDocumento").hide();
+            $("#usuario").hide();
+          }
+
+          //fin Ocultar Menu Segùn Rol---------------------------------------------------------------
+
+        });
+
       </script>
       <!--LocalStorage----------------------------------------------------------------------------------------->
 

@@ -10,8 +10,8 @@
 	<link href="css/datepicker3.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 	<!--AlertTify-->
-  <link href="alertifyjs/css/alertify.min.css" rel="stylesheet" >
-  <link href="alertifyjs/css/themes/default.min.css" rel="stylesheet">
+	<link href="alertifyjs/css/alertify.min.css" rel="stylesheet">
+	<link href="alertifyjs/css/themes/default.min.css" rel="stylesheet">
 
 	<!--Font aweson-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
@@ -131,12 +131,12 @@
 					</a></li>
 				<li class="active">Usuarios</li>
 			</ol>
-			  <!--Mensajes Alertas Boostrap-->
-				<div class="col-md-12">
-						<div  id="resultado"></div>
-						<div  id="resultado2"></div>
-				</div>
-				<!--Fin mensaje Alerta Boostrap-->
+			<!--Mensajes Alertas Boostrap-->
+			<div class="col-md-12">
+				<div id="resultado"></div>
+				<div id="resultado2"></div>
+			</div>
+			<!--Fin mensaje Alerta Boostrap-->
 		</div>
 		<!--/.row-->
 		<div class="row">
@@ -305,7 +305,7 @@
 										<!--/.form-row-tow-->
 									</div>
 
-									
+
 
 
 									<!--/.Modal-body-->
@@ -450,13 +450,27 @@
 		<script src="js/valUsuarioGetData.js"></script>
 		<script src="alertifyjs/alertify.js"></script>
 		<script>
-				//Mostrar nombre de usuario
-				$(document).on('ready', function () {
-						//window.onload = console.log(localStorage.getItem("proyecto"));
-						console.log(localStorage.getItem("nombre"));
-						$("#username").append(localStorage.getItem("nombre"));
-				});
-	
+			//Mostrar nombre de usuario
+			$(document).on('ready', function () {
+				//window.onload = console.log(localStorage.getItem("proyecto"));
+				console.log(localStorage.getItem("nombre"));
+				$("#username").append(localStorage.getItem("nombre"));
+
+				//Ocultar  Menu segùn el Rol---------------------------------------------------------
+
+				console.log("imprimiendo");
+				var rol = localStorage.getItem("rol");
+				//alertify.error('Error message' + rol);
+
+				if (rol == 1 || rol == 2 || rol == 3) {
+					alertify.error('Error message');
+					$("#cargarDocumento").hide();
+					$("#usuario").hide();
+				}
+
+				//fin Ocultar Menu Segùn Rol---------------------------------------------------------------
+			});
+
 		</script>
 
 </body>
