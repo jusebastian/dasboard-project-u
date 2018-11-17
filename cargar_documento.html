@@ -9,6 +9,8 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/datepicker3.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <!--Data Tablet-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
   <!--AlertTify-->
   <link href="alertifyjs/css/alertify.min.css" rel="stylesheet" >
   <link href="alertifyjs/css/themes/default.min.css" rel="stylesheet">
@@ -565,6 +567,8 @@
     <script src="js/valDocumentGetData.js"></script>
     <script src="js/valFormDocumentEditar.js"></script>
     <script src="alertifyjs/alertify.js"></script>
+    <!--Data Tablet-->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
     <script>
         //Mostrar nombre de usuario
@@ -586,6 +590,10 @@
           }
 
           //fin Ocultar Menu Segùn Rol---------------------------------------------------------------
+
+          //Data tablet----------------------------------------------------------------------------------
+          $('#tableId').DataTable();
+          //---------------------------------------------------------------------------------------------
         });
 
     </script>

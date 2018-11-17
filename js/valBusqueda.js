@@ -29,7 +29,7 @@ $(document).on('ready', function () {
   //Ejemplo
   var cont = "informacion.html";
   var Titulo = "John Doe";
-  for (var i = 0; i < 6; i++) {
+  for (var i = 0; i < 20; i++) {
 
     //var id = data[i];
     //inserte el contenido, especificado por el parámetro,
@@ -170,7 +170,7 @@ $(document).on('ready', function () {
   //Funcion Filtros-------------------------------------------------------
   //Funcion escrito por teclado-----------------------------------
   //----------------------------------------------------------------
-  var buscar = $('#buscar');
+  /*var buscar = $('#buscar');
   titulo = $('ul li .chat-body .header strong');
   Image = $('ul li .chat-img i');
   $(titulo, Image).each(function () {
@@ -224,7 +224,7 @@ $(document).on('ready', function () {
 
 
 
-  });//--/.Fin each
+  });//--/.Fin each*/
 
 
   //-----------------------------------------------------------------
