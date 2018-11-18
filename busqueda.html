@@ -10,11 +10,13 @@
   <link href="css/datepicker3.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <!--Data table-->
-  
-  
+  <!--Data Tablet-->
+  <link rel="stylesheet" href="DataTables/datatables.css">
+
+
 
   <!--AlertTify-->
-  <link href="alertifyjs/css/alertify.min.css" rel="stylesheet" >
+  <link href="alertifyjs/css/alertify.min.css" rel="stylesheet">
   <link href="alertifyjs/css/themes/default.min.css" rel="stylesheet">
   <!--Font aweson-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
@@ -66,7 +68,7 @@
       </div>
     </form>
 
-  
+
 
     <ul class="nav menu">
       <li id="busqueda"><a href="busqueda.html"><i class="fas fa-search"> &nbsp;</i>Búsqueda</a></li>
@@ -92,8 +94,8 @@
         <li class="active">Busqueda</li>
       </ol>
       <div class="col-md-12">
-          <div  id="resultado"></div>
-          <div  id="resultado2"></div>
+        <div id="resultado"></div>
+        <div id="resultado2"></div>
       </div>
     </div>
     <!--/.row-->
@@ -144,7 +146,7 @@
           <div class="panel panel-body buscar">
 
             <div class="input-group">
-              <input type="text" class="form-control input-md" placeholder="Buscar" id="buscar" />
+              <input type="text" class="form-control input-md livefilter-input" placeholder="Buscar" id="buscar" />
               <!--/.Input Buscar-->
               <span class="input-group-btn">
                 <button class="btn btn-primary btn-md" id="btn-buscar"><i class="fa fa-search"> &nbsp;</i></button>
@@ -166,7 +168,7 @@
               <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
             </div>
             <div class="panel-body" id="ocultar">
-              <ul id="Informacion">
+              <ul id="Informacion" class="livefilter-list">
                 <!--<a href="Informacion.html">
                   <li class="left clearfix">
                     <span class="chat-img pull-left">
@@ -293,36 +295,47 @@
   <script src="js/valBusqueda.js"></script>
   <script src="js/valPaginationBusqueda.js"></script>
   <script src="alertifyjs/alertify.js"></script>
-  
+  <!--Data Tablet-->
+  <script src="DataTables/datatables.js"></script>
+  <!--LiveFilter-->
+  <script src="js/jquery.liveFilter.js"></script>
+
   <script>
-      //Mostrar nombre de usuario
-      $(document).on('ready', function () {
-          //window.onload = console.log(localStorage.getItem("proyecto"));
-          console.log(localStorage.getItem("nombre"));
-          $("#username").append(localStorage.getItem("nombre"));
+    //Mostrar nombre de usuario
+    $(document).on('ready', function () {
+      //window.onload = console.log(localStorage.getItem("proyecto"));
+      console.log(localStorage.getItem("nombre"));
+      $("#username").append(localStorage.getItem("nombre"));
 
 
 
-          //Ocultar  Menu segùn el Rol---------------------------------------------------------
+      //Ocultar  Menu segùn el Rol---------------------------------------------------------
 
-          console.log("imprimiendo");
-          var rol = localStorage.getItem("rol");
-          //alertify.error('Error message' + rol);
+      console.log("imprimiendo");
+      var rol = localStorage.getItem("rol");
+      //alertify.error('Error message' + rol);
 
-          if (rol == 1 || rol == 2 || rol == 3) {
-            alertify.error('Error message');
-            $("#cargarDocumento").hide();
-            $("#usuario").hide();
-          }
+      if (rol == 1 || rol == 2 || rol == 3) {
+        alertify.error('Error message');
+        $("#cargarDocumento").hide();
+        $("#usuario").hide();
+      }
 
-          //fin Ocultar Menu Segùn Rol---------------------------------------------------------------
+      //fin Ocultar Menu Segùn Rol---------------------------------------------------------------
 
-           $('#myPager').DataTable();
+      //Data tablet----------------------------------------------------------------------------------
+      //$('#Informacion').DataTable();
+
+
+      //Filter-------------------------------
+      $('.livefilter-list').liveFilter('.livefilter-input', 'li', {
+        filterChildSelector: 'a'
       });
-      
+    });
+
 
   </script>
-  
+
   <script>
     /*window.onload = function () {
       //var chart1 = document.getElementById("line-chart").getContext("2d");

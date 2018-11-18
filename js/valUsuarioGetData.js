@@ -14,8 +14,8 @@ $(document).on('ready', function () {
       '<td id="telefono">' + "cuatro" + i + '</td>' +
       '<td>' + "cinco" + i + '</td>' +
       '<td>' + "seis" + i + '</td>' +
-      '<td><button  class="btn btn-warning"  data-toggle="modal" data-target=".forget-modal-3" id="bt_edit" onclick="seleccionar(' + i + ')">Editar</button></td>' +
-      '<td><button class="btn btn-danger" id="bt_del" onclick="eliminar(' + i + ')">Eliminar</button></td>' +
+      '<td><button  class="btn btn-warning"  data-toggle="modal" data-target=".forget-modal-3" id="bt_edit" onclick="seleccionar(' + i + ')"><i class="far fa-edit"></i></button></td>' +
+      '<td><button class="btn btn-danger" id="bt_del" onclick="eliminar(' + i + ')"><i class="fas fa-trash-alt"></i></button></td>' +
       '</tr>';
     $('#tableBodyUser').append(valor);
     console.log(valor);

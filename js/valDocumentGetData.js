@@ -18,8 +18,8 @@ $(document).on('ready', function () {
       '<th scope="row"> ' + i + '</th>' +
       '<td id="nombre">' + "dos " + i + '</td>' +
       '<td id="finalidad">' + "tres" + i + '</td>' +
-      '<td><button  class="btn btn-warning"  data-toggle="modal" data-target=".forget-modal-4" id="bt_edit" onclick="seleccionar(' + i + ')">Editar</button></td>' +
-      '<td><button class="btn btn-danger" id="bt_del" onclick="eliminar(' + i + ')">Eliminar</button></td>' +
+      '<td><button  class="btn btn-warning"  data-toggle="modal" data-target=".forget-modal-4" id="bt_edit" onclick="seleccionar(' + i + ')"><i class="far fa-edit"></i></button></td>' +
+      '<td><button class="btn btn-danger" id="bt_del" onclick="eliminar(' + i + ')"><i class="fas fa-trash-alt"></i></button></td>' +
       '</tr>';
     $('#tbodyProducto').append(valor);
     console.log(valor);
