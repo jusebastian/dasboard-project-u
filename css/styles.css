@@ -706,7 +706,10 @@ a.label:hover, a.label:focus {
 .jumbotron {
   background: #fff;
   border-bottom: 1px solid #e9ecf2;
-  color: #444444; }
+  color: #444444; 
+  margin: 18px;
+  padding: 50px;
+}
 
 .panel .tabs {
   margin: 0;
@@ -1315,3 +1318,4 @@ a.registro:hover{
   top: 0;
   left: 0;
 }
+

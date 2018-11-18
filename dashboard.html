@@ -98,7 +98,14 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Administrador</h1>
+                <h1 class="page-header" id="rol"></h1>
+            </div>
+            <div class="jumbotron col-lg-11">
+                <h1 class="display-4">Bienvenido</h1>
+                <div class="profile-usertitle-name" id="username2"></div>
+                <hr class="my-4">
+                <p>Disfruta de los mejores proyectos de grados que los estudiantes de la universidad corhuila comparte para ustedes</p>
+                <!--<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>-->
             </div>
         </div>
         <!--/.row-->
@@ -205,8 +212,26 @@
             if (localStorage.getItem("login")) {
 
                 //window.onload = console.log(localStorage.getItem("proyecto"));
+                //Muestra el nombre en menu para editar--------------------------
                 console.log(localStorage.getItem("nombre"));
+                //---------------------------------------------------------------
                 $("#username").append(localStorage.getItem("nombre"));
+                //Muestra el Nombre en el Dashboard------------------------
+                $("#username2").append(localStorage.getItem("nombre"));
+                //---------------------------------------------------------
+                //$("#rol").append(localStorage.getItem("rol"));
+
+                //Rol para Dasboard cuando inicia--------------------------------
+                if(localStorage.getItem("rol") == 1){
+                    $("#rol").html("Estudiante");
+                }else if(localStorage.getItem("rol") == 2){
+                    $("#rol").html("Docente");
+                }else if(localStorage.getItem("rol") == 3){
+                    $("#rol").html("Externo");
+                }else{
+                    $("#rol").html("Administrador");
+                }
+                //--Fin rol Dashboard-------------------------------------------------
 
                 //Ocultar  Menu segùn el Rol---------------------------------------------------------
 

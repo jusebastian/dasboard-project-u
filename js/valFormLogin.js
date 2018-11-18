@@ -16,7 +16,7 @@ $(document).on('ready', function(){
     localStorage.setItem("nombre","juan sebastian ramirez");
     localStorage.setItem("correo","juan@gmail.com");
     localStorage.setItem("tipoEmpresa",1);
-    localStorage.setItem("rol",4);
+    localStorage.setItem("rol",1);
     localStorage.setItem("telefono","3106339847");
     localStorage.setItem("contraseña","12345");
     localStorage.setItem("recontraseña","12345");

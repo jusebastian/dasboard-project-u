@@ -2,7 +2,7 @@ $(document).on('ready', function () {
 
   //Ejemplo --  prueba
   var cont = 0;
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 25; i++) {
 
     //var id = data[i];
     //inserte el contenido, especificado por el parámetro,

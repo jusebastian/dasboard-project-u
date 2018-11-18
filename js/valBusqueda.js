@@ -29,7 +29,7 @@ $(document).on('ready', function () {
   //Ejemplo
   var cont = "informacion.html";
   var Titulo = "John Doe";
-  for (var i = 0; i < 20; i++) {
+  for (var i = 0; i < 6; i++) {
 
     //var id = data[i];
     //inserte el contenido, especificado por el parámetro,

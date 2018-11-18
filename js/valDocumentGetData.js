@@ -9,7 +9,7 @@ $(document).on('ready', function () {
   //var URL = base_url + 'clientes/listarProducto';
 
   var cont = 0;
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 25; i++) {
 
     //var id = data[i];
     //inserte el contenido, especificado por el parámetro,
@@ -64,7 +64,7 @@ $(document).on('ready', function () {
   
     });//--/.Function ajax---------------------------*/
 
-  //-------------------------------------------------
+  /*//-------------------------------------------------
   //Funcional
   //_-----------------------------------------
   //---Filtros de Busqueda--------------------
@@ -122,7 +122,7 @@ $(document).on('ready', function () {
     });//--/.Fin Filtro escritura por teclado
   });//--/.Fin-each----------------------------
   //-------------------------------------------
-  //-------------------------------------------
+  //-------------------------------------------*/
 
 }); //--./Fin Ready
 

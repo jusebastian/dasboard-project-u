@@ -9,6 +9,9 @@
 	<link href="css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/datepicker3.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
+	<!--Data Table-->
+	<link rel="stylesheet" href="DataTables/datatables.css">
+
 	<!--AlertTify-->
 	<link href="alertifyjs/css/alertify.min.css" rel="stylesheet">
 	<link href="alertifyjs/css/themes/default.min.css" rel="stylesheet">
@@ -158,12 +161,12 @@
 							</div>
 							<div class="input">
 
-								<div class="input-group">
+								<!--<div class="input-group">
 									<input type="text" class="form-control input-md" placeholder="Buscar usuario" id="buscarUsuario" />
 									<span class="input-group-btn">
 										<button class="btn btn-primary btn-md btn-busqueda" id="btn-chat"><i class="fas fa-search"> &nbsp;</i></button>
 									</span>
-								</div>
+								</div>-->
 
 							</div>
 							<table class="table" id="table-filtro">
@@ -219,50 +222,50 @@
 
 
 							<h1 class="page-header">Usuarios DesHabilidatos</h1>
-							<table class="table" id="table-filtro">
-									<thead>
-										<tr>
-											<th scope="col">#</th>
-											<th scope="col">Nombre Completo</th>
-											<th scope="col">Correo Electrónico</th>
-											<th scope="col">Teléfono</th>
-											<th scope="col">Tipo Empresa</th>
-											<th scope="col">Tipo Persona</th>
-											<th scope="col">Estado</th>
-											
-										</tr>
-									</thead>
-									<tbody id="tableBodyUser">
-										<tr>
-											<th scope="row">1</th>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>Mark</td>
-											<td><button class="btn btn-info">Habilitar</button></td>
-										</tr>
-										<tr>
-											<th scope="row">2</th>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>Mark</td>
-											<td><button class="btn btn-info">Habilitar</button></td>
-										</tr>
-										<tr>
-											<th scope="row">3</th>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>Mark</td>
-											<td><button class="btn btn-info">Habilitar</button></td>
-										</tr>
-									</tbody>
-								</table>
-								<!--Table-->
+							<table class="table" id="table-filtro-o">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Nombre Completo</th>
+										<th scope="col">Correo Electrónico</th>
+										<th scope="col">Teléfono</th>
+										<th scope="col">Tipo Empresa</th>
+										<th scope="col">Tipo Persona</th>
+										<th scope="col">Estado</th>
+
+									</tr>
+								</thead>
+								<tbody id="tableBodyUser">
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>Mark</td>
+										<td><button class="btn btn-info">Habilitar</button></td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>Mark</td>
+										<td><button class="btn btn-info">Habilitar</button></td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>Mark</td>
+										<td><button class="btn btn-info">Habilitar</button></td>
+									</tr>
+								</tbody>
+							</table>
+							<!--Table-->
 							<!------------------------------------------------------------------------------------------------------------------------------------------------------->
 
 						</div>
@@ -486,7 +489,7 @@
 					<!--Fin modal editar-------------------------------------------------------------------------------------------------------------------------->
 
 
-					
+
 				</div><!-- /.col-->
 			</div><!-- /.row -->
 		</div>
@@ -504,6 +507,10 @@
 		<script src="js/valFormRegistroUsuario.js"></script>
 		<script src="js/valUsuarioGetData.js"></script>
 		<script src="alertifyjs/alertify.js"></script>
+		<!--Data Tablet-->
+		<script src="DataTables/datatables.js"></script>
+
+		<!--<script src="https://cdn.datatables.net/plug-ins/1.10.18/i18n/Spanish.json" type="text/javascript"></script>-->
 		<script>
 			//Mostrar nombre de usuario
 			$(document).on('ready', function () {
@@ -524,6 +531,39 @@
 				}
 
 				//fin Ocultar Menu Segùn Rol---------------------------------------------------------------
+				//Data tablet----------------------------------------------------------------------------------
+				$('#table-filtro').DataTable({
+					"language": {
+						"url": idioma
+					}
+				});
+
+
+				var idioma = {
+					"sProcessing": "Procesando...",
+					"sLengthMenu": "Mostrar _MENU_ registros",
+					"sZeroRecords": "No se encontraron resultados",
+					"sEmptyTable": "Ningún dato disponible en esta tabla",
+					"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+					"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+					"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+					"sInfoPostFix": "",
+					"sSearch": "Buscar:",
+					"sUrl": "",
+					"sInfoThousands": ",",
+					"sLoadingRecords": "Cargando...",
+					"oPaginate": {
+						"sFirst": "Primero",
+						"sLast": "Último",
+						"sNext": "Siguiente",
+						"sPrevious": "Anterior"
+					},
+					"oAria": {
+						"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+						"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+					}
+				}
+				//-------------------------------------------------------------------------------------------
 			});
 
 		</script>
