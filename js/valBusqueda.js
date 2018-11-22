@@ -170,7 +170,7 @@ $(document).on('ready', function () {
   //Funcion Filtros-------------------------------------------------------
   //Funcion escrito por teclado-----------------------------------
   //----------------------------------------------------------------
-  /*var buscar = $('#buscar');
+  var buscar = $('#buscar');
   titulo = $('ul li .chat-body .header strong');
   Image = $('ul li .chat-img i');
   $(titulo, Image).each(function () {
